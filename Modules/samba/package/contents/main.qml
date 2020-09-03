@@ -14,7 +14,7 @@ KCM.AbstractKCM {
         columns: 2
 
         Kirigami.Heading {
-            text: i18nc("@title heading above listview", "User Created Shares")
+            text: i18nc("@title heading above listview", "User-Created Shares")
             level: 2
         }
 
