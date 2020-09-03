@@ -1,4 +1,4 @@
-<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<?xml version="1.0" standalone='no'?>
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
   <interface name="org.freedesktop.Avahi.Server">
