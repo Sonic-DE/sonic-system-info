@@ -86,7 +86,7 @@ KCM.AbstractKCM {
                     visible: parent.count == 0
                     icon.name: "folder-network"
                     text: i18nc("@info place holder for empty listview",
-                                "There are no Samba shares mounted on this system.")
+                                "There are no Samba shares mounted on this system")
                 }
             }
         }
