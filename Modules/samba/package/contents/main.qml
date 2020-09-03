@@ -46,7 +46,7 @@ KCM.AbstractKCM {
                     width: parent.width - (Kirigami.Units.largeSpacing * 4)
                     visible: parent.count == 0
                     icon.name: "network-server"
-                    text: i18nc("@info place holder for empty listview", "There are no directories shared by users.")
+                    text: i18nc("@info place holder for empty listview", "There are no directories shared by users")
                 }
             }
         }
