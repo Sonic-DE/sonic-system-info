@@ -21,12 +21,12 @@ public:
     explicit KSambaShareModel(QObject *parent = nullptr);
     ~KSambaShareModel() override;
 
-    int rowCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int intRole) const override;
-    bool hasChildren(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent) const final;
+    QVariant data(const QModelIndex &index, int intRole) const final;
+    bool hasChildren(const QModelIndex &parent) const final;
     Q_INVOKABLE void showPropertiesDialog(int index);
 
-    QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const final;
 
 public Q_SLOTS:
     void reloadData();

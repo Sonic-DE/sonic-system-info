@@ -23,11 +23,11 @@ public:
     explicit SmbMountModel(QObject *parent = nullptr);
     ~SmbMountModel() override;
 
-    int rowCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int intRole) const override;
-    bool hasChildren(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent) const final;
+    QVariant data(const QModelIndex &index, int intRole) const final;
+    bool hasChildren(const QModelIndex &parent) const final;
 
-    QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const final;
 
 private slots:
     void addDevice(const QString &udi);
