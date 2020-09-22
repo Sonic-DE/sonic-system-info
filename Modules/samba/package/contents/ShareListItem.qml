@@ -40,15 +40,15 @@ Kirigami.AbstractListItem {
         }
 
         QQC2.ToolButton {
-            QQC2.ToolTip.visible: hovered && !pressed
-            QQC2.ToolTip.text: action.tooltip
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.timeout: 5000
             action: Kirigami.Action {
                 iconName: "document-properties"
                 tooltip: xi18nc("@info:tooltip", "Open folder properties to change share settings")
                 displayHint: Kirigami.Action.DisplayHint.IconOnly
                 onTriggered: view.model.showPropertiesDialog(model.row)
+            }
+
+            QQC2.ToolTip {
+                text: parent.action.tooltip
             }
         }
     }
