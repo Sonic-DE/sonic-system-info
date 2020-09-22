@@ -46,7 +46,7 @@ Kirigami.AbstractListItem {
             QQC2.ToolTip.timeout: 5000
             action: Kirigami.Action {
                 iconName: "document-properties"
-                tooltip: xi18nc("@info:tooltip", "Open folder properties to change share settings.")
+                tooltip: xi18nc("@info:tooltip", "Open folder properties to change share settings")
                 displayHint: Kirigami.Action.DisplayHint.IconOnly
                 onTriggered: view.model.showPropertiesDialog(model.row)
             }
