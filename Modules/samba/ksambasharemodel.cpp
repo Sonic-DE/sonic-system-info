@@ -6,7 +6,6 @@
 #include "ksambasharemodel.h"
 
 #include <QDBusPendingCallWatcher>
-#include <QDebug>
 #include <QMetaEnum>
 #include <QApplication> // for kpropertiesdialog parenting
 
