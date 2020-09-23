@@ -8,12 +8,13 @@
 #include "nic.h"
 
 #include <KPluginFactory>
+#include <KPluginLoader>
 #include <KAboutData>
 #include <KLocalizedString>
 
 #include "networkmodel.h"
 
-K_PLUGIN_CLASS_WITH_JSON(KCMNic, "nic.json")
+K_PLUGIN_FACTORY_WITH_JSON(KCMNicFactory, "kcm_nic.json", registerPlugin<KCMNic>();)
 
 KCMNic::KCMNic(QObject *parent, const QVariantList &list)
     : KQuickAddons::ConfigModule(parent, list)

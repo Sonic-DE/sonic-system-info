@@ -1,12 +1,11 @@
 [Desktop Entry]
-Exec=kinfocenter nic
-Type=Service
+Exec=kinfocenter kcm_nic
 Icon=network-card
-
+Type=Service
 X-KDE-ServiceTypes=KCModule
-X-KDE-KInfoCenter-Category=network_information
 X-KDE-Library=kcm_nic
 X-KDE-ParentApp=kinfocenter
+X-KDE-KInfoCenter-Category=network_information
 X-KDE-PluginKeyword=kcm_nic
 X-DocPath=kinfocenter/index.html#nic
 

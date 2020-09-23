@@ -11,7 +11,7 @@ import org.kde.kcm 1.2
 
 SimpleKCM {
     Controls.Label {
-        text: i18n("Configure Time")
+        text: i18n("Network Information")
     }
 }
 
