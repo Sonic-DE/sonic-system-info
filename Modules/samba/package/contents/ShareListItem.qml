@@ -19,23 +19,55 @@ Kirigami.AbstractListItem {
             spacing: 0
             Layout.fillWidth: true
 
-            QQC2.Label {
-                Layout.fillWidth: true
-                elide: Text.ElideMiddle
-                font: Kirigami.Theme.smallFont
-                text: xi18nc("@info", 'Path: <a href="file://%1">%1</a>', ROLE_Path)
-                onLinkActivated: Qt.openUrlExternally(link)
+            RowLayout {
+                QQC2.Label {
+                    elide: Text.ElideMiddle
+                    horizontalAlignment: Text.AlignLeft
+                    font: Kirigami.Theme.smallFont
+                    text: i18nc("@label local file system path", 'Path:')
+                }
+
+                Kirigami.LinkButton {
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignLeft
+                    font: Kirigami.Theme.smallFont
+                    action: Kirigami.Action {
+                        text: ROLE_Path
+                        onTriggered: Qt.openUrlExternally(ROLE_Path)
+                    }
+                }
             }
 
-            QQC2.Label {
-                Kirigami.FormData.label: i18nc("@label", "Shared at:")
-                Layout.fillWidth: true
-                elide: Text.ElideMiddle
-                font: Kirigami.Theme.smallFont
-                text: ROLE_ShareUrl !== undefined ?
-                      xi18nc("@info %1 is a URL", 'Shared at: <a href="%1">%1</a>', ROLE_ShareUrl) :
-                      xi18nc("@info %1 is a dir", 'Shared at: /%1', ROLE_Name)
-                onLinkActivated: Qt.openUrlExternally(link)
+            RowLayout {
+                QQC2.Label {
+                    elide: Text.ElideMiddle
+                    horizontalAlignment: Text.AlignLeft
+                    font: Kirigami.Theme.smallFont
+                    text: i18nc("@label labels a samba url or path", 'Shared at:')
+                }
+
+                // either fully qualified url
+                Kirigami.LinkButton {
+                    id: link
+                    visible: ROLE_ShareUrl !== undefined
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignLeft
+                    font: Kirigami.Theme.smallFont
+                    action: Kirigami.Action {
+                        text: ROLE_ShareUrl
+                        onTriggered: Qt.openUrlExternally(ROLE_ShareUrl)
+                    }
+                }
+
+                // ... or name when we couldn't resolve a fully qualified url
+                QQC2.Label {
+                    visible: !link.visible
+                    Layout.fillWidth: true
+                    elide: Text.ElideMiddle
+                    horizontalAlignment: Text.AlignLeft
+                    font: Kirigami.Theme.smallFont
+                    text: "/" + ROLE_Name
+                }
             }
         }
 
