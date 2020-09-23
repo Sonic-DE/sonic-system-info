@@ -1,44 +1,38 @@
-/*
- * nic.h
+/**
+ * SPDX-FileCopyrightText: 2001 Alexander Neundorf <neundorf@kde.org>
+ * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
  *
- *  Copyright (C) 2001 Alexander Neundorf <neundorf@kde.org>
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * SPDX-LicenseIndentifier: GPL-2.0-or-later
  */
 
-#ifndef KCONTROL_NIC_H
-#define KCONTROL_NIC_H
+#pragma once
 
-#include <KCModule>
+#include <KQuickAddons/ConfigModule>
+#include <memory>
 
-class QPushButton;
-class QTreeWidget;
+class NetworkModel;
 
-class KCMNic:public KCModule
+class KCMNic : public KQuickAddons::ConfigModule
 {
-   Q_OBJECT
-   public:
-      explicit KCMNic(QWidget *parent=0, const QVariantList &list = QVariantList( ));
+    Q_OBJECT
 
-   protected Q_SLOTS:
-      void update();
+    /**
+     * Expose the network information to the QML frontend
+     */
+    Q_PROPERTY(NetworkModel *networkModel READ networkModel NOTIFY networkModelChanged)
 
-   protected:
-      QTreeWidget *m_list;
-      QPushButton *m_updateButton;
+public:
+    explicit KCMNic(QObject *parent = nullptr, const QVariantList &list = QVariantList( ));
+    virtual ~KCMNic() override = default;
+
+    NetworkModel *networkModel() const;
+
+public Q_SLOTS:
+    void update();
+
+Q_SIGNALS:
+    void networkModelChanged();
+
+protected:
+    std::unique_ptr<NetworkModel> m_networkModel;
 };
-
-#endif
-
