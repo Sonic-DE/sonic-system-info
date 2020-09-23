@@ -8,11 +8,30 @@ import QtQuick.Controls 2.12 as QQC2
 
 import org.kde.kirigami 2.7 as Kirigami
 import org.kde.kcm 1.2
+import org.kde.kinfocenter.nic.private 1.0
 
-SimpleKCM {
-    KCM.ConfigModule.quickHelp: i18n("This module lets you see energy information and statistics.")
-    QQC2.Label {
-        text: i18n("Network Information")
+ScrollViewKCM {
+    ConfigModule.quickHelp: i18n("Network Information")
+    clip: true
+    
+    TableView {
+        id: tableview
+        anchors.fill: parent
+        contentWidth: parent.width
+        clip: true
+
+        model: NetworkModel {}
+
+        delegate: Rectangle {
+            implicitWidth: tableview.width / 6
+            implicitHeight: 50
+            border.width: 1
+            Text {
+                text: display
+                anchors.centerIn: parent
+                anchors.margins: Kirigami.Units.largeSpacing
+            }
+        }
     }
 }
 

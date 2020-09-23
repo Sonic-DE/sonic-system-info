@@ -4,6 +4,8 @@
 Name=NIC
 Type=Service
 Icon=network-card
+Keywords=
+X-KDE-ParentApp=
 X-KDE-ServiceTypes=KPackage/GenericQML
 X-KDE-FormFactors=desktop,tablet,handset
 X-KDE-PluginInfo-Author=Carl Schwan
@@ -13,3 +15,4 @@ X-KDE-PluginInfo-Version=1.0
 X-KDE-PluginInfo-Website=https://kde.org
 X-KDE-PluginInfo-License=GPL
 X-Plasma-MainScript=ui/main.qml
+X-Plasma-API=declarativeappletscript

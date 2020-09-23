@@ -22,6 +22,7 @@ add_library(kcm_nic MODULE ${kcm_nic_PART_SRCS})
 target_link_libraries(kcm_nic
     KF5::I18n
     KF5::CoreAddons
+    KF5::KCMUtils
     KF5::QuickAddons)
     
 target_compile_features(kcm_nic PUBLIC cxx_std_14)

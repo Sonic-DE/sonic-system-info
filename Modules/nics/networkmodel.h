@@ -6,22 +6,13 @@
 
 #pragma once
 
-#include <QAbstractListModel> 
+#include <QAbstractTableModel> 
 
-class NetworkModel : public QAbstractListModel
+class NetworkModel : public QAbstractTableModel
 {
     Q_OBJECT
     
 public:
-    enum NICRoles {
-        NameRole = Qt::UserRole + 1,
-        AddresseRole,
-        NetMaskRole,
-        StateRole,
-        TypeRole,
-        HardwareAddressRole,
-    };
-    
     struct MyNIC {
         QString name;
         QString addr;
@@ -37,6 +28,7 @@ public:
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     virtual QHash<int, QByteArray> roleNames() const override;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    virtual int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     
     void update();
     

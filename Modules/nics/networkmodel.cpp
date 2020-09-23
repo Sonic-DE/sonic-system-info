@@ -39,29 +39,30 @@ QString flags_tos(unsigned int flags);
 #endif
 
 NetworkModel::NetworkModel(QObject* parent)
-    : QAbstractListModel(parent)
+    : QAbstractTableModel(parent)
 {
     update();
 }
 
 QVariant NetworkModel::data(const QModelIndex& index, int role) const
 {
+    Q_UNUSED(role);
     if (index.isValid()) {
-        int row = index.row();
+        auto nic = m_nics.at(index.row());
         
-        switch (role) {
-            case NICRoles::AddresseRole:
-                return m_nics.at(row)->addr;
-            case NICRoles::NameRole:
-                return m_nics.at(row)->name;
-            case NICRoles::HardwareAddressRole:
-                return m_nics.at(row)->HWaddr;
-            case NICRoles::NetMaskRole:
-                return m_nics.at(row)->netmask;
-            case NICRoles::TypeRole:
-                return m_nics.at(row)->type;
-            case NICRoles::StateRole:
-                return m_nics.at(row)->state;
+        switch (index.column()) {
+            case 0:
+                return nic->name;
+            case 1:
+                return nic->addr;
+            case 2:
+                return nic->netmask;
+            case 3:
+                return nic->type;
+            case 4:
+                return nic->HWaddr;
+            case 5:
+                return nic->state;
         }
     }
     return QVariant{};
@@ -69,13 +70,7 @@ QVariant NetworkModel::data(const QModelIndex& index, int role) const
 
 QHash<int, QByteArray> NetworkModel::roleNames() const
 {
-    return {
-        { NICRoles::AddresseRole, QByteArrayLiteral("address") },
-        { NICRoles::NameRole, QByteArrayLiteral("name") },
-        { NICRoles::HardwareAddressRole, QByteArrayLiteral("hardwareAddress") },
-        { NICRoles::NetMaskRole, QByteArrayLiteral("netMask") },
-        { NICRoles::TypeRole, QByteArrayLiteral("type") },
-    };
+    return { {Qt::DisplayRole, "display"} };
 }
 
 int NetworkModel::rowCount(const QModelIndex &parent) const
@@ -84,11 +79,17 @@ int NetworkModel::rowCount(const QModelIndex &parent) const
     return m_nics.size();
 }
 
+int NetworkModel::columnCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return 6;
+}
+
 QList<NetworkModel::MyNIC *> findNICs();
 
 void NetworkModel::update()
 {
-    QList<MyNIC*> m_nics = findNICs();
+    m_nics = findNICs();
 }
 
 static QString HWaddr2String(const char *hwaddr)
