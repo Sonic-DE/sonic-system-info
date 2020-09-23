@@ -13,7 +13,7 @@
 
 #include "networkmodel.h"
 
-K_PLUGIN_CLASS_WITH_JSON(KCMNic, "metadata.json")
+K_PLUGIN_CLASS_WITH_JSON(KCMNic, "nic.json")
 
 KCMNic::KCMNic(QObject *parent, const QVariantList &list)
     : KQuickAddons::ConfigModule(parent, list)
