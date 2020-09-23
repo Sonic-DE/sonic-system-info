@@ -27,14 +27,11 @@ Kirigami.AbstractListItem {
                     text: i18nc("@label local file system path", 'Path:')
                 }
 
-                Kirigami.LinkButton {
+                Kirigami.UrlButton {
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignLeft
                     font: Kirigami.Theme.smallFont
-                    action: Kirigami.Action {
-                        text: ROLE_Path
-                        onTriggered: Qt.openUrlExternally(ROLE_Path)
-                    }
+                    url: ROLE_Path
                 }
             }
 
@@ -47,16 +44,13 @@ Kirigami.AbstractListItem {
                 }
 
                 // either fully qualified url
-                Kirigami.LinkButton {
+                Kirigami.UrlButton {
                     id: link
                     visible: ROLE_ShareUrl !== undefined
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignLeft
                     font: Kirigami.Theme.smallFont
-                    action: Kirigami.Action {
-                        text: ROLE_ShareUrl
-                        onTriggered: Qt.openUrlExternally(ROLE_ShareUrl)
-                    }
+                    url: ROLE_ShareUrl
                 }
 
                 // ... or name when we couldn't resolve a fully qualified url
