@@ -68,6 +68,22 @@ QVariant NetworkModel::data(const QModelIndex& index, int role) const
     return QVariant{};
 }
 
+QVariant NetworkModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    //if (orientation == Qt::Orientation::Horizontal) {
+        switch (section) {
+            case 0:
+                return i18n("Name");
+            case 1:
+                return i18n("Address");
+            default:
+                return i18n("todo");
+        }
+    //}
+    //return QVariant{};
+}
+
+
 QHash<int, QByteArray> NetworkModel::roleNames() const
 {
     return { {Qt::DisplayRole, "display"} };
