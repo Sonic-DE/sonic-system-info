@@ -4,9 +4,8 @@
 Name=NIC
 Type=Service
 Icon=network-card
-X-KDE-ServiceTypes=Plasma/GenericQml
+X-KDE-ServiceTypes=KPackage/GenericQML
 X-KDE-FormFactors=desktop,tablet,handset
-X-Plasma-API=declarativeappletscript
 X-KDE-PluginInfo-Author=Carl Schwan
 X-KDE-PluginInfo-Email=carl@carlschwan.eu
 X-KDE-PluginInfo-Name=kcm_nic

@@ -22,7 +22,7 @@ class KCMNic : public KQuickAddons::ConfigModule
     Q_PROPERTY(NetworkModel *networkModel READ networkModel NOTIFY networkModelChanged)
 
 public:
-    explicit KCMNic(QObject *parent = nullptr, const QVariantList &list = QVariantList( ));
+    explicit KCMNic(QObject *parent = nullptr, const QVariantList &list = QVariantList());
     virtual ~KCMNic() override = default;
 
     NetworkModel *networkModel() const;

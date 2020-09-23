@@ -26,6 +26,7 @@ KCMNic::KCMNic(QObject *parent, const QVariantList &list)
             i18n("(c) 2001 - 2002 Alexander Neundorf"));
 
     about->addAuthor(i18n("Alexander Neundorf"), QString(), QStringLiteral("neundorf@kde.org"));
+    about->addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
     setAboutData(about);
 }
 
