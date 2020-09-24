@@ -77,11 +77,11 @@ QVariant NetworkModel::headerData(int section, Qt::Orientation orientation, int 
             case 0:
                 return i18n("Name");
             case 1:
-                return i18nc("Address of the network", "Address");
+                return i18nc("Ip-Address of the network", "Address");
             case 2:
-                return i18nc("https://en.wikipedia.org/wiki/Subnetwork", "Network Mask");
+                return i18nc("It's an ip address", "Network Mask");
             case 3:
-                return i18nc("Type of the network interface", "Type");
+                return i18nc("Type of the network interface e.g. Loopback, Broadcast, ...", "Type");
             case 4:
                 return i18n("Hardware Address");
             case 5:
