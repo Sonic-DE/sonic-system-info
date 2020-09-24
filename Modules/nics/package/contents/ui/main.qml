@@ -27,14 +27,13 @@ ScrollViewKCM {
         }
 
         delegate: Rectangle {
-            readonly property real cellPadding: 8
-            readonly property color borderColor: Kirigami.Theme.Color
+            readonly property real cellPadding: Kirigami.Units.largeSpacing * 2
             color: row % 2 === 0 ? "transparent" : Kirigami.Theme.alternateBackgroundColor
             
             implicitWidth: tableview.width / tableview.model.columnCount()
             implicitHeight: text.contentHeight + Kirigami.Units.largeSpacing
             
-            Text {
+            QQC2.Label {
                 id: text
                 text: display
                 x: Kirigami.Units.smallSpacing
@@ -42,7 +41,6 @@ ScrollViewKCM {
                 height: parent.height
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                color: "#ff26282a"
                 wrapMode: Text.WrapAnywhere
             }
         }
