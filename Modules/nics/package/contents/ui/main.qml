@@ -57,7 +57,8 @@ ScrollViewKCM {
     }
     
     footer: QQC2.Button {
-        text: i18nc("Update the information displayed", "Update")
+        icon.name: "view-refresh"
+        text: i18nc("@action:button", "Refresh")
         onClicked: model.update();
     }
 }
