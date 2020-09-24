@@ -16,7 +16,4 @@ class KCMNic : public KQuickAddons::ConfigModule
 public:
     explicit KCMNic(QObject *parent = nullptr, const QVariantList &list = QVariantList());
     virtual ~KCMNic() override = default;
-
-public Q_SLOTS:
-    void update();
 };

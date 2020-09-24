@@ -31,8 +31,4 @@ KCMNic::KCMNic(QObject *parent, const QVariantList &list)
     qmlRegisterType<NetworkModel>("org.kde.kinfocenter.nic.private", 1, 0, "NetworkModel");
 }
 
-void KCMNic::update()
-{
-}
-
 #include "nic.moc"

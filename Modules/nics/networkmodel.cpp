@@ -70,7 +70,9 @@ QVariant NetworkModel::data(const QModelIndex& index, int role) const
 
 QVariant NetworkModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    //if (orientation == Qt::Orientation::Horizontal) {
+    Q_UNUSED(role)
+    
+    if (orientation == Qt::Orientation::Horizontal) {
         switch (section) {
             case 0:
                 return i18n("Name");
@@ -79,8 +81,8 @@ QVariant NetworkModel::headerData(int section, Qt::Orientation orientation, int 
             default:
                 return i18n("todo");
         }
-    //}
-    //return QVariant{};
+    }
+    return QVariant{};
 }
 
 

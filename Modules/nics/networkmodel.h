@@ -31,7 +31,7 @@ public:
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     virtual int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     
-    void update();
+    Q_INVOKABLE void update();
     
 private:
     QList<MyNIC *> m_nics;
