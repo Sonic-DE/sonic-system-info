@@ -77,9 +77,15 @@ QVariant NetworkModel::headerData(int section, Qt::Orientation orientation, int 
             case 0:
                 return i18n("Name");
             case 1:
-                return i18n("Address");
-            default:
-                return i18n("todo");
+                return i18nc("Address of the network", "Address");
+            case 2:
+                return i18nc("https://en.wikipedia.org/wiki/Subnetwork", "Network Mask");
+            case 3:
+                return i18nc("Type of the network interface", "Type");
+            case 4:
+                return i18n("Hardware Address");
+            case 5:
+                return i18nc("State of the network interface, can be up or down", "State");
         }
     }
     return QVariant{};
