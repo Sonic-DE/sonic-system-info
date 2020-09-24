@@ -51,17 +51,17 @@ QVariant NetworkModel::data(const QModelIndex& index, int role) const
         auto nic = m_nics.at(index.row());
         
         switch (index.column()) {
-            case 0:
+            case NetworkModel::Roles::NameRole:
                 return nic->name;
-            case 1:
+            case NetworkModel::Roles::AddrRole:
                 return nic->addr;
-            case 2:
+            case NetworkModel::Roles::NetMaskRole:
                 return nic->netmask;
-            case 3:
+            case NetworkModel::Roles::TypeRole:
                 return nic->type;
-            case 4:
+            case NetworkModel::Roles::HWAddrRole:
                 return nic->HWaddr;
-            case 5:
+            case NetworkModel::Roles::StateRole:
                 return nic->state;
         }
     }
@@ -74,18 +74,18 @@ QVariant NetworkModel::headerData(int section, Qt::Orientation orientation, int 
     
     if (orientation == Qt::Orientation::Horizontal) {
         switch (section) {
-            case 0:
-                return i18n("Name");
-            case 1:
-                return i18nc("Ip-Address of the network", "Address");
-            case 2:
-                return i18nc("It's an ip address", "Network Mask");
-            case 3:
-                return i18nc("Type of the network interface e.g. Loopback, Broadcast, ...", "Type");
-            case 4:
-                return i18n("Hardware Address");
-            case 5:
-                return i18nc("State of the network interface, can be up or down", "State");
+            case NetworkModel::Roles::NameRole:
+                return i18nc("@title:row", "Name");
+            case NetworkModel::Roles::AddrRole:
+                return i18nc("@title:row Ip address of the network", "Address");
+            case NetworkModel::Roles::NetMaskRole:
+                return i18nc("@title:row Ip address", "Network Mask");
+            case NetworkModel::Roles::TypeRole:
+                return i18nc("@title:row Type of the network interface e.g. Loopback, Broadcast, ...", "Type");
+            case NetworkModel::Roles::HWAddrRole:
+                return i18nc("@title:row", "Hardware Address");
+            case NetworkModel::Roles::StateRole:
+                return i18nc("@title:row State of the network interface, e.g. up or down", "State");
         }
     }
     return QVariant{};
@@ -297,28 +297,28 @@ QString flags_tos(unsigned int flags)
 {
     QString tmp;
     if (flags & IFF_POINTOPOINT) {
-        tmp += i18n("Point to Point");
+        tmp += i18nc("@item:intable Network type", "Point to Point");
     }
 
     if (flags & IFF_BROADCAST) {
         if (tmp.length()) {
             tmp += QLatin1String(", ");
         }
-        tmp += i18n("Broadcast");
+        tmp += i18nc("@item:intable Netork type", "Broadcast");
     }
 
     if (flags & IFF_MULTICAST) {
         if (tmp.length()) {
             tmp += QLatin1String(", ");
         }
-        tmp += i18n("Multicast");
+        tmp += i18nc("@item:intable Network type", "Multicast");
     }
 
     if (flags & IFF_LOOPBACK) {
         if (tmp.length()) {
             tmp += QLatin1String(", ");
         }
-        tmp += i18n("Loopback");
+        tmp += i18nc("@item:intable Network type", "Loopback");
     }
     return tmp;
 }

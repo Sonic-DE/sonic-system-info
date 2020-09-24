@@ -22,6 +22,15 @@ public:
         QString HWaddr;
     };
     
+    enum Roles {
+        NameRole = 0,
+        AddrRole = 1,
+        NetMaskRole = 2,
+        TypeRole = 3,
+        HWAddrRole = 4,
+        StateRole = 5,
+    };
+    
     explicit NetworkModel(QObject *parent = nullptr);
     virtual ~NetworkModel() = default;
 

@@ -20,12 +20,12 @@ KCMNic::KCMNic(QObject *parent, const QVariantList &list)
     : KQuickAddons::ConfigModule(parent, list)
 {
     KAboutData *about = new KAboutData(i18n("kcm_nic"),
-            i18n("Network Information"),
+            i18nc("@title:window", "Network Information"),
             QString(), QString(), KAboutLicense::GPL,
-            i18n("(c) 2001 - 2002 Alexander Neundorf"));
+            i18nc("@info", "(c) 2001 - 2002 Alexander Neundorf"));
 
-    about->addAuthor(i18n("Alexander Neundorf"), QString(), QStringLiteral("neundorf@kde.org"));
-    about->addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
+    about->addAuthor(i18nc("@info:credit", "Alexander Neundorf"), i18nc("@info:credit", "creator"), QStringLiteral("neundorf@kde.org"));
+    about->addAuthor(i18nc("@info:credit", "Carl Schwan"), i18nc("@info:credit", "developer"), QStringLiteral("carl@carlschwan.eu"));
     setAboutData(about);
     
     qmlRegisterType<NetworkModel>("org.kde.kinfocenter.nic.private", 1, 0, "NetworkModel");
