@@ -28,10 +28,8 @@ ScrollViewKCM {
 
         delegate: Rectangle {
             readonly property real cellPadding: 8
-            readonly property color borderColor: Kirigami.Theme.textColor
-            border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.1)
-            color: "transparent"
-            border.width: 0.5
+            readonly property color borderColor: Kirigami.Theme.Color
+            color: row % 2 === 0 ? "transparent" : Kirigami.Theme.alternateBackgroundColor
             
             implicitWidth: tableview.width / tableview.model.columnCount()
             implicitHeight: text.contentHeight + Kirigami.Units.largeSpacing
