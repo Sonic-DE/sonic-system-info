@@ -21,61 +21,61 @@ SimpleKCM {
         view.implicitCellHeight = delegateLayout.implicitHeight - Kirigami.Units.gridUnit * 4
     }
 
-        Kirigami.CardsLayout {
-            Repeater {
-                id: repeater
-                model: NetworkModel {}
-                Kirigami.AbstractCard {
-                    Layout.fillHeight: true
-                    contentItem: Kirigami.FormLayout {
-                        id: delegateLayout
-                        twinFormLayouts: {
-                            const size = repeater.count
-                            let items = [];
-                            for (let i = 0; i < size; i++) {
-                                items.push(repeater.itemAt(i).contentItem);
-                            }
-                            return items;
+    Kirigami.CardsLayout {
+        Repeater {
+            id: repeater
+            model: NetworkModel {}
+            Kirigami.AbstractCard {
+                Layout.fillHeight: true
+                contentItem: Kirigami.FormLayout {
+                    id: delegateLayout
+                    twinFormLayouts: {
+                        const size = repeater.count
+                        let items = [];
+                        for (let i = 0; i < size; i++) {
+                            items.push(repeater.itemAt(i).contentItem);
                         }
-                        Layout.fillWidth: true
+                        return items;
+                    }
+                    Layout.fillWidth: true
+                    QQC2.Label {
+                        Kirigami.FormData.label: i18nc("@label", "Name:")
+                        text: model.name
+                    }
+                    QQC2.Label {
+                        Kirigami.FormData.label: i18nc("@label", "Address:")
+                        text: model.address
+                    }
+                    QQC2.Label {
+                        Kirigami.FormData.label: i18nc("@label", "Network Mask:")
+                        text: model.netmask
+                    }
+                    QQC2.Label {
+                        Kirigami.FormData.label: i18nc("@label", "Type:")
+                        text: model.type
+                    }
+                    QQC2.Label {
+                        Kirigami.FormData.label: i18nc("@label", "Hardware Address:")
+                        text: model.hardwareAddress
+                        visible: text.length > 0
+                    }
+                    RowLayout {
+                        Kirigami.FormData.label: i18nc("@label", "State:")
+                        Rectangle {
+                            width: Kirigami.Units.largeSpacing
+                            height: width
+                            radius: width / 2
+                            color: model.state ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.negativeBackgroundColor
+                        }
                         QQC2.Label {
-                            Kirigami.FormData.label: i18nc("@label", "Name:")
-                            text: model.name
-                        }
-                        QQC2.Label {
-                            Kirigami.FormData.label: i18nc("@label", "Address:")
-                            text: model.address
-                        }
-                        QQC2.Label {
-                            Kirigami.FormData.label: i18nc("@label", "Network Mask:")
-                            text: model.netmask
-                        }
-                        QQC2.Label {
-                            Kirigami.FormData.label: i18nc("@label", "Type:")
-                            text: model.type
-                        }
-                        QQC2.Label {
-                            Kirigami.FormData.label: i18nc("@label", "Hardware Address:")
-                            text: model.hardwareAddress
-                            visible: text.length > 0
-                        }
-                        RowLayout {
-                            Kirigami.FormData.label: i18nc("@label", "State:")
-                            Rectangle {
-                                width: Kirigami.Units.largeSpacing
-                                height: width
-                                radius: width / 2
-                                color: model.state ? "green": "red"
-                            }
-                            QQC2.Label {
-                                text: model.state ? i18nc("State of network card is connected", "Up")
-                                                  : i18nc("State of network card is disconnected", "Down")
-                            }
+                            text: model.state ? i18nc("State of network card is connected", "Up")
+                                              : i18nc("State of network card is disconnected", "Down")
                         }
                     }
                 }
             }
         }
+    }
 
     
     footer: QQC2.Button {
