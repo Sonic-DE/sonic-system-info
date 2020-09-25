@@ -39,7 +39,7 @@ QString flags_tos(unsigned int flags);
 #endif
 
 NetworkModel::NetworkModel(QObject* parent)
-    : QAbstractTableModel(parent)
+    : QAbstractListModel(parent)
 {
     update();
 }
@@ -48,9 +48,9 @@ QVariant NetworkModel::data(const QModelIndex& index, int role) const
 {
     Q_UNUSED(role);
     if (index.isValid()) {
-        auto nic = m_nics.at(index.row());
+        const auto nic = m_nics.at(index.row());
         
-        switch (index.column()) {
+        switch (role) {
             case NetworkModel::Roles::NameRole:
                 return nic->name;
             case NetworkModel::Roles::AddrRole:
@@ -68,45 +68,23 @@ QVariant NetworkModel::data(const QModelIndex& index, int role) const
     return QVariant{};
 }
 
-QVariant NetworkModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    Q_UNUSED(role)
-    
-    if (orientation == Qt::Orientation::Horizontal) {
-        switch (section) {
-            case NetworkModel::Roles::NameRole:
-                return i18nc("@title:row", "Name");
-            case NetworkModel::Roles::AddrRole:
-                return i18nc("@title:row Ip address of the network", "Address");
-            case NetworkModel::Roles::NetMaskRole:
-                return i18nc("@title:row Ip address", "Network Mask");
-            case NetworkModel::Roles::TypeRole:
-                return i18nc("@title:row Type of the network interface e.g. Loopback, Broadcast, ...", "Type");
-            case NetworkModel::Roles::HWAddrRole:
-                return i18nc("@title:row", "Hardware Address");
-            case NetworkModel::Roles::StateRole:
-                return i18nc("@title:row State of the network interface, e.g. up or down", "State");
-        }
-    }
-    return QVariant{};
-}
-
 
 QHash<int, QByteArray> NetworkModel::roleNames() const
 {
-    return { {Qt::DisplayRole, "display"} };
+    return {
+        {NetworkModel::Roles::NameRole, QByteArrayLiteral("name")},
+        {NetworkModel::Roles::AddrRole, QByteArrayLiteral("address")},
+        {NetworkModel::Roles::NetMaskRole, QByteArrayLiteral("netmask")},
+        {NetworkModel::Roles::TypeRole, QByteArrayLiteral("type")},
+        {NetworkModel::Roles::HWAddrRole, QByteArrayLiteral("hardwareAddress")},
+        {NetworkModel::Roles::StateRole, QByteArrayLiteral("state")}
+    };
 }
 
 int NetworkModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return m_nics.size();
-}
-
-int NetworkModel::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent);
-    return 6;
 }
 
 QList<NetworkModel::MyNIC *> findNICs();
@@ -151,8 +129,6 @@ static int getNameInfo(struct sockaddr *addr, struct ifaddrs *ifa, char *hostOut
 }
 
 QList<NetworkModel::MyNIC*> findNICs() {
-    QString upMessage(i18nc("State of network card is connected", "Up") );
-    QString downMessage(i18nc("State of network card is disconnected", "Down") );
 
     QList<NetworkModel::MyNIC*> nl;
 
@@ -276,7 +252,7 @@ QList<NetworkModel::MyNIC*> findNICs() {
                     tmp->netmask = buf;
                 }
 
-                tmp->state= (ifa->ifa_flags & IFF_UP) ? upMessage : downMessage;
+                tmp->state= (ifa->ifa_flags & IFF_UP) ? true : false;
                 tmp->type = flags_tos(ifa->ifa_flags);
 
                 nl.append(tmp);
