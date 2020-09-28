@@ -57,7 +57,7 @@ QVariant KSambaShareModel::data(const QModelIndex &index, int intRole) const
             return {};
         }
         QUrl url;
-        url.setScheme("smb");
+        url.setScheme(QStringLiteral("smb"));
         url.setHost(m_fqdn);
         url.setPath(QStringLiteral("/") + share.name());
         return url;
