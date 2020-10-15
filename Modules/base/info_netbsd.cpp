@@ -26,6 +26,7 @@
 #include <fstab.h>
 
 #include <QFile>
+#include <QRegularExpression>
 #include <QStringList>
 #include <QTextStream>
 #include <QTreeWidgetItemIterator>
@@ -61,6 +62,7 @@ static bool GetDmesgInfo(QTreeWidget* tree, const char *filter, void func(QTreeW
 		t = new QTextStream(pipe, QIODevice::ReadOnly);
 	}
 
+	static const QRegularExpression re(QString::fromLocal8Bit(filter));
 	while (!(s = t->readLine().toLocal8Bit()).isNull()) {
 		if (!seencpu) {
 			if (s.contains("cpu"))
@@ -71,7 +73,7 @@ static bool GetDmesgInfo(QTreeWidget* tree, const char *filter, void func(QTreeW
 		if (s.contains("boot device") || s.contains("WARNING: old BSD partition ID!"))
 			break;
 
-		if (!filter || s.contains(QRegExp(filter))) {
+		if (!filter || s.contains(re)) {
 			if (func)
 				func(tree, s);
 			else {
@@ -100,8 +102,8 @@ void AddIRQLine(QTreeWidget* tree, QString s) {
 	char numstr[3];
 	bool ok;
 
-	s2 = s.mid(s.indexOf(QRegExp("[ (]irq "))+5);
-	irqnum = s2.remove(QRegExp("[^0-9].*")).toInt(&ok);
+	s2 = s.mid(s.indexOf(QRegularExpression(QStringLiteral("[ (]irq ")))+5);
+	irqnum = s2.remove(QRegularExpression(QStringLiteral("[^0-9].*"))).toInt(&ok);
 	if (ok)
 		snprintf(numstr, 3, "%02d", irqnum);
 	else {

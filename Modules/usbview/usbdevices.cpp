@@ -18,7 +18,7 @@
 
 #include <QFile>
 #include <QDir>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -254,7 +254,7 @@ bool USBDevice::parse(const QString &fname) {
 	// read in the device infos
     USBDevice *device = nullptr;
 	int start=0, end;
-    result.remove(QRegExp(QStringLiteral("^\n")));
+    result.remove(QRegularExpression(QStringLiteral("^\n")));
     while ((end = result.indexOf(QLatin1Char('\n'), start)) > 0)
 	{
 		QString line = result.mid(start, end-start);
@@ -275,13 +275,15 @@ bool USBDevice::parseSys(const QString &dname) {
 	d.setNameFilters(QStringList() << QStringLiteral("usb*"));
 	const QStringList list = d.entryList();
 
+    const static QRegularExpression bus_reg(QStringLiteral("[a-z]*([0-9]+)"));
     for (QStringList::const_iterator it = list.constBegin(), total = list.constEnd(); it != total; ++it) {
 		USBDevice* device = new USBDevice();
 
 		int bus = 0;
-		QRegExp bus_reg(QStringLiteral("[a-z]*([0-9]+)"));
-		if (bus_reg.indexIn(*it) != -1)
-			bus = bus_reg.cap(1).toInt();
+		QRegularExpressionMatch rmatch;
+		if ((*it).contains(bus_reg, &rmatch)) {
+			bus = rmatch.captured(1).toInt();
+		}
 
         device->parseSysDir(bus, 0, 0, d.absolutePath() + QLatin1Char('/') + *it);
 	}

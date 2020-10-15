@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef HAVE_PCIUTILS
 #include "kpci.h"
 #endif //HAVE_PCIUTILS
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QFile>
 
 #include <KLocalizedString>
@@ -102,18 +102,17 @@ bool GetInfo_DMA(QTreeWidget* tree) {
 	headers << i18n("DMA-Channel") << i18n("Used By");
 	tree->setHeaderLabels(headers);
 
-	if (file.exists() && file.open(QIODevice::ReadOnly)) {
+	if (file.open(QIODevice::ReadOnly)) {
 		QTextStream stream(&file);
 		QString line;
 
+		const static QRegularExpression rx(QStringLiteral(R"foo(^\s*(\S+)\s*:\s*(\S+))foo"));
 		line = stream.readLine();
 		while (!line.isNull()) {
 			if (!line.isEmpty()) {
-				QRegExp rx(QStringLiteral("^\\s*(\\S+)\\s*:\\s*(\\S+)"));
-				if (-1 != rx.indexIn(line)) {
-					QStringList list;
-					list << rx.cap(1) << rx.cap(2);
-					new QTreeWidgetItem(tree, list);
+				QRegularExpressionMatch rmatch;
+				if (line.contains(rx, &rmatch)) {
+					new QTreeWidgetItem(tree, QStringList{rmatch.captured(1), rmatch.captured(2)});
 				}
 			}
 			line = stream.readLine();
