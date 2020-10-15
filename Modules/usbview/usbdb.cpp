@@ -41,11 +41,11 @@ USBDB::USBDB() {
 		QString line, name;
 		int id=0, subid=0, protid=0;
 
-		static const QRegularExpression vendor(QStringLiteral("^[0-9a-fA-F]+ "));
-		static const QRegularExpression product(QStringLiteral("^\\s+[0-9a-fA-F]+ "));
-		static const QRegularExpression cls(QStringLiteral("^C [0-9a-fA-F]{2}"));
-		static const QRegularExpression subclass(QStringLiteral("^\\s+[0-9a-fA-F]{2}  "));
-		static const QRegularExpression prot(QStringLiteral("^\\s+[0-9a-fA-F]{2}  "));
+		const QRegularExpression vendor(QStringLiteral("^[0-9a-fA-F]+ "));
+		const QRegularExpression product(QStringLiteral("^\\s+[0-9a-fA-F]+ "));
+		const QRegularExpression cls(QStringLiteral("^C [0-9a-fA-F]{2}"));
+		const QRegularExpression subclass(QStringLiteral("^\\s+[0-9a-fA-F]{2}  "));
+		const QRegularExpression prot(QStringLiteral("^\\s+[0-9a-fA-F]{2}  "));
 
 		QRegularExpressionMatch rmatch;
 		while (!ts.atEnd()) {
