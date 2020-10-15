@@ -23,7 +23,7 @@
 
 #include "opengl.h"
 
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QFile>
 #include <QTextStream>
 #include <QProcess>
@@ -257,7 +257,7 @@ static QVector<DriInfo> get_dri_devices()
             QString line;
             for (int i=2; i<=6; i++) {
                 line = pci_info[i];
-                line.remove(QRegExp("[^:]*:[ ]*"));
+                line.remove(QRegularExpression("[^:]*:[ ]*"));
                 switch (i) {
                     case 2: it->vendor = line.simplified();    break;
                     case 3: it->device = line.simplified();    break;
