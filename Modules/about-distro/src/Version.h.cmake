@@ -21,7 +21,7 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-static const char global_s_versionString[] = "${VERSION_STRING}";
-static const char global_s_versionStringFull[] = "${VERSION_STRING_FULL}";
+// NOTE: we want the cmakedefines so undefined variables result in undefined macros result in build failures!
+#cmakedefine PROJECT_VERSION "@PROJECT_VERSION@"
 
 #endif // VERSION_H
