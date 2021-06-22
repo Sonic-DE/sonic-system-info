@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+ * SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
@@ -14,56 +15,73 @@ import org.kde.kinfocenter.nic.private 1.0
 SimpleKCM {
     ConfigModule.quickHelp: i18n("Network Interfaces")
     clip: true
-    
-    Component.onCompleted: {
-        // The widget thumbnails are a bit more elaborate and need more room, especially when translated
-        view.implicitCellWidth = Kirigami.Units.gridUnit * 20;
-        view.implicitCellHeight = delegateLayout.implicitHeight - Kirigami.Units.gridUnit * 4
-    }
 
     Kirigami.CardsLayout {
+        Rectangle {
+            implicitHeight: 128
+            Layout.fillWidth: true
+            color: "red"
+        }
+        Rectangle {
+            implicitHeight: 128
+            Layout.fillWidth: true
+            color: "green"
+        }
         Repeater {
             id: repeater
             model: NetworkModel {}
             Kirigami.AbstractCard {
                 Layout.fillHeight: true
-                contentItem: Kirigami.FormLayout {
-                    id: delegateLayout
-                    twinFormLayouts: {
-                        const size = repeater.count
-                        let items = [];
-                        for (let i = 0; i < size; i++) {
-                            items.push(repeater.itemAt(i).contentItem);
-                        }
-                        return items;
-                    }
+                Layout.fillWidth: true
+                contentItem: GridLayout {
+                    columns: 2
                     Layout.fillWidth: true
                     QQC2.Label {
-                        Kirigami.FormData.label: i18nc("@label", "Name:")
+                        text: i18nc("@label", "Name:")
+                    }
+                    QQC2.Label {
                         text: model.name
                     }
+
                     QQC2.Label {
-                        Kirigami.FormData.label: i18nc("@label", "Address:")
+                        text: i18nc("@label", "Address:")
+                    }
+                    QQC2.Label {
                         text: model.address
                     }
+
                     QQC2.Label {
-                        Kirigami.FormData.label: i18nc("@label", "Network Mask:")
+                        text: i18nc("@label", "Network Mask:")
+                    }
+                    QQC2.Label {
                         text: model.netmask
                     }
+
                     QQC2.Label {
-                        Kirigami.FormData.label: i18nc("@label", "Type:")
-                        text: model.type
+                        text: i18nc("@label", "Type:")
                     }
                     QQC2.Label {
-                        Kirigami.FormData.label: i18nc("@label", "Hardware Address:")
+                        text: model.type
+                    }
+
+                    QQC2.Label {
+                        text:  i18nc("@label", "Hardware Address:")
+                        visible: hardwareAddress.visible
+                    }
+                    QQC2.Label {
+                        id: hardwareAddress
                         text: model.hardwareAddress
                         visible: text.length > 0
                     }
+
+
+                    QQC2.Label {
+                        text: i18nc("@label", "State:")
+                    }
                     RowLayout {
-                        Kirigami.FormData.label: i18nc("@label", "State:")
                         Rectangle {
-                            width: Kirigami.Units.largeSpacing
-                            height: width
+                            implicitWidth: Kirigami.Units.largeSpacing
+                            implicitHeight: implicitWidth
                             radius: width / 2
                             color: model.state ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.negativeBackgroundColor
                         }
@@ -77,7 +95,6 @@ SimpleKCM {
         }
     }
 
-    
     footer: QQC2.Button {
         icon.name: "view-refresh"
         text: i18nc("@action:button", "Refresh")
