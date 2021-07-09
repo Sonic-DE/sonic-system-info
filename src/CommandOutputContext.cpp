@@ -52,17 +52,6 @@ void CommandOutputContext::setFilter(const QString &filter)
     Q_EMIT filterChanged();
 }
 
-void CommandOutputContext::classBegin()
-{
-    m_componentComplete = false;
-}
-
-void CommandOutputContext::componentComplete()
-{
-    m_componentComplete = true;
-    load();
-}
-
 void CommandOutputContext::reset()
 {
     m_ready = false;
@@ -80,10 +69,6 @@ void CommandOutputContext::reset()
 
 void CommandOutputContext::load()
 {
-    if (!m_componentComplete) {
-        return;
-    }
-
     reset();
 
     if (m_executablePath.isEmpty()) {
@@ -93,7 +78,9 @@ void CommandOutputContext::load()
 
     auto proc = new QProcess;
     proc->setProcessChannelMode(QProcess::MergedChannels);
+    qDebug() << "xx start";
     connect(proc, &QProcess::finished, this, [this, proc](int /* exitCode */, QProcess::ExitStatus exitStatus) {
+        qDebug() << "xx finish";
         proc->deleteLater();
 
         switch (exitStatus) {
@@ -104,6 +91,7 @@ void CommandOutputContext::load()
         }
 
         m_text = QString::fromLocal8Bit(proc->readAllStandardOutput());
+        m_text = m_text.trimmed();
         m_originalLines = m_text.split('\n');
         if (!m_filter.isEmpty()) {
             // re-apply filter on new text
