@@ -35,7 +35,7 @@ static t_memsize memoryInfos[MEM_LAST_ENTRY];
 
 static QLabel *memorySizeLabels[MEM_LAST_ENTRY][2];
 
-K_PLUGIN_FACTORY(KCMMemoryFactory, registerPlugin<KCMMemory>();)
+K_PLUGIN_CLASS_WITH_JSON(KCMMemory, "kcm_memory.json")
 
 KCMMemory::KCMMemory(QWidget *parent, const QVariantList &)
     : KCModule(parent)
