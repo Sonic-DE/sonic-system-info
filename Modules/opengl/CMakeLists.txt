@@ -12,7 +12,8 @@ set(KCM_OPENGL_PART_UIS opengl.ui )
 
 ki18n_wrap_ui(KCM_OPENGL_PART_UIS_H ${KCM_OPENGL_PART_UIS})
 
-add_library(kcm_opengl MODULE ${KCM_OPENGL_PART_SRCS} ${KCM_OPENGL_PART_UIS_H})
+kcoreaddons_add_plugin(kcm_opengl SOURCES ${KCM_OPENGL_PART_SRCS} ${KCM_OPENGL_PART_UIS_H} INSTALL_NAMESPACE "plasma/kinfocenter")
+kcoreaddons_desktop_to_json(kcm_opengl "opengl.desktop")
 
 target_link_libraries(kcm_opengl KF5::KCMUtils KF5::I18n ${X11_X11_LIB})
 
