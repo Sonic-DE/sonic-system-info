@@ -11,11 +11,12 @@
 #include <QLocale>
 
 #include <KAboutData>
-#include <KCoreAddons>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KCoreAddons>
 #include <KLocalizedString>
 #include <KOSRelease>
+#include <KPluginFactory>
 #include <KSharedConfig>
 
 #include "CPUEntry.h"
@@ -26,6 +27,8 @@
 #include "PlasmaEntry.h"
 #include "SectionLabel.h"
 #include "Version.h"
+
+K_PLUGIN_CLASS_WITH_JSON(Module, "about-distro.json")
 
 Module::Module(QWidget *parent, const QVariantList &args) :
     KCModule(parent, args),
@@ -212,3 +215,5 @@ void Module::copyToClipboardInEnglish()
     }
     QGuiApplication::clipboard()->setText(text.trimmed());
 }
+
+#include "Module.moc"
