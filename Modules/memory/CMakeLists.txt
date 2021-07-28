@@ -5,16 +5,11 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_memory\")
 
 set(KCM_MEMORY_PART_SRCS memory.cpp chartWidget.cpp totalMemoryChart.cpp physicalMemoryChart.cpp swapMemoryChart.cpp )
 
-add_library(kcm_memory MODULE ${KCM_MEMORY_PART_SRCS})
+kcoreaddons_add_plugin(kcm_memory SOURCES ${KCM_MEMORY_PART_SRCS} INSTALL_NAMESPACE "plasma/kinfocenter")
+kcoreaddons_desktop_to_json(kcm_memory "kcm_memory.desktop")
 
 target_link_libraries(kcm_memory KF5::KCMUtils KF5::I18n KF5::CoreAddons)
 
 if (${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
    target_link_libraries(kcm_memory kvm)
 endif ()
-
-install(TARGETS kcm_memory  DESTINATION ${KDE_INSTALL_PLUGINDIR})
-
-########### install files ###############
-
-install( FILES kcm_memory.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
