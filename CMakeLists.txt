@@ -14,6 +14,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 include(KDEClangFormat)
 include(ECMQMLModules)
+include(ECMSetupQtPluginMacroNames)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Gui Widgets)
 
