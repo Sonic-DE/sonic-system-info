@@ -68,9 +68,7 @@
 #include <sys/sysmacros.h>
 #endif
 
-K_PLUGIN_FACTORY(KCMOpenGLFactory,
-    registerPlugin<KCMOpenGL>();
-)
+K_PLUGIN_CLASS_WITH_JSON(KCMOpenGL, "opengl.json")
 
 // FIXME: Temporary!
 bool GetInfo_OpenGL(QTreeWidget *treeWidget);
