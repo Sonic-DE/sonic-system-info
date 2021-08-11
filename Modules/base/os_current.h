@@ -12,7 +12,6 @@ class QString;
 
 /* function call-back-prototypes... */
 
-bool GetInfo_IRQ(QTreeWidget *tree);
 bool GetInfo_DMA(QTreeWidget *tree);
 bool GetInfo_PCI(QTreeWidget *tree);
 bool GetInfo_IO_Ports(QTreeWidget *tree);
@@ -21,7 +20,6 @@ bool GetInfo_Wayland(QTreeWidget *tree);
 
 #ifdef __linux__
 
-#define INFO_IRQ_AVAILABLE
 #define INFO_DMA_AVAILABLE
 #define INFO_IOPORTS_AVAILABLE
 #define INFO_XSERVER_AVAILABLE
@@ -32,7 +30,6 @@ bool GetInfo_Wayland(QTreeWidget *tree);
 
 #elif defined(__FreeBSD__) || defined(__DragonFly__)
 
-#define INFO_IRQ_AVAILABLE
 #define INFO_DMA_AVAILABLE
 #define INFO_IOPORTS_AVAILABLE
 #define INFO_XSERVER_AVAILABLE
@@ -41,7 +38,6 @@ bool GetInfo_Wayland(QTreeWidget *tree);
 
 #else
 
-#define INFO_IRQ_AVAILABLE
 #define INFO_DMA_AVAILABLE
 #define INFO_IOPORTS_AVAILABLE
 #define INFO_XSERVER_AVAILABLE

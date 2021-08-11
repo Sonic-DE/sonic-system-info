@@ -4,7 +4,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcminfo\")
 # OS Base includes
 include(../base/CMakeLists.txt)
 
-include_directories( 
+include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/../base
 )
 
@@ -39,12 +39,11 @@ install(TARGETS kcm_info  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
 ########### install files ###############
 
 install(
-    FILES 
-	dma.desktop 
-	interrupts.desktop 
-	ioports.desktop 
-	xserver.desktop  
+    FILES
+	dma.desktop
+	ioports.desktop
+	xserver.desktop
     wayland.desktop
-	DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} 
+	DESTINATION  ${KDE_INSTALL_KSERVICES5DIR}
 )
 
