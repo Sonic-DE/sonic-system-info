@@ -26,7 +26,6 @@
 
 #include <algorithm>
 
-#define INFO_IRQ "/proc/interrupts"
 #define INFO_DMA "/proc/dma"
 
 #define INFO_PCI "/proc/pci"
@@ -73,14 +72,6 @@ bool GetInfo_ReadfromFile(QTreeWidget *tree, const char *FileName, const QChar &
     file.close();
 
     return added;
-}
-
-bool GetInfo_IRQ(QTreeWidget *tree)
-{
-    tree->setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
-    tree->setHeaderHidden(true);
-
-    return GetInfo_ReadfromFile(tree, INFO_IRQ, 0);
 }
 
 bool GetInfo_DMA(QTreeWidget *tree)
