@@ -76,11 +76,9 @@ void CommandOutputContext::load()
         return;
     }
 
-    auto proc = new QProcess;
+    auto proc = new QProcess(this);
     proc->setProcessChannelMode(QProcess::MergedChannels);
-    qDebug() << "xx start";
     connect(proc, &QProcess::finished, this, [this, proc](int /* exitCode */, QProcess::ExitStatus exitStatus) {
-        qDebug() << "xx finish";
         proc->deleteLater();
 
         switch (exitStatus) {
