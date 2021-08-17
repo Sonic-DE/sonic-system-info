@@ -27,6 +27,6 @@ public:
     }
 };
 
-K_PLUGIN_FACTORY_WITH_JSON(KCMCPUFactory, "kcm_cpu.json", registerPlugin<KCMCPU>();)
+K_PLUGIN_CLASS_WITH_JSON(KCMCPU, "kcm_cpu.json")
 
 #include "main.moc"
