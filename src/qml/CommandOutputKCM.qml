@@ -52,6 +52,81 @@ KCM.AbstractKCM {
                 focusSequence: "Ctrl+I"
                 onAccepted: output.filter = text
             }
+
+            Kirigami.SearchField {
+                id: searchField
+
+                property string lastText: ''
+                property int lastAreaIndex: -1
+                property var needleAreas: []
+
+                function hasCapitalLetter(str) {
+                    return /[A-Z]/.test(str)
+                }
+
+                function updateNeedleAreas() {
+                    if (lastText !== text) { // reset state
+                        lastText = ''
+                        lastAreaIndex = -1
+                        needleAreas = []
+                        // If the text changes to something that no longer matches we'll not want to keep the old highlight.
+                        textArea.deselect()
+                    }
+                    lastText = text
+
+                    if (text === "")  { // no search term
+                        return
+                    }
+                    if (needleAreas.length > 0) { // already filled and hasn't been reset
+                        return
+                    }
+
+                    // TODO: maybe have explicit insensitive toggle?
+                    const caseSensitive = hasCapitalLetter(text)
+                    const haystack = caseSensitive ? textArea.text : textArea.text.toUpperCase()
+                    const needle = caseSensitive ? text : text.toUpperCase()
+
+                    let offset = 0
+                    while (offset < haystack.length) {
+                        const start = haystack.indexOf(needle, offset)
+                        if (start < 0) { // not found
+                            break
+                        }
+                        const end = start + text.length
+                        needleAreas.push([start, end])
+                        offset = end + 1
+                    }
+
+                    if (needleAreas.length <= 0) {
+                        console.warn("Could not find '%1' in text 😥".arg(needle))
+                    }
+                }
+
+                function next() {
+                    if (needleAreas.length <= 0) {
+                        return
+                    }
+
+                    const areaIndex = (lastAreaIndex + 1) % needleAreas.length
+                    const area = needleAreas[areaIndex]
+                    textArea.select(...area)
+                    lastAreaIndex = areaIndex
+                }
+
+                Layout.fillWidth: true
+                onAccepted: {
+                    updateNeedleAreas()
+                    next()
+                }
+
+                Shortcut {
+                    enabled: root.focus
+                    sequence: StandardKey.FindNext
+                    onActivated: searchField.next()
+                }
+
+                // TODO could have a label indicating 3/24 match counter. Not sure if useful?
+            }
         }
     }
 
