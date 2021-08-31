@@ -27,10 +27,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <syscall.h>
 #include <unistd.h>
 
-#ifdef HAVE_WAYLAND
-#include "info_wayland.h"
-#endif
-
 #ifdef HAVE_PCIUTILS
 #include "kpci.h"
 #endif // HAVE_PCIUTILS
@@ -170,14 +166,4 @@ bool GetInfo_IO_Ports(QTreeWidget *tree)
 bool GetInfo_XServer_and_Video(QTreeWidget *tree)
 {
     return GetInfo_XServer_Generic(tree);
-}
-
-bool GetInfo_Wayland(QTreeWidget *tree)
-{
-#if HAVE_WAYLAND
-    WaylandModule *display = new WaylandModule(tree);
-
-    return true;
-#endif
-    return false;
 }

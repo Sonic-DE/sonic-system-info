@@ -52,9 +52,6 @@ CREATE_FACTORY(DMA, i18n("DMA-Channel"))
 #ifdef INFO_XSERVER_AVAILABLE
 CREATE_FACTORY(XServer_and_Video, i18n("X-Server"))
 #endif
-#ifdef INFO_WAYLAND_AVAILABLE
-CREATE_FACTORY(Wayland, i18n("Wayland"))
-#endif
 
 K_PLUGIN_FACTORY(KInfoModulesFactory,
 #ifdef INFO_IRQ_AVAILABLE
@@ -68,9 +65,6 @@ K_PLUGIN_FACTORY(KInfoModulesFactory,
 #endif
 #ifdef INFO_XSERVER_AVAILABLE
                  registerPlugin<KXServer_and_VideoInfoWidget>(QStringLiteral("xserver"));
-#endif
-#ifdef INFO_WAYLAND_AVAILABLE
-                 registerPlugin<KWaylandInfoWidget>(QStringLiteral("wayland"));
 #endif
 )
 
