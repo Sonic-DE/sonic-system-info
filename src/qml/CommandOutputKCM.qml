@@ -19,6 +19,12 @@ KCM.SimpleKCM {
     // Use a horizontal scrollbar if text wrapping is disabled. In all other cases we'll go with the defaults.
     horizontalScrollBarPolicy: wrapMode === TextEdit.NoWrap ? Qt.ScrollBarAsNeeded : undefined
 
+    background: Rectangle {
+        color: Kirigami.Theme.backgroundColor
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        Kirigami.Theme.inherit: false
+    }
+
     // The CommandOutputContext object.
     required property QtObject output
     property int wrapMode: TextEdit.NoWrap
@@ -61,6 +67,10 @@ KCM.SimpleKCM {
         Kirigami.SearchField {
             id: filterField
             visible: root.state === ""
+
+            color: root.Kirigami.Theme.backgroundColor
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            Kirigami.Theme.inherit: false
 
             placeholderText: i18nc("@label placeholder text to filter for something", "Filter…")
 
