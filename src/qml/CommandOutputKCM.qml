@@ -26,8 +26,7 @@ KCM.SimpleKCM {
     Component {
         id: dataComponent
 
-        QQC2.TextArea {
-            readOnly: true
+        QQC2.Label {
             text: output.text
             font.family: "monospace"
             wrapMode: root.wrapMode
