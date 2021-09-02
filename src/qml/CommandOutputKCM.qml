@@ -30,6 +30,7 @@ KCM.SimpleKCM {
             text: output.text
             font.family: "monospace"
             wrapMode: root.wrapMode
+            textFormat: TextEdit.PlainText
         }
     }
 
