@@ -68,7 +68,7 @@ KCM.SimpleKCM {
     footer: ColumnLayout {
         Kirigami.SearchField {
             id: filterField
-            visible: root.state === ""
+            visible: root.state !== "loading"
 
             placeholderText: i18nc("@label placeholder text to filter for something", "Filter…")
 
