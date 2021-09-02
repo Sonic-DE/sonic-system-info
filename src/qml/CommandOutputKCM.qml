@@ -46,7 +46,15 @@ KCM.SimpleKCM {
 
         Kirigami.PlaceholderMessage {
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
-            text: output.error
+            text: {
+                if (output.error !== "") {
+                    return output.error
+                }
+                if (output.filter !== "" && output.text === "") {
+                    return i18nc("@info", "No text matching the filter")
+                }
+                return i18n("@info the KCM has no data to display", "No data available")
+            }
             icon.name: "data-warning"
         }
     }
