@@ -3,7 +3,7 @@
     SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 */
 
-import QtQuick 2.5
+import QtQuick 2.15
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 
@@ -56,6 +56,8 @@ KCM.SimpleKCM {
                     text: "<a href='%1'>%1</a>".arg(kcm.distroUrl)
                     textFormat: Text.RichText
                     onLinkActivated: Qt.openUrlExternally(link)
+
+                    HoverHandler { cursorShape: Qt.PointingHandCursor }
                 }
 
                 Item { Layout.fillHeight: true }
