@@ -31,10 +31,8 @@ KCM.SimpleKCM {
 
             Kirigami.Icon {
                 source: kcm.distroLogo
-                Layout.minimumHeight: Kirigami.Units.iconSizes.enormous
-                Layout.maximumHeight: Kirigami.Units.iconSizes.enormous
-                Layout.minimumWidth: Kirigami.Units.iconSizes.enormous
-                Layout.maximumWidth: Kirigami.Units.iconSizes.enormous
+                implicitWidth: Kirigami.Units.iconSizes.enormous
+                implicitHeight: Kirigami.Units.iconSizes.enormous
             }
 
             ColumnLayout {
