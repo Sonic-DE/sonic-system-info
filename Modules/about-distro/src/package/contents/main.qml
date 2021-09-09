@@ -75,6 +75,10 @@ KCM.SimpleKCM {
                 }
             }
 
+            // TODO: the spacers were added for 5.23 because we can't fix Kirigami in time. See if later versions
+            // are neat enough without the spacers. Also see https://invent.kde.org/frameworks/kirigami/-/merge_requests/357
+            // Same for the spacer below.
+            Item { implicitHeight: Kirigami.Units.gridUnit }
             Kirigami.Separator {
                 Kirigami.FormData.label: i18nc("@title:group", "Software")
                 Kirigami.FormData.isSection: true
@@ -84,6 +88,8 @@ KCM.SimpleKCM {
                 delegate: entryComponent
             }
 
+            // TODO: same as for the spacer above
+            Item { implicitHeight: Kirigami.Units.gridUnit }
             Kirigami.Separator {
                 Kirigami.FormData.label: i18nc("@title:group", "Hardware")
                 Kirigami.FormData.isSection: true
