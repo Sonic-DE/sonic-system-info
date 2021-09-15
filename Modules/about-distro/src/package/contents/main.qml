@@ -13,6 +13,9 @@ import org.kde.kcm 1.4 as KCM
 KCM.SimpleKCM {
     id: root
 
+    // bugger off with all your buttons, we don't need any!
+    KCM.ConfigModule.buttons: KCM.ConfigModule.NoAdditionalButton
+
     implicitWidth: Kirigami.Units.gridUnit * 20
     implicitHeight: Kirigami.Units.gridUnit * 20
 
