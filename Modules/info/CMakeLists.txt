@@ -18,8 +18,7 @@ target_link_libraries(kcm_info
     KF5::CoreAddons
     KF5::KCMUtils
     KF5::I18n
-    KF5::IconThemes
-    ${X11_X11_LIB})
+    KF5::IconThemes)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
     target_link_libraries(kcm_info devinfo)
