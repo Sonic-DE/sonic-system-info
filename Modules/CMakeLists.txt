@@ -1,12 +1,12 @@
 
 add_subdirectory( about-distro )
-add_subdirectory( memory )
 add_subdirectory( devinfo )
 add_subdirectory( info )
 add_subdirectory(vulkan)
 add_subdirectory(cpu)
 add_subdirectory(wayland)
 add_subdirectory(interrupts)
+add_subdirectory(plasma-systemmonitor)
 
 add_subdirectory( samba )
 add_subdirectory( nics )
