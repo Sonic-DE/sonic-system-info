@@ -1,6 +1,5 @@
 
 add_subdirectory( about-distro )
-add_subdirectory( memory )
 add_subdirectory( devinfo )
 add_subdirectory( info )
 add_subdirectory(vulkan)
@@ -10,6 +9,7 @@ add_subdirectory(interrupts)
 add_subdirectory(xserver)
 add_subdirectory(egl)
 add_subdirectory(glx)
+add_subdirectory(plasma-systemmonitor)
 
 add_subdirectory( samba )
 add_subdirectory( nics )
