@@ -113,7 +113,7 @@ KCM.SimpleKCM {
             QQC2.Button {
                 id: kicButton
 
-                text: kicRunner.genericName
+                text: i18nc("@action:button launches kinfocenter from systemsettings", "Show More Information")
                 icon.name: kicRunner.iconName
                 onClicked: kicRunner.run()
             }
