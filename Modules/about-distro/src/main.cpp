@@ -9,6 +9,8 @@
 #include <QLocale>
 
 #include <KAboutData>
+#include <KAuthAction>
+#include <KAuthExecuteJob>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KCoreAddons>
@@ -110,6 +112,24 @@ public:
         Q_EMIT changed();
     }
 
+    static KLocalizedString systemInfoKey(const QString &key)
+    {
+        if (key == QStringLiteral("system-manufacturer")) {
+            return ki18nc("@label", "Manufacturer:");
+        }
+        if (key == QStringLiteral("system-product-name")) {
+            return ki18nc("@label", "Product Name:");
+        }
+        if (key == QStringLiteral("system-version")) {
+            return ki18nc("@label", "System Version:");
+        }
+        if (key == QStringLiteral("system-serial-number")) {
+            return ki18nc("@label", "Serial Number:");
+        }
+        qFatal("unexpected systeminfo key %s\n", qUtf8Printable(key));
+        Q_UNREACHABLE();
+    }
+
     void loadEntries()
     {
         auto addEntriesToGrid = [this](QList<QObject *> *list, const std::vector<Entry *> &entries) {
@@ -133,6 +153,19 @@ public:
 
         // hardware
         addEntriesToGrid(&m_hardwareEntries, {new CPUEntry(), new MemoryEntry(), new GPUEntry()});
+
+        KAuth::Action action(QStringLiteral("org.kde.kinfocenter.dmidecode.systeminformation"));
+        action.setHelperId(QStringLiteral("org.kde.kinfocenter.dmidecode"));
+        KAuth::ExecuteJob *job = action.execute();
+        connect(job, &KJob::result, this, [this, job, addEntriesToGrid] {
+            const QVariantMap data = job->data();
+            for (auto it = data.cbegin(); it != data.cend(); ++it) {
+                addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(it.key()), it.value().toString())});
+            }
+
+            Q_EMIT changed();
+        });
+        job->start();
 
         Q_EMIT changed();
     }
