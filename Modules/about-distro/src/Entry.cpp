@@ -5,9 +5,10 @@
 
 #include "Entry.h"
 
-Entry::Entry(const KLocalizedString &label_, const QString &value_)
+Entry::Entry(const KLocalizedString &label_, const QString &value_, const QString &contextualHelp_)
     : m_label(label_)
     , m_value(value_)
+    , m_contextualHelp(contextualHelp_)
 {
     Q_ASSERT(m_label.isEmpty() || localizedLabel(Language::English).endsWith(':'));
 }
@@ -55,6 +56,12 @@ QString Entry::localizedValue(Language language) const
 {
     Q_UNUSED(language);
     return m_value;
+}
+
+QString Entry::contextualHelp(Language language) const
+{
+    Q_UNUSED(language);
+    return m_contextualHelp;
 }
 
 QLocale Entry::localeForLanguage(Language language) const
