@@ -158,7 +158,12 @@ public:
         action.setHelperId(QStringLiteral("org.kde.kinfocenter.dmidecode"));
         KAuth::ExecuteJob *job = action.execute();
         connect(job, &KJob::result, this, [this, job, addEntriesToGrid] {
-            const QVariantMap data = job->data();
+            QVariantMap data = job->data();
+            const QString systemSerialNumber = data.take(QStringLiteral("system-serial-number")).toString();
+            const QString systemProductName = data.take(QStringLiteral("system-product-name")).toString();
+            if (!systemSerialNumber.isEmpty() && !systemProductName.isEmpty()) {
+                addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(QStringLiteral("system-product-name")), systemProductName, systemSerialNumber)});
+            }
             for (auto it = data.cbegin(); it != data.cend(); ++it) {
                 addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(it.key()), it.value().toString())});
             }

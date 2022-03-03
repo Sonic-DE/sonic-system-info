@@ -29,7 +29,7 @@ public:
     Q_ENUM(Language);
 
     // value may be empty if localizedValue is overridden
-    Entry(const KLocalizedString &label_, const QString &value_);
+    Entry(const KLocalizedString &label_, const QString &value_, const QString &contextualHelp_ = {});
     ~Entry() override;
 
     // When false this entry is garbage (e.g. incomplete data) and shouldn't be rendered.
@@ -44,6 +44,9 @@ public:
     // is needed for the value.
     Q_SCRIPTABLE virtual QString localizedValue(Language language = Language::System) const;
 
+    // Returns the contextual help string of this entry.
+    Q_INVOKABLE virtual QString contextualHelp(Language language = Language::System) const;
+
 protected:
     // Returns localized QString for the given language.
     QString localize(const KLocalizedString &string, Language language) const;
@@ -55,6 +58,8 @@ protected:
     KLocalizedString m_label;
     // Value of the entry (e.g. the version of plasma)
     QString m_value;
+    // Contextual help if applicable (visualized as context help button)
+    QString m_contextualHelp;
 };
 
 #endif // ENTRY_H
