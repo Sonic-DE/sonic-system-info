@@ -1,14 +1,14 @@
 /*
-    SPDX-FileCopyrightText: 2012-2020 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2012-2022 Harald Sitter <sitter@kde.org>
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
 #include "Entry.h"
 
-Entry::Entry(const KLocalizedString &label_, const QString &value_, const QString &contextualHelp_)
+Entry::Entry(const KLocalizedString &label_, const QString &value_, Hidden hidden)
     : m_label(label_)
     , m_value(value_)
-    , m_contextualHelp(contextualHelp_)
+    , m_hidden(hidden)
 {
     Q_ASSERT(m_label.isEmpty() || localizedLabel(Language::English).endsWith(':'));
 }
@@ -58,10 +58,9 @@ QString Entry::localizedValue(Language language) const
     return m_value;
 }
 
-QString Entry::contextualHelp(Language language) const
+bool Entry::hidden() const
 {
-    Q_UNUSED(language);
-    return m_contextualHelp;
+    return m_hidden == Hidden::Yes;
 }
 
 QLocale Entry::localeForLanguage(Language language) const

@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2012-2020 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2012-2022 Harald Sitter <sitter@kde.org>
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
@@ -28,8 +28,14 @@ public:
     };
     Q_ENUM(Language);
 
+    enum class Hidden {
+        No = false,
+        Yes = true,
+    };
+    Q_ENUM(Hidden);
+
     // value may be empty if localizedValue is overridden
-    Entry(const KLocalizedString &label_, const QString &value_, const QString &contextualHelp_ = {});
+    Entry(const KLocalizedString &label_, const QString &value_, Hidden hidden = Hidden::No);
     ~Entry() override;
 
     // When false this entry is garbage (e.g. incomplete data) and shouldn't be rendered.
@@ -45,7 +51,7 @@ public:
     Q_SCRIPTABLE virtual QString localizedValue(Language language = Language::System) const;
 
     // Returns the contextual help string of this entry.
-    Q_INVOKABLE virtual QString contextualHelp(Language language = Language::System) const;
+    Q_INVOKABLE virtual bool hidden() const;
 
 protected:
     // Returns localized QString for the given language.
@@ -58,8 +64,8 @@ protected:
     KLocalizedString m_label;
     // Value of the entry (e.g. the version of plasma)
     QString m_value;
-    // Contextual help if applicable (visualized as context help button)
-    QString m_contextualHelp;
+    // Entries may be hidden behind a button so they aren't visible by default.
+    Hidden m_hidden;
 };
 
 #endif // ENTRY_H
