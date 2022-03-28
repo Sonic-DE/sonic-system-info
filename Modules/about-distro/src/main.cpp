@@ -162,7 +162,7 @@ public:
             const QString systemSerialNumber = data.take(QStringLiteral("system-serial-number")).toString();
             const QString systemProductName = data.take(QStringLiteral("system-product-name")).toString();
             if (!systemSerialNumber.isEmpty() && !systemProductName.isEmpty()) {
-                addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(QStringLiteral("system-product-name")), systemProductName, systemSerialNumber)});
+                addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(QStringLiteral("system-product-name")), systemProductName, Entry::Hidden::Yes)});
             }
             for (auto it = data.cbegin(); it != data.cend(); ++it) {
                 addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(it.key()), it.value().toString())});
@@ -181,7 +181,7 @@ public:
         for (auto entry : m_entries) {
             text += entry->diagnosticLine(Entry::Language::System);
         }
-        QGuiApplication::clipboard()->setText(text.trimmed());
+        storeInClipboard(text);
     }
 
     Q_SCRIPTABLE void copyToClipboardInEnglish()
@@ -190,6 +190,11 @@ public:
         for (auto entry : m_entries) {
             text += entry->diagnosticLine(Entry::Language::English);
         }
+        storeInClipboard(text);
+    }
+
+    Q_SCRIPTABLE static void storeInClipboard(const QString &text)
+    {
         QGuiApplication::clipboard()->setText(text.trimmed());
     }
 

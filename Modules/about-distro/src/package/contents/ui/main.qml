@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kcm 1.6 as KCM
 
 import org.kde.kinfocenter.about_distro.private 1.0
@@ -76,12 +76,37 @@ KCM.SimpleKCM {
                 id: entryComponent
                 RowLayout {
                     Kirigami.FormData.label: modelData.localizedLabel()
+                    property bool hidden: modelData.hidden()
+
+                    Component {
+                        id: unhideDialog
+                        Kirigami.PromptDialog {
+                            title: modelData.localizedLabel()
+                            subtitle: modelData.localizedValue()
+                            flatFooterButtons: true
+                            standardButtons: Kirigami.Dialog.NoButton
+                            customFooterActions: [
+                                Kirigami.Action {
+                                    text: i18nc("@action:button", "Copy to Clipboard")
+                                    icon.name: "edit-copy"
+                                    onTriggered: kcm.storeInClipboard(subtitle)
+                                    shortcut: StandardKey.Copy
+                                }
+                            ]
+                        }
+                    }
+
                     QQC2.Label {
+                        visible: !hidden
                         text: modelData.localizedValue()
                     }
-                    KCM.ContextualHelpButton {
-                        visible: toolTipText !== ""
-                        toolTipText: modelData.contextualHelp()
+                    QQC2.Button {
+                        visible: hidden
+                        text: i18nc("@action:button", "Show")
+                        onClicked: {
+                            const dialog = unhideDialog.createObject(root, {})
+                            dialog.open()
+                        }
                     }
                 }
             }
