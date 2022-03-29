@@ -159,13 +159,14 @@ public:
         KAuth::ExecuteJob *job = action.execute();
         connect(job, &KJob::result, this, [this, job, addEntriesToGrid] {
             QVariantMap data = job->data();
-            const QString systemSerialNumber = data.take(QStringLiteral("system-serial-number")).toString();
-            const QString systemProductName = data.take(QStringLiteral("system-product-name")).toString();
-            if (!systemSerialNumber.isEmpty() && !systemProductName.isEmpty()) {
-                addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(QStringLiteral("system-product-name")), systemProductName, Entry::Hidden::Yes)});
-            }
+            static const QString systemSerialNumberKey = QStringLiteral("system-serial-number");
+            const QString systemSerialNumber = data.take(systemSerialNumberKey).toString();
             for (auto it = data.cbegin(); it != data.cend(); ++it) {
                 addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(it.key()), it.value().toString())});
+            }
+            // Insert hidden entries at the end so it doesn't look weird visually to have a button mid-layout.
+            if (!systemSerialNumber.isEmpty()) {
+                addEntriesToGrid(&m_hardwareEntries, {new Entry(systemInfoKey(systemSerialNumberKey), systemSerialNumber, Entry::Hidden::Yes)});
             }
 
             Q_EMIT changed();
