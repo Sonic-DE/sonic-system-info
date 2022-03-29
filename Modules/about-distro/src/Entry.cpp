@@ -58,7 +58,7 @@ QString Entry::localizedValue(Language language) const
     return m_value;
 }
 
-bool Entry::hidden() const
+bool Entry::isHidden() const
 {
     return m_hidden == Hidden::Yes;
 }

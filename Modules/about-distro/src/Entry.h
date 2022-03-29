@@ -51,7 +51,7 @@ public:
     Q_SCRIPTABLE virtual QString localizedValue(Language language = Language::System) const;
 
     // Returns the contextual help string of this entry.
-    Q_INVOKABLE virtual bool hidden() const;
+    Q_INVOKABLE virtual bool isHidden() const;
 
 protected:
     // Returns localized QString for the given language.
