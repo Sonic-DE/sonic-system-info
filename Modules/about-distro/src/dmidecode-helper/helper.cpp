@@ -47,19 +47,19 @@ KAuth::ActionReply DMIDecodeHelper::systeminformation(const QVariantMap &args)
 
         // Fairly exhaustive filter list based on a dozen or so samples gathered from reddit and other places.
         // These are values that may appear in the DMI system information but aren't really useful.
-        // static const auto dummyData = make_array<QString>(QStringLiteral("system version"),
-        //                                                   QStringLiteral("system product name"),
-        //                                                   QStringLiteral("system serial number"),
-        //                                                   QStringLiteral("system manufacturer"),
-        //                                                   QStringLiteral("to be filled by o.e.m."),
-        //                                                   QStringLiteral("standard"), /* sometimes the version is useless */
-        //                                                   QStringLiteral("sku"),
-        //                                                   QStringLiteral("default string"),
-        //                                                   QStringLiteral("not specified")
-        //                                                   /* may also be empty, but that is filtered above already */);
-        // if (std::find(dummyData.cbegin(), dummyData.cend(), output.toLower()) != dummyData.cend()) {
-        //     continue;
-        // }
+        static const auto dummyData = make_array<QString>(QStringLiteral("system version"),
+                                                          QStringLiteral("system product name"),
+                                                          QStringLiteral("system serial number"),
+                                                          QStringLiteral("system manufacturer"),
+                                                          QStringLiteral("to be filled by o.e.m."),
+                                                          QStringLiteral("standard"), /* sometimes the version is useless */
+                                                          QStringLiteral("sku"),
+                                                          QStringLiteral("default string"),
+                                                          QStringLiteral("not specified")
+                                                          /* may also be empty, but that is filtered above already */);
+        if (std::find(dummyData.cbegin(), dummyData.cend(), output.toLower()) != dummyData.cend()) {
+            continue;
+        }
 
         reply.addData(key, output);
     }

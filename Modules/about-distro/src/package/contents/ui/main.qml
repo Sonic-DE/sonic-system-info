@@ -1,6 +1,6 @@
 /*
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-    SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2021-2022 Harald Sitter <sitter@kde.org>
 */
 
 import QtQuick 2.15
@@ -76,7 +76,7 @@ KCM.SimpleKCM {
                 id: entryComponent
                 RowLayout {
                     Kirigami.FormData.label: modelData.localizedLabel()
-                    property bool hidden: modelData.hidden()
+                    property bool hidden: modelData.isHidden()
 
                     Component {
                         id: unhideDialog
@@ -102,7 +102,7 @@ KCM.SimpleKCM {
                     }
                     QQC2.Button {
                         visible: hidden
-                        text: i18nc("@action:button", "Show")
+                        text: i18nc("@action:button show a hidden entry in an overlay", "Show")
                         onClicked: {
                             const dialog = unhideDialog.createObject(root, {})
                             dialog.open()
