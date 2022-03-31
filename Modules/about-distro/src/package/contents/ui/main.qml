@@ -81,7 +81,9 @@ KCM.SimpleKCM {
                     Component {
                         id: unhideDialog
                         Kirigami.PromptDialog {
-                            title: modelData.localizedLabel()
+                            // NB: should we ever have other entries that need this dialog then this needs refactoring on the Entry side.
+                            //  Do NOT simply add if else logic here!
+                            title: i18nc("@title", "Serial Number")
                             subtitle: modelData.localizedValue()
                             flatFooterButtons: true
                             standardButtons: Kirigami.Dialog.NoButton
