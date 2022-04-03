@@ -50,7 +50,7 @@ public:
     // is needed for the value.
     Q_SCRIPTABLE virtual QString localizedValue(Language language = Language::System) const;
 
-    // Returns the contextual help string of this entry.
+    // Returns whether this Entry should be hidden by default (i.e. only shown upon user request)
     Q_INVOKABLE virtual bool isHidden() const;
 
 protected:
