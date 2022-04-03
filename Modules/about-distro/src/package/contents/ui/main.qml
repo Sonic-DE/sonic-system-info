@@ -76,7 +76,7 @@ KCM.SimpleKCM {
                 id: entryComponent
                 RowLayout {
                     Kirigami.FormData.label: modelData.localizedLabel()
-                    property bool hidden: modelData.isHidden()
+                    readonly property bool hidden: modelData.isHidden()
 
                     Component {
                         id: unhideDialog
