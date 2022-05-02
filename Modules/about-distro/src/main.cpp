@@ -235,7 +235,7 @@ public:
     Q_SCRIPTABLE void copyToClipboard()
     {
         QString text;
-        for (auto entry : m_entries) {
+        for (auto entry : std::as_const(m_entries)) {
             if (entry->isHidden()) {
                 continue;
             }
@@ -247,7 +247,7 @@ public:
     Q_SCRIPTABLE void copyToClipboardInEnglish()
     {
         QString text;
-        for (auto entry : m_entries) {
+        for (auto entry : std::as_const(m_entries)) {
             if (entry->isHidden()) {
                 continue;
             }
