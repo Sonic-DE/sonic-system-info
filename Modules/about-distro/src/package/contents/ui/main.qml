@@ -100,6 +100,7 @@ KCM.SimpleKCM {
                                     shortcut: StandardKey.Copy
                                 }
                             ]
+                            onClosed: destroy();
                         }
                     }
 
@@ -111,8 +112,8 @@ KCM.SimpleKCM {
                         visible: hidden
                         text: i18nc("@action:button show a hidden entry in an overlay", "Show")
                         onClicked: {
-                            const dialog = unhideDialog.createObject(root, {})
-                            dialog.open()
+                            const dialog = unhideDialog.createObject(root, {});
+                            dialog.open();
                         }
                     }
                 }
