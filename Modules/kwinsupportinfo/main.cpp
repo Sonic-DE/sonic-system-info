@@ -18,7 +18,9 @@ public:
     explicit KCMKWinSupportInfo(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
         : ConfigModule(parent, data, args)
     {
-        auto outputContext = new CommandOutputContext(QStringLiteral("qdbus org.kde.KWin /KWin supportInformation"), {}, parent);
+        auto outputContext = new CommandOutputContext(QStringLiteral("qdbus"),
+                                                      {QStringLiteral("org.kde.KWin"), QStringLiteral("/KWin"), QStringLiteral("supportInformation")},
+                                                      parent);
         qmlRegisterSingletonInstance("org.kde.kinfocenter.kwinsupportinfo.private", 1, 0, "InfoOutputContext", outputContext);
 
         auto *about = new KAboutData(QStringLiteral("kcm_kwinsupportinfo"),

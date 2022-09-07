@@ -3,8 +3,8 @@
     "KPlugin": {
         "Description": "KWin Support information",
         "Icon": "kwin",
-        "Name": "Window Manager",
+        "Name": "Window Manager"
     },
     "TryExec": "qdbus",
-    "X-KDE-KInfoCenter-Category": "graphical_information",
+    "X-KDE-KInfoCenter-Category": "graphical_information"
 }
