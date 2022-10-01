@@ -104,10 +104,26 @@ KCM.SimpleKCM {
                         }
                     }
 
-                    QQC2.Label {
+                    TextEdit {
+                        id: valueLabel
                         visible: !hidden
+                        readOnly: true
+                        selectByMouse: true
+                        color: Kirigami.Theme.textColor
+                        selectedTextColor: Kirigami.Theme.highlightedTextColor
+                        selectionColor: Kirigami.Theme.highlightColor
+                        font.pointSize: Kirigami.Theme.defaultFont.pointSize
                         text: modelData.localizedValue()
+                        Keys.onShortcutOverride: event.accepted = (valueLabel.activeFocus && valueLabel.selectedText && event.matches(StandardKey.Copy))
+                        Keys.onPressed: {
+                            if (event.matches(StandardKey.Copy)) {
+                                console.log("overridden");
+                                valueLabel.copy();
+                                event.accepted = true;
+                            }
+                        }
                     }
+
                     QQC2.Button {
                         visible: hidden
                         text: i18nc("@action:button show a hidden entry in an overlay", "Show")
