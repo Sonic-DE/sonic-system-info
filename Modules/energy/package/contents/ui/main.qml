@@ -363,8 +363,20 @@ KCM.SimpleKCM {
                         id: detailsRepeater
                         model: modelData.data || []
 
-                        QQC2.Label {
+                        TextEdit {
                             id: valueLabel
+                            readOnly: true
+                            selectByMouse: true
+                            color: Kirigami.Theme.textColor
+                            selectedTextColor: Kirigami.Theme.highlightedTextColor
+                            selectionColor: Kirigami.Theme.highlightColor
+                            font.pointSize: Kirigami.Theme.defaultFont.pointSize
+                            Keys.onPressed: {
+                                if (event.matches(StandardKey.Copy)) {
+                                    valueLabel.copy();
+                                    event.accepted = true;
+                                }
+                            }
                             Kirigami.FormData.label: i18n("%1:", modelData.label)
                             text: {
                                 var value;
