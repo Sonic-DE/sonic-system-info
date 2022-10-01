@@ -216,27 +216,6 @@ KCM.SimpleKCM {
                 Layout.fillWidth: true
                 columns: !compact ? 5 : 3
 
-                QQC2.Button {
-                    id: chargeButton
-                    checked: true
-                    checkable: true
-                    text: i18n("Charge Percentage")
-                    onClicked: {
-                        historyType = HistoryModel.ChargeType
-                        rateButton.checked = false
-                    }
-                }
-
-                QQC2.Button {
-                    id: rateButton
-                    checkable: true
-                    text: i18n("Energy Consumption")
-                    onClicked: {
-                        historyType = HistoryModel.RateType
-                        chargeButton.checked = false
-                    }
-                }
-
                 Item {
                     Layout.fillWidth: true
                 }
@@ -272,7 +251,7 @@ KCM.SimpleKCM {
                 Layout.fillWidth: true
                 Layout.minimumHeight: column.width / 3
                 Layout.maximumHeight: column.width / 3
-                Layout.topMargin: units.largeSpacing
+                Layout.topMargin: -units.largeSpacing
 
                 data: history.points
 
@@ -308,6 +287,30 @@ KCM.SimpleKCM {
                 }
                 yStep: root.historyType == HistoryModel.RateType ? 10 : 20
                 visible: history.count > 1
+            }
+
+            GridLayout {
+                Layout.alignment: Qt.AlignHCenter
+                QQC2.Button {
+                    id: chargeButton
+                    checked: true
+                    checkable: true
+                    text: i18n("Charge Percentage")
+                    onClicked: {
+                        historyType = HistoryModel.ChargeType
+                        rateButton.checked = false
+                    }
+                }
+
+                QQC2.Button {
+                    id: rateButton
+                    checkable: true
+                    text: i18n("Energy Consumption")
+                    onClicked: {
+                        historyType = HistoryModel.RateType
+                        chargeButton.checked = false
+                    }
+                }
             }
 
             Kirigami.InlineMessage {
