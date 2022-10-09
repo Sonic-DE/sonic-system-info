@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 
-import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kcm 1.6 as KCM
 
 import org.kde.kinfocenter.about_distro.private 1.0
@@ -104,15 +104,9 @@ KCM.SimpleKCM {
                         }
                     }
 
-                    TextEdit {
+                    Kirigami.SelectableLabel {
                         id: valueLabel
                         visible: !hidden
-                        readOnly: true
-                        selectByMouse: true
-                        color: Kirigami.Theme.textColor
-                        selectedTextColor: Kirigami.Theme.highlightedTextColor
-                        selectionColor: Kirigami.Theme.highlightColor
-                        font.pointSize: Kirigami.Theme.defaultFont.pointSize
                         text: modelData.localizedValue()
                         Keys.onShortcutOverride: event.accepted = (valueLabel.activeFocus && valueLabel.selectedText && event.matches(StandardKey.Copy))
                         Keys.onPressed: {

@@ -7,7 +7,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 
 import org.kde.kquickcontrolsaddons 2.0
 import org.kde.kinfocenter.energy.private 1.0
@@ -363,14 +363,8 @@ KCM.SimpleKCM {
                         id: detailsRepeater
                         model: modelData.data || []
 
-                        TextEdit {
+                        Kirigami.SelectableLabel {
                             id: valueLabel
-                            readOnly: true
-                            selectByMouse: true
-                            color: Kirigami.Theme.textColor
-                            selectedTextColor: Kirigami.Theme.highlightedTextColor
-                            selectionColor: Kirigami.Theme.highlightColor
-                            font.pointSize: Kirigami.Theme.defaultFont.pointSize
                             Keys.onPressed: {
                                 if (event.matches(StandardKey.Copy)) {
                                     valueLabel.copy();
