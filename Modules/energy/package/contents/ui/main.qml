@@ -265,6 +265,8 @@ KCM.SimpleKCM {
 
             GridLayout {
                 Layout.fillWidth: true
+                Layout.leftMargin: graph.xPadding
+                Layout.rightMargin: graph.xPadding/2
                 columns: !compact ? 5 : 3
 
                 QQC2.Button {
