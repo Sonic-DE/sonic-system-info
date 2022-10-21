@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.1
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kquickcontrolsaddons 2.0
 import org.kde.kcm 1.4 as KCM
 
@@ -17,32 +17,29 @@ KCM.SimpleKCM {
     implicitWidth: Kirigami.Units.gridUnit * 20
     implicitHeight: Kirigami.Units.gridUnit * 20
     // Use a horizontal scrollbar if text wrapping is disabled. In all other cases we'll go with the defaults.
-    horizontalScrollBarPolicy: wrapMode === TextEdit.NoWrap ? Qt.ScrollBarAsNeeded : undefined
+    horizontalScrollBarPolicy: wrapMode === TextEdit.NoWrap ? QQC2.ScrollBar.AsNeeded : QQC2.ScrollBar.AlwaysOff
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
     // The CommandOutputContext object.
     required property QtObject output
-    property int wrapMode: TextEdit.NoWrap
-    property var textFormat: TextEdit.PlainText
+    property int wrapMode: TextEdit.WordWrap
+    property int textFormat: TextEdit.PlainText
 
     Clipboard { id: clipboard }
 
     Component {
         id: dataComponent
 
-        QQC2.Label {
+        Kirigami.SelectableLabel {
             id: text
+            // anchors.fill: parent
             text: output.text
             font.family: "monospace"
             wrapMode: root.wrapMode
             textFormat: root.textFormat
             onLinkActivated: Qt.openUrlExternally(link)
-
-             HoverHandler {
-                cursorShape: text.linkHovered.length > 0 ? Qt.PointingHandCursor : undefined
-            }
         }
     }
 
@@ -112,6 +109,7 @@ KCM.SimpleKCM {
     // We could switch around visiblity but a Loader seems neater over all.
     Loader {
         id: contentLoader
+        anchors.fill: parent
     }
 
     footer: QQC2.ToolBar {
