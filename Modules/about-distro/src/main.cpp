@@ -153,9 +153,12 @@ public:
         const QString distroName = cg.readEntry("Name", os.name());
         const QString osrVersion = cg.readEntry("UseOSReleaseVersion", false) ? os.version() : os.versionId();
         const QString versionId = cg.readEntry("Version", osrVersion);
+        // Default to not show Build
+        const QString buildId = cg.readEntry("ShowBuild", false) ? i18n("Build: %1", os.buildId()) : QString();
+
         // This creates a trailing space if versionId is empty, so trimming String
         // to remove possibly trailing spaces
-        const QString distroNameVersion = QStringLiteral("%1 %2").arg(distroName, versionId).trimmed();
+        const QString distroNameVersion = QStringLiteral("%1 %2 %3").arg(distroName, versionId, buildId).trimmed();
         m_distroNameVersion = distroNameVersion;
 
         // Insert a dummy entry for debug info dumps.
