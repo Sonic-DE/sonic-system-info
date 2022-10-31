@@ -25,6 +25,7 @@
 #include "GraphicsPlatformEntry.h"
 #include "KernelEntry.h"
 #include "MemoryEntry.h"
+#include "OSVersionEntry.h"
 #include "PlasmaEntry.h"
 #include "ServiceRunner.h"
 #include "Version.h"
@@ -134,38 +135,15 @@ public:
 
     void loadOSData()
     {
-        // NOTE: do not include globals, otherwise kdeglobals could provide values
-        //       even though we only explicitly want them from our own config.
-        KSharedConfig::Ptr config = KSharedConfig::openConfig(QStringLiteral("kcm-about-distrorc"), KConfig::NoGlobals);
-        KConfigGroup cg = KConfigGroup(config, "General");
-
-        KOSRelease os;
-
-        QString logoPath = cg.readEntry("LogoPath", os.logo());
-        if (logoPath.isEmpty()) {
-            logoPath = QStringLiteral("start-here-kde");
-        }
-        m_distroLogo = logoPath;
-
-        // We allow overriding of the OS name for branding purposes.
-        // For example OS Ubuntu may be rebranded as Kubuntu. Also Kubuntu Active
-        // as a product brand is different from Kubuntu.
-        const QString distroName = cg.readEntry("Name", os.name());
-        const QString osrVersion = cg.readEntry("UseOSReleaseVersion", false) ? os.version() : os.versionId();
-        const QString versionId = cg.readEntry("Version", osrVersion);
-        // This creates a trailing space if versionId is empty, so trimming String
-        // to remove possibly trailing spaces
-        const QString distroNameVersion = QStringLiteral("%1 %2").arg(distroName, versionId).trimmed();
-        m_distroNameVersion = distroNameVersion;
+        m_distroLogo = m_versionEntry->logoPath();
+        m_distroNameVersion = m_versionEntry->localizedValue();
 
         // Insert a dummy entry for debug info dumps.
-        m_entries.push_back(new Entry(ki18n("Operating System:"), distroNameVersion));
+        m_entries.push_back(m_versionEntry);
 
-        const QString variant = cg.readEntry("Variant", os.variant());
-        m_distroVariant = variant;
+        m_distroVariant = m_versionEntry->variant();
 
-        const QString url = cg.readEntry("Website", os.homeUrl());
-        m_distroUrl = url;
+        m_distroUrl = m_versionEntry->url();
 
         Q_EMIT changed();
     }
@@ -337,6 +315,8 @@ private:
     const bool m_isEnglish = QLocale::system().language() == QLocale::English || QLocale::system().language() == QLocale::C;
     Q_PROPERTY(bool isThisKInfoCenter MEMBER m_isThisKInfoCenter CONSTANT);
     const bool m_isThisKInfoCenter = qGuiApp->desktopFileName() == QLatin1String("org.kde.kinfocenter");
+
+    OSVersionEntry *m_versionEntry = new OSVersionEntry();
 };
 
 K_PLUGIN_CLASS_WITH_JSON(KCMAboutSystem, "kcm_about-distro.json")
