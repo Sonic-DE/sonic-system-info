@@ -154,7 +154,7 @@ public:
         const QString osrVersion = cg.readEntry("UseOSReleaseVersion", false) ? os.version() : os.versionId();
         const QString versionId = cg.readEntry("Version", osrVersion);
         // Default to not show Build
-        const QString buildId = cg.readEntry("ShowBuild", false) ? i18nc("@info: Here 'build" refers to a software build", "Build: %1", os.buildId()) : QString();
+        const QString buildId = cg.readEntry("ShowBuild", false) ? i18nc("@info: Here 'build' refers to a software build", "Build: %1", os.buildId()) : QString();
 
         // This creates a trailing space if versionId is empty, so trimming String
         // to remove possibly trailing spaces
