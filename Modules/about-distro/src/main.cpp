@@ -133,6 +133,19 @@ public:
         loadEntries();
     }
 
+    QStringList getCommandOutput(const QString &command)
+    {
+        QProcess *process = new QProcess(this);
+        QString allOutput;
+
+        QStringList arguments;
+        process->start(command, arguments);
+        process->waitForFinished();
+        allOutput = process->readAllStandardOutput();
+
+        return allOutput.split("\n");
+    }
+
     void loadOSData()
     {
         // NOTE: do not include globals, otherwise kdeglobals could provide values
@@ -150,6 +163,13 @@ public:
 
         // Default to not show Build
         const bool showBuild = cg.readEntry("ShowBuild", false);
+
+        // Check if distro want's us to show extra values
+        KConfigGroup extraConfig = KConfigGroup(config, "ExtraData");
+        const QString partitionScript = extraConfig.readEntry("partition", "");
+        QStringList output = getCommandOutput(partitionScript);
+        // Only show the first line of output
+        m_extraData["partition"] = output.at(0);
 
         // as a product brand is different from Kubuntu.
         const QString distroName = cg.readEntry("Name", os.name());
@@ -224,6 +244,8 @@ public:
 
     void loadEntries()
     {
+        const QMap<QString, KLocalizedString> kExtraDataMap({{QStringLiteral("partition"), ki18n("Partition:")}});
+
         auto addEntriesToGrid = [this](EntryModel *model, const std::vector<Entry *> &entries) {
             for (auto entry : entries) {
                 if (!entry->isValid()) {
@@ -242,6 +264,14 @@ public:
                           new Entry(ki18n("Qt Version:"), QString::fromLatin1(qVersion())),
                           new KernelEntry(),
                           new GraphicsPlatformEntry()});
+
+        // Add any extraData entries
+        foreach (const QString &key, kExtraDataMap.keys()) {
+            KLocalizedString name = kExtraDataMap.value(key);
+            if (auto it = m_extraData.constFind(key); it != m_extraData.constEnd()) {
+                addEntriesToGrid(m_softwareEntries, {new Entry(name, *it)});
+            }
+        }
 
         // hardware
         addEntriesToGrid(m_hardwareEntries, {new CPUEntry, new MemoryEntry, new GPUEntry});
@@ -284,7 +314,7 @@ public:
 #endif // Q_OS_LINUX || Q_OS_ANDROID
 
         Q_EMIT changed();
-    }
+        }
 
     Q_SCRIPTABLE void copyToClipboard()
     {
@@ -317,6 +347,8 @@ public:
 
 private:
     std::vector<const Entry *> m_entries;
+    // Extra data distro wants to show in key/value pairs
+    QMap<QString, QString> m_extraData;
 
     Q_SIGNAL void changed();
 
