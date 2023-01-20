@@ -133,6 +133,19 @@ public:
         loadEntries();
     }
 
+    QStringList getCommandOutput(const QString &command)
+    {
+        QProcess *process = new QProcess(this);
+        QString allOutput;
+
+        QStringList arguments;
+        process->start(command, arguments);
+        process->waitForFinished();
+        allOutput = process->readAllStandardOutput();
+
+        return allOutput.split("\n");
+    }
+
     void loadOSData()
     {
         // NOTE: do not include globals, otherwise kdeglobals could provide values
@@ -150,6 +163,22 @@ public:
 
         // Default to not show Build
         const bool showBuild = cg.readEntry("ShowBuild", false);
+
+        // Check if distro want's us to show extra values
+        const QString extraData = cg.readEntry("ExtraData", "");
+        // if so run the script and add entries for each to the gui
+        QStringList output = getCommandOutput(extraData);
+        // Now separate each line into parts split by tab character and create gui entries
+        foreach (const QString &line, output) {
+            QStringList words = line.split('\t');
+            if (words.size() < 2) {
+                qDebug() << "Script output must be tab separated, got invalid line: " << line;
+                continue;
+            }
+            QString key = words.at(0);
+            QString value = words.at(1);
+            m_extraData[key] = value;
+        }
 
         // as a product brand is different from Kubuntu.
         const QString distroName = cg.readEntry("Name", os.name());
@@ -243,6 +272,11 @@ public:
                           new KernelEntry(),
                           new GraphicsPlatformEntry()});
 
+        // Add any extraData entries
+        foreach (const QString &key, m_extraData.keys()) {
+            addEntriesToGrid(m_softwareEntries, {new Entry(key, m_extraData.value(key))});
+        }
+
         // hardware
         addEntriesToGrid(m_hardwareEntries, {new CPUEntry, new MemoryEntry, new GPUEntry});
 
@@ -317,6 +351,8 @@ public:
 
 private:
     std::vector<const Entry *> m_entries;
+    // Extra data distro wants to show in key/value pairs
+    QMap<QString, QString> m_extraData;
 
     Q_SIGNAL void changed();
 
