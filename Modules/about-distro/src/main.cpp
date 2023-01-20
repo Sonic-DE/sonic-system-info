@@ -133,6 +133,19 @@ public:
         loadEntries();
     }
 
+    QStringList getCommandOutput(const QString &command)
+    {
+        QProcess *process = new QProcess(this);
+        QString allOutput;
+
+        QStringList arguments;
+        process->start(command, arguments);
+        process->waitForFinished();
+        allOutput = process->readAllStandardOutput();
+
+        return allOutput.split("\n");
+    }
+
     void loadOSData()
     {
         // NOTE: do not include globals, otherwise kdeglobals could provide values
@@ -150,6 +163,13 @@ public:
 
         // Default to not show Build
         const bool showBuild = cg.readEntry("ShowBuild", false);
+
+        // Check if distro want's us to show extra values
+        KConfigGroup extraConfig = KConfigGroup(config, "ExtraData");
+        const QString partitionScript = extraConfig.readEntry("partition", "");
+        QStringList output = getCommandOutput(partitionScript);
+        // Only show the first line of output
+        m_extraData["partition"] = output.at(0);
 
         // as a product brand is different from Kubuntu.
         const QString distroName = cg.readEntry("Name", os.name());
@@ -177,7 +197,7 @@ public:
             return ki18nc("@label", "Manufacturer:");
         }
         if (key == QStringLiteral("system-product-name")) {
-            return ki18nc("@label", "Product Name:");
+            return ki18n("@label", "Product Name:");
         }
         if (key == QStringLiteral("system-version")) {
             return ki18nc("@label", "System Version:");
@@ -224,6 +244,8 @@ public:
 
     void loadEntries()
     {
+        const QMap<QString, KLocalizedString> kExtraDataMap({"partition", i18n("Partition")});
+
         auto addEntriesToGrid = [this](EntryModel *model, const std::vector<Entry *> &entries) {
             for (auto entry : entries) {
                 if (!entry->isValid()) {
@@ -243,27 +265,34 @@ public:
                           new KernelEntry(),
                           new GraphicsPlatformEntry()});
 
-        // hardware
-        addEntriesToGrid(m_hardwareEntries, {new CPUEntry, new MemoryEntry, new GPUEntry});
-
-        KAuth::Action action(QStringLiteral("org.kde.kinfocenter.dmidecode.systeminformation"));
-        action.setHelperId(QStringLiteral("org.kde.kinfocenter.dmidecode"));
-        KAuth::ExecuteJob *job = action.execute();
-        connect(job, &KJob::result, this, [this, job, addEntriesToGrid] {
-            QVariantMap data = job->data();
-            static const QString systemSerialNumberKey = QStringLiteral("system-serial-number");
-            const QString systemSerialNumber = data.take(systemSerialNumberKey).toString();
-            for (auto it = data.cbegin(); it != data.cend(); ++it) {
-                addEntriesToGrid(m_hardwareEntries, {new Entry(systemInfoKey(it.key()), it.value().toString())});
-            }
-            // Insert hidden entries at the end so it doesn't look weird visually to have a button mid-layout.
-            if (!systemSerialNumber.isEmpty()) {
-                addEntriesToGrid(m_hardwareEntries, {new Entry(systemInfoKey(systemSerialNumberKey), systemSerialNumber, Entry::Hidden::Yes)});
+        // Add any extraData entries
+        foreach (const QString &key, kExtraDataMap.keys()) {
+            KLocalizedString name = kExtraDataMap.value(key);
+            if (m_extraData.contains(key)) {
+                addEntriesToGrid(m_softwareEntries, {new Entry(name, m_extraData.value(key))});
             }
 
-            Q_EMIT changed();
-        });
-        job->start();
+            // hardware
+            addEntriesToGrid(m_hardwareEntries, {new CPUEntry, new MemoryEntry, new GPUEntry});
+
+            KAuth::Action action(QStringLiteral("org.kde.kinfocenter.dmidecode.systeminformation"));
+            action.setHelperId(QStringLiteral("org.kde.kinfocenter.dmidecode"));
+            KAuth::ExecuteJob *job = action.execute();
+            connect(job, &KJob::result, this, [this, job, addEntriesToGrid] {
+                QVariantMap data = job->data();
+                static const QString systemSerialNumberKey = QStringLiteral("system-serial-number");
+                const QString systemSerialNumber = data.take(systemSerialNumberKey).toString();
+                for (auto it = data.cbegin(); it != data.cend(); ++it) {
+                    addEntriesToGrid(m_hardwareEntries, {new Entry(systemInfoKey(it.key()), it.value().toString())});
+                }
+                // Insert hidden entries at the end so it doesn't look weird visually to have a button mid-layout.
+                if (!systemSerialNumber.isEmpty()) {
+                    addEntriesToGrid(m_hardwareEntries, {new Entry(systemInfoKey(systemSerialNumberKey), systemSerialNumber, Entry::Hidden::Yes)});
+                }
+
+                Q_EMIT changed();
+            });
+            job->start();
 
 #if defined(Q_OS_LINUX) || defined(Q_OS_ANDROID)
         // FDT nodes should be relative to fdtBase/. Note the lack of leading slashes.
@@ -284,7 +313,7 @@ public:
 #endif // Q_OS_LINUX || Q_OS_ANDROID
 
         Q_EMIT changed();
-    }
+        }
 
     Q_SCRIPTABLE void copyToClipboard()
     {
@@ -317,6 +346,8 @@ public:
 
 private:
     std::vector<const Entry *> m_entries;
+    // Extra data distro wants to show in key/value pairs
+    QMap<QString, QString> m_extraData;
 
     Q_SIGNAL void changed();
 
