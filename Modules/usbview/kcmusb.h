@@ -6,13 +6,17 @@
 #ifndef _KCMUSB_H
 #define _KCMUSB_H
 
+#include "usbmodel.h"
 #include <QMap>
 
 #include <KCModule>
 
 class QTreeWidget;
 class QTreeWidgetItem;
+class QStandardItem;
+class QTreeView;
 class QTextEdit;
+class QModelIndex;
 
 class USBViewer : public KCModule
 {
@@ -22,16 +26,13 @@ public:
     explicit USBViewer(QWidget *parent = nullptr, const QVariantList &list = QVariantList());
     ~USBViewer() override;
 
-    void load() override;
-
 protected Q_SLOTS:
 
-    void selectionChanged(QTreeWidgetItem *item);
-    void refresh();
+    void selectionChanged(const QModelIndex &index);
 
 private:
-    QMap<int, QTreeWidgetItem *> _items;
-    QTreeWidget *_devices;
+    QTreeView *_devices;
+    USBModel *model;
     QTextEdit *_details;
 };
 

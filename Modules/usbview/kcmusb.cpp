@@ -7,17 +7,17 @@
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QList>
+
+#include <QModelIndex>
 #include <QSplitter>
 #include <QTextEdit>
 #include <QTimer>
-#include <QTreeWidget>
+#include <QTreeView>
 
 #include <KAboutData>
 
 #include <KLocalizedString>
 #include <KPluginFactory>
-
-#include "usbdevices.h"
 
 K_PLUGIN_CLASS_WITH_JSON(USBViewer, "kcmusb.json")
 
@@ -36,14 +36,20 @@ USBViewer::USBViewer(QWidget *parent, const QVariantList &)
     splitter->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
     mainLayout->addWidget(splitter);
 
-    _devices = new QTreeWidget(splitter);
+    _devices = new QTreeView(splitter);
+
+    model = new USBModel();
+    _devices->setModel(model);
 
     QStringList headers;
     headers << i18n("Device");
-    _devices->setHeaderLabels(headers);
-    _devices->setRootIsDecorated(true);
+    // _devices->setHeaderLabels(headers);
+    _devices->expandAll();
+    _devices->setItemsExpandable(false);
+    _devices->setEditTriggers(QAbstractItemView::NoEditTriggers);
     _devices->header()->hide();
-    //_devices->setColumnWidthMode(0, Q3ListView::Maximum);
+    _devices->hideColumn(1); // hides treeview column containing busdev
+    _devices->resizeColumnToContents(0);
 
     QList<int> sizes;
     sizes.append(200);
@@ -56,8 +62,12 @@ USBViewer::USBViewer(QWidget *parent, const QVariantList &)
     // 1 sec seems to be a good compromise between latency and polling load.
     refreshTimer->start(1000);
 
-    connect(refreshTimer, &QTimer::timeout, this, &USBViewer::refresh);
-    connect(_devices, &QTreeWidget::currentItemChanged, this, &USBViewer::selectionChanged);
+    connect(refreshTimer, &QTimer::timeout, model, &USBModel::refresh);
+    connect(_devices, &QTreeView::clicked, this, &USBViewer::selectionChanged);
+
+    if (model->invisibleRootItem()->hasChildren() == true) {
+        _devices->clicked(model->invisibleRootItem()->child(0)->index());
+    } // Select first item in treeview so that details pane is not empty.
 
     KAboutData *about =
         new KAboutData(i18n("kcmusb"), i18n("USB Devices"), QString(), QString(), KAboutLicense::GPL, i18n("(c) 2001 Matthias Hoelzer-Kluepfel"));
@@ -72,99 +82,10 @@ USBViewer::~USBViewer()
     USBDevice::clear();
 }
 
-void USBViewer::load()
+void USBViewer::selectionChanged(const QModelIndex &index)
 {
-    _items.clear();
-    _devices->clear();
-
-    refresh();
-}
-
-static quint32 key(USBDevice &dev)
-{
-    return dev.bus() * 256 + dev.device();
-}
-
-static quint32 key_parent(USBDevice &dev)
-{
-    return dev.bus() * 256 + dev.parent();
-}
-
-static void delete_recursive(QTreeWidgetItem *item, const QMap<int, QTreeWidgetItem *> &new_items)
-{
-    if (!item)
-        return;
-
-    QTreeWidgetItemIterator it(item, QTreeWidgetItemIterator::All);
-    while (*it != nullptr) {
-        QTreeWidgetItem *currentItem = *it;
-        if (new_items.contains(currentItem->text(1).toUInt()) == false) {
-            delete_recursive(currentItem->child(0), new_items);
-            delete currentItem;
-        }
-        ++it;
-    }
-}
-
-void USBViewer::refresh()
-{
-    QMap<int, QTreeWidgetItem *> new_items;
-
-    if (!USBDevice::load())
-        return;
-
-    int level = 0;
-    bool found = true;
-
-    while (found) {
-        found = false;
-
-        foreach (USBDevice *usbDevice, USBDevice::devices()) {
-            if (usbDevice->level() == level) {
-                quint32 k = key(*usbDevice);
-                if (level == 0) {
-                    QTreeWidgetItem *item = _items.value(k);
-                    if (!item) {
-                        QStringList itemContent;
-                        itemContent << usbDevice->product() << QString::number(k);
-                        item = new QTreeWidgetItem(_devices, itemContent);
-                    }
-                    new_items.insert(k, item);
-                    found = true;
-                } else {
-                    QTreeWidgetItem *parent = new_items.value(key_parent(*usbDevice));
-                    if (parent) {
-                        QTreeWidgetItem *item = _items.value(k);
-
-                        if (!item) {
-                            QStringList itemContent;
-                            itemContent << usbDevice->product() << QString::number(k);
-                            item = new QTreeWidgetItem(parent, itemContent);
-                        }
-                        new_items.insert(k, item);
-                        parent->setExpanded(true);
-                        found = true;
-                    }
-                }
-            }
-        }
-
-        ++level;
-    }
-
-    // recursive delete all items not in new_items
-    delete_recursive(_devices->topLevelItem(0), new_items);
-
-    _items = new_items;
-
-    if (_devices->selectedItems().isEmpty() == true)
-        selectionChanged(_devices->topLevelItem(0));
-}
-
-void USBViewer::selectionChanged(QTreeWidgetItem *item)
-{
-    if (item) {
-        quint32 busdev = item->text(1).toUInt();
+    if (index.isValid()) {
+        quint32 busdev = index.siblingAtColumn(1).data().toUInt();
         USBDevice *dev = USBDevice::find(busdev >> 8, busdev & 255);
         if (dev) {
             _details->setHtml(dev->dump());

@@ -8,7 +8,9 @@ set(kcm_usb_PART_SRCS kcmusb.cpp
     usbdb.cpp
     usbdb.h
     usbdevices.cpp
-    usbdevices.h )
+    usbdevices.h
+    usbmodel.cpp
+    usbmodel.h )
 
 kcoreaddons_add_plugin(kcm_usb SOURCES ${kcm_usb_PART_SRCS} INSTALL_NAMESPACE "plasma/kcms/kinfocenter")
 
