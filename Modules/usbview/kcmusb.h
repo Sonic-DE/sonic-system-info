@@ -1,39 +1,19 @@
 /*
- *   SPDX-FileCopyrightText: 2001 Matthias Hoelzer-Kluepfel <mhk@caldera.de>
- *   SPDX-License-Identifier: GPL-2.0-or-later
- */
+    SPDX-FileCopyrightText: 2001 Matthias Hoelzer-Kluepfel <mhk@caldera.de>
+    SPDX-FileCopyrightText: 2023 Ravi Mistry <rvstry@protonmail.com>
+    SPDX-License-Identifier: GPL-2.0-or-later
+*/
 
 #ifndef _KCMUSB_H
 #define _KCMUSB_H
 
-#include "usbmodel.h"
-#include <QMap>
+#include <KQuickAddons/ConfigModule>
 
-#include <KCModule>
-
-class QTreeWidget;
-class QTreeWidgetItem;
-class QStandardItem;
-class QTreeView;
-class QTextEdit;
-class QModelIndex;
-
-class USBViewer : public KCModule
+class USBViewer : public KQuickAddons::ConfigModule
 {
     Q_OBJECT
-
 public:
-    explicit USBViewer(QWidget *parent = nullptr, const QVariantList &list = QVariantList());
-    ~USBViewer() override;
-
-protected Q_SLOTS:
-
-    void selectionChanged(const QModelIndex &index);
-
-private:
-    QTreeView *_devices;
-    USBModel *model;
-    QTextEdit *_details;
+    USBViewer(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
 };
 
 #endif

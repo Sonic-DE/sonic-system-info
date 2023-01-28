@@ -38,7 +38,7 @@ public:
     }
     QString product();
 
-    QString dump();
+    QStringList dump();
 
     static QList<USBDevice *> &devices()
     {

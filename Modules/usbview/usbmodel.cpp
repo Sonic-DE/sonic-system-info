@@ -5,6 +5,8 @@
 
 #include "usbmodel.h"
 
+#include "usbdevices.h"
+
 static quint32 key(USBDevice &dev)
 {
     return dev.bus() * 256 + dev.device();
@@ -89,4 +91,13 @@ void USBModel::refresh()
     // recursive delete all items not in new_items
     delete_recursive(rootItem, new_items);
     _items = new_items;
+}
+
+QStringList USBModel::details() const
+{
+    quint32 busdev = 257; // TODO: remove hardcoded busdev value
+    USBDevice *dev = USBDevice::find(busdev >> 8, busdev & 255);
+    if (dev)
+        return dev->dump();
+    return QStringList("Device not found");
 }

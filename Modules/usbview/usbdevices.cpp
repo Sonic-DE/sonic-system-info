@@ -215,11 +215,11 @@ QString USBDevice::product()
     return i18n("Unknown");
 }
 
-QString USBDevice::dump()
+QStringList USBDevice::dump()
 {
-    QString r;
+    QStringList r;
 
-    r = QStringLiteral("<qml><h2><center>") + product() + QStringLiteral("</center></h2><br/><hl/>");
+    r += QStringLiteral("<qml><h2><center>") + product() + QStringLiteral("</center></h2><br/><hl/>");
 
     if (!_manufacturer.isEmpty())
         r += i18n("<b>Manufacturer:</b> ") + _manufacturer + QStringLiteral("<br/>");
