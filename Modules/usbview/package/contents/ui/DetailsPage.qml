@@ -16,10 +16,6 @@ SimpleKCM {
     title: "[Insert Product Name Here]"
     property var detailList
 
-    // property int fakebusdev
-    // fakebusdev: 1025
-    // Component.onCompleted: usbModel.find(fakebusdev)
-
     Kirigami.FormLayout {
 
         Component {
