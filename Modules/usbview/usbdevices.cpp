@@ -219,12 +219,12 @@ QList<QList<QString>> USBDevice::dump()
 {
     QList<QList<QString>> r;
 
-    // r.append({QStringLiteral("<h2>") + product() + QStringLiteral("</h2>")});
+    // r.append({product()});
 
     if (!_manufacturer.isEmpty())
-        r.append({i18n("<b>Manufacturer:</b> "), _manufacturer});
+        r.append({i18n("Manufacturer:"), _manufacturer});
     if (!_serial.isEmpty())
-        r.append({i18n("<b>Serial #:</b> "), _serial});
+        r.append({i18n("Serial #:"), _serial});
 
     QString c = QStringLiteral("%1").arg(_class);
     QString cname = prettyLibusbClassName(_class);
