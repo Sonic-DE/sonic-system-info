@@ -235,33 +235,33 @@ QList<QList<QString>> USBDevice::dump()
     }
     if (!cname.isEmpty())
         c += QStringLiteral("(") + cname + QStringLiteral(")");
-    r.append({i18n("<i>Class</i>%1", c)});
+    r.append({i18n("<i>Class</i>"), c});
     QString sc = QStringLiteral("%1").arg(_sub);
     QString scname = _db->subclass(_class, _sub);
     if (!scname.isEmpty())
         sc += QStringLiteral("(") + i18nc("USB device subclass", scname.toLatin1().constData()) + QStringLiteral(")");
-    r.append({i18n("<i>Subclass</i>%1", sc)});
+    r.append({i18n("<i>Subclass</i>"), sc});
     QString pr = QStringLiteral("%1").arg(_prot);
     QString prname = _db->protocol(_class, _sub, _prot);
     if (!prname.isEmpty())
         pr += QStringLiteral("(") + prname + QStringLiteral(")");
-    r.append({i18n("<i>Protocol</i>%1", pr)});
-    r.append({ki18n("<i>USB Version</i>%1.%2").subs(_verMajor).subs(_verMinor, 2, 10, QChar::fromLatin1('0')).toString()});
+    r.append({i18n("<i>Protocol</i>"), pr});
+    r.append({ki18n("<i>USB Version</i>").toString(), ki18n("%1.%2").subs(_verMajor).subs(_verMinor, 2, 10, QChar::fromLatin1('0')).toString()});
 
     QString v = QStringLiteral("%1").arg(_vendorID, 4, 16, QLatin1Char('0'));
     QString name = _db->vendor(_vendorID);
     if (!name.isEmpty())
         v += QStringLiteral("(") + name + QStringLiteral(")");
-    r.append({i18n("<i>Vendor ID</i>0x%1", v)});
+    r.append({i18n("<i>Vendor ID</i>"), i18n("0x%1", v)});
     QString p = QStringLiteral("%1").arg(_prodID, 4, 16, QLatin1Char('0'));
     QString pname = _db->device(_vendorID, _prodID);
     if (!pname.isEmpty())
         p += QStringLiteral("(") + pname + QStringLiteral(")");
-    r.append({i18n("<i>Product ID</i>0x%1", p)});
+    r.append({i18n("<i>Product ID</i>"), i18n("0x%1", p)});
 
-    r.append({i18n("<i>Speed</i>%1 Mbit/s", _speed)});
-    r.append({i18n("<i>Channels</i>%1", _channels)});
-    r.append({i18n("<i>Max. Packet Size</i>%1", _maxPacketSize)});
+    r.append({i18n("<i>Speed</i>"), i18n("%1 Mbit/s", _speed)});
+    r.append({i18n("<i>Channels</i>"), QString::number(_channels)});
+    r.append({i18n("<i>Max. Packet Size</i>"), QString::number(_maxPacketSize)});
 
     return r;
 }
