@@ -226,7 +226,7 @@ QList<QList<QString>> USBDevice::dump()
     if (!_serial.isEmpty())
         r.append({i18n("<b>Serial #:</b> "), _serial});
 
-    QString c = QStringLiteral("<td>%1</td>").arg(_class);
+    QString c = QStringLiteral("%1").arg(_class);
     QString cname = prettyLibusbClassName(_class);
     if (cname.isEmpty()) {
         cname = _db->cls(_class);
