@@ -29,9 +29,19 @@ ScrollViewKCM {
             id: usbModel
         }
 
+        // hide the column showing busdev: surely there must be a better way?
+        columnWidthProvider: function (column) {
+            if (column == 1) {return 0}
+        }
+
         delegate: Kirigami.BasicListItem {
             text: model.display
-            onClicked: kcm.push("DetailsPage.qml", {detailList: usbModel.details})
+            property int busdev
+            onClicked: {
+                busdev = usbModel.find(usbModel.index(row, column + 1))
+                console.log(busdev)
+                kcm.push("DetailsPage.qml", {detailList: usbModel.details})
+            }
         }
     }
 }

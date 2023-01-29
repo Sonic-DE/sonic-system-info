@@ -93,11 +93,23 @@ void USBModel::refresh()
     _items = new_items;
 }
 
+QVariant USBModel::find(const QModelIndex &index)
+{
+    quint32 busdev = index.data().toUInt();
+    USBDevice *dev = USBDevice::find(busdev >> 8, busdev & 255);
+    if (dev) {
+        setDetails(dev->dump());
+    }
+    return busdev;
+}
+
 QStringList USBModel::details() const
 {
-    quint32 busdev = 257; // TODO: remove hardcoded busdev value
-    USBDevice *dev = USBDevice::find(busdev >> 8, busdev & 255);
-    if (dev)
-        return dev->dump();
-    return QStringList("Device not found");
+    return m_details;
+}
+
+void USBModel::setDetails(QStringList details)
+{
+    m_details = details;
+    emit detailsChanged();
 }
