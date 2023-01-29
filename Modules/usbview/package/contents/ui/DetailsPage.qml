@@ -13,8 +13,10 @@ import org.kde.kinfocenter.usbview.private 1.0
 
 SimpleKCM {
 
-    title: "[Insert Product Name Here]"
     property var detailList
+    property string product
+
+    title: product
 
     Kirigami.FormLayout {
 

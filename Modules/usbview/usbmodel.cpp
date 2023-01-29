@@ -99,6 +99,7 @@ QVariant USBModel::find(const QModelIndex &index)
     USBDevice *dev = USBDevice::find(busdev >> 8, busdev & 255);
     if (dev) {
         setDetails(dev->dump());
+        setProduct(dev->product());
     }
     return busdev;
 }
@@ -112,4 +113,15 @@ void USBModel::setDetails(QList<QList<QString>> details)
 {
     m_details = details;
     emit detailsChanged();
+}
+
+QString USBModel::product() const
+{
+    return m_product;
+}
+
+void USBModel::setProduct(QString product)
+{
+    m_product = product;
+    emit productChanged();
 }

@@ -14,6 +14,7 @@ class USBModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_PROPERTY(QList<QList<QString>> details READ details WRITE setDetails NOTIFY detailsChanged)
+    Q_PROPERTY(QString product READ product WRITE setProduct NOTIFY productChanged)
 
 public:
     USBModel();
@@ -23,9 +24,12 @@ public:
 
     QList<QList<QString>> details() const;
     void setDetails(QList<QList<QString>> details);
+    QString product() const;
+    void setProduct(QString product);
 
 signals:
     void detailsChanged();
+    void productChanged();
 
 private:
     void refresh();
@@ -33,6 +37,7 @@ private:
     QList<QStandardItem *> preparedRow;
 
     QList<QList<QString>> m_details;
+    QString m_product;
 };
 
 #endif

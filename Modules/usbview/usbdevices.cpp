@@ -219,7 +219,7 @@ QList<QList<QString>> USBDevice::dump()
 {
     QList<QList<QString>> r;
 
-    r.append({QStringLiteral("<h2>") + product() + QStringLiteral("</h2>")});
+    // r.append({QStringLiteral("<h2>") + product() + QStringLiteral("</h2>")});
 
     if (!_manufacturer.isEmpty())
         r.append({i18n("<b>Manufacturer:</b> "), _manufacturer});
