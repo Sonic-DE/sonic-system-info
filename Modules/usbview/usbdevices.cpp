@@ -215,16 +215,16 @@ QString USBDevice::product()
     return i18n("Unknown");
 }
 
-QStringList USBDevice::dump()
+QList<QList<QString>> USBDevice::dump()
 {
-    QStringList r;
+    QList<QList<QString>> r;
 
-    r += QStringLiteral("<h2>") + product() + QStringLiteral("</h2>");
+    r.append({QStringLiteral("<h2>") + product() + QStringLiteral("</h2>")});
 
     if (!_manufacturer.isEmpty())
-        r += i18n("<b>Manufacturer:</b> ") + _manufacturer;
+        r.append({i18n("<b>Manufacturer:</b> "), _manufacturer});
     if (!_serial.isEmpty())
-        r += i18n("<b>Serial #:</b> ") + _serial;
+        r.append({i18n("<b>Serial #:</b> "), _serial});
 
     QString c = QStringLiteral("<td>%1</td>").arg(_class);
     QString cname = prettyLibusbClassName(_class);
@@ -235,33 +235,33 @@ QStringList USBDevice::dump()
     }
     if (!cname.isEmpty())
         c += QStringLiteral("<td>(") + cname + QStringLiteral(")</td>");
-    r += i18n("<tr><td><i>Class</i></td>%1</tr>", c);
+    r.append({i18n("<tr><td><i>Class</i></td>%1</tr>", c)});
     QString sc = QStringLiteral("<td>%1</td>").arg(_sub);
     QString scname = _db->subclass(_class, _sub);
     if (!scname.isEmpty())
         sc += QStringLiteral("<td>(") + i18nc("USB device subclass", scname.toLatin1().constData()) + QStringLiteral(")</td>");
-    r += i18n("<tr><td><i>Subclass</i></td>%1</tr>", sc);
+    r.append({i18n("<tr><td><i>Subclass</i></td>%1</tr>", sc)});
     QString pr = QStringLiteral("<td>%1</td>").arg(_prot);
     QString prname = _db->protocol(_class, _sub, _prot);
     if (!prname.isEmpty())
         pr += QStringLiteral("<td>(") + prname + QStringLiteral(")</td>");
-    r += i18n("<tr><td><i>Protocol</i></td>%1</tr>", pr);
-    r += ki18n("<tr><td><i>USB Version</i></td><td>%1.%2</td></tr>").subs(_verMajor).subs(_verMinor, 2, 10, QChar::fromLatin1('0')).toString();
+    r.append({i18n("<tr><td><i>Protocol</i></td>%1</tr>", pr)});
+    r.append({ki18n("<tr><td><i>USB Version</i></td><td>%1.%2</td></tr>").subs(_verMajor).subs(_verMinor, 2, 10, QChar::fromLatin1('0')).toString()});
 
     QString v = QStringLiteral("%1").arg(_vendorID, 4, 16, QLatin1Char('0'));
     QString name = _db->vendor(_vendorID);
     if (!name.isEmpty())
         v += QStringLiteral("<td>(") + name + QStringLiteral(")</td>");
-    r += i18n("<tr><td><i>Vendor ID</i></td><td>0x%1</td></tr>", v);
+    r.append({i18n("<tr><td><i>Vendor ID</i></td><td>0x%1</td></tr>", v)});
     QString p = QStringLiteral("%1").arg(_prodID, 4, 16, QLatin1Char('0'));
     QString pname = _db->device(_vendorID, _prodID);
     if (!pname.isEmpty())
         p += QStringLiteral("<td>(") + pname + QStringLiteral(")</td>");
-    r += i18n("<tr><td><i>Product ID</i></td><td>0x%1</td></tr>", p);
+    r.append({i18n("<tr><td><i>Product ID</i></td><td>0x%1</td></tr>", p)});
 
-    r += i18n("<tr><td><i>Speed</i></td><td>%1 Mbit/s</td></tr>", _speed);
-    r += i18n("<tr><td><i>Channels</i></td><td>%1</td></tr>", _channels);
-    r += i18n("<tr><td><i>Max. Packet Size</i></td><td>%1</td></tr>", _maxPacketSize);
+    r.append({i18n("<tr><td><i>Speed</i></td><td>%1 Mbit/s</td></tr>", _speed)});
+    r.append({i18n("<tr><td><i>Channels</i></td><td>%1</td></tr>", _channels)});
+    r.append({i18n("<tr><td><i>Max. Packet Size</i></td><td>%1</td></tr>", _maxPacketSize)});
 
     return r;
 }

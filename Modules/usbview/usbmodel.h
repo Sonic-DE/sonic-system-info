@@ -13,7 +13,7 @@
 class USBModel : public QStandardItemModel
 {
     Q_OBJECT
-    Q_PROPERTY(QStringList details READ details WRITE setDetails NOTIFY detailsChanged)
+    Q_PROPERTY(QList<QList<QString>> details READ details WRITE setDetails NOTIFY detailsChanged)
 
 public:
     USBModel();
@@ -21,8 +21,8 @@ public:
 
     Q_INVOKABLE QVariant find(const QModelIndex &index);
 
-    QStringList details() const;
-    void setDetails(QStringList details);
+    QList<QList<QString>> details() const;
+    void setDetails(QList<QList<QString>> details);
 
 signals:
     void detailsChanged();
@@ -32,7 +32,7 @@ private:
     QMap<int, QStandardItem *> _items;
     QList<QStandardItem *> preparedRow;
 
-    QStringList m_details;
+    QList<QList<QString>> m_details;
 };
 
 #endif

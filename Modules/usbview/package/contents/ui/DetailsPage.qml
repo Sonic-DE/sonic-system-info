@@ -22,9 +22,9 @@ SimpleKCM {
             id: detailDelegate
 
             RowLayout {
-                Kirigami.FormData.label: "Detail:"
+                Kirigami.FormData.label: modelData[0] // category name
                 Kirigami.SelectableLabel {
-                    text: modelData
+                    text: modelData[1] // detail
                 }
             }
         }

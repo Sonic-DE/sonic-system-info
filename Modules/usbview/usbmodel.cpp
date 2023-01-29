@@ -103,12 +103,12 @@ QVariant USBModel::find(const QModelIndex &index)
     return busdev;
 }
 
-QStringList USBModel::details() const
+QList<QList<QString>> USBModel::details() const
 {
     return m_details;
 }
 
-void USBModel::setDetails(QStringList details)
+void USBModel::setDetails(QList<QList<QString>> details)
 {
     m_details = details;
     emit detailsChanged();
