@@ -7,14 +7,22 @@
 
 #include "Entry.h"
 
+#include <QProcess>
+
 class ThirdPartyEntry : public Entry
 {
+    Q_OBJECT
 public:
     explicit ThirdPartyEntry(const QString &scriptPath);
     QString localizedLabel(Language language = Language::System) const override;
     QString localizedValue(Language language = Language::System) const override;
 
+private slots:
+    void processFinished();
+
 private:
+    void runScript(const QString &command, const QString &lang = QString(), Language language = Language::System);
+
     void processOutput(const QStringList &output, Language language);
     const QString m_scriptPath;
     // Runs the above script with LANGUAGE set and caches results
