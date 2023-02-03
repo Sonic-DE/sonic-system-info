@@ -6,32 +6,16 @@
 #include "ThirdPartyEntry.h"
 
 #include <QDebug>
-#include <QProcess>
 
-QStringList getCommandOutput(const QString &command, const QString &lang = QString())
-{
-    auto process = new QProcess(nullptr);
-    if (!lang.isEmpty()) {
-        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-        env.insert("LANGUAGE", lang); // Add an environment variable
-        process->setProcessEnvironment(env);
-    }
-
-    process->start(command, QStringList());
-    process->waitForFinished();
-    return QString(process->readAllStandardOutput()).split('\n');
-}
+#define kLanguageProperty "language"
 
 ThirdPartyEntry::ThirdPartyEntry(const QString &scriptPath)
     : Entry(ki18nc("Unused but needs to be : to avoid assertion in Entry constructor", ":"), QString())
     , m_scriptPath(scriptPath)
 {
     // Get default and value
-    QStringList output = getCommandOutput(m_scriptPath);
-    processOutput(output, Language::System);
-
-    QStringList englishOutput = getCommandOutput(m_scriptPath, "en_US:C");
-    processOutput(englishOutput, Language::English);
+    runScript(m_scriptPath);
+    runScript(m_scriptPath, "en_US:C", Language::English);
 }
 
 QString ThirdPartyEntry::localizedLabel(Language language) const
@@ -42,6 +26,14 @@ QString ThirdPartyEntry::localizedLabel(Language language) const
 QString ThirdPartyEntry::localizedValue(Language language) const
 {
     return m_values[language];
+}
+
+void ThirdPartyEntry::processFinished()
+{
+    auto process = qobject_cast<QProcess *>(sender());
+    Language language = process->property(kLanguageProperty).value<Language>();
+
+    processOutput(QString(process->readAllStandardOutput()).split('\n'), language);
 }
 
 void ThirdPartyEntry::processOutput(const QStringList &output, Language language)
@@ -57,4 +49,19 @@ void ThirdPartyEntry::processOutput(const QStringList &output, Language language
             }
         }
     }
+}
+
+void ThirdPartyEntry::runScript(const QString &command, const QString &lang, Language language)
+{
+    auto process = new QProcess(nullptr);
+    if (!lang.isEmpty()) {
+        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+        env.insert("LANGUAGE", lang); // Add an environment variable
+        process->setProcessEnvironment(env);
+    }
+
+    process->setProperty(kLanguageProperty, QVariant::fromValue(language));
+    bool worked = connect(process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(processFinished()));
+    qDebug() << "Connect result: " << worked;
+    process->start(command, QStringList());
 }
