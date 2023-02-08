@@ -41,6 +41,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 ecm_find_qmlmodule(org.kde.kirigami 2.5)
+ecm_find_qmlmodule(org.kde.kirigamiaddons.treeview 1.0)
 
 find_package(SystemSettings QUIET)
 set_package_properties(SystemSettings PROPERTIES

@@ -9,6 +9,7 @@ import QtQuick.Layouts 1.15
 
 import org.kde.kcm 1.6
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigamiaddons.treeview 1.0
 import org.kde.kinfocenter.usbview.private 1.0
 
 ScrollViewKCM {
@@ -23,23 +24,28 @@ ScrollViewKCM {
     // Replicates the old Widgets UI
     Component.onCompleted: kcm.push("DetailsPage.qml")
 
-    view: TableView { // TODO: Replace TableView with TreeView in Qt6
+    view: TreeTableView { // TODO: Replace with TreeView in Qt6
 
-        model: USBModel {
+        sourceModel: USBModel {
             id: usbModel
         }
+
+        expandsByDefault: true
 
         // hide the column showing busdev: surely there must be a better way?
         columnWidthProvider: function (column) {
             if (column == 1) {return 0}
         }
 
-        delegate: Kirigami.BasicListItem {
-            text: model.display
-            property int busdev
-            onClicked: {
-                busdev = usbModel.find(usbModel.index(row, column + 1))
-                kcm.push("DetailsPage.qml", {detailList: usbModel.details, product: usbModel.product})
+        delegate: BasicTreeItem {
+            contentItem: Controls.Label {
+                    text: model.display
+                    }
+
+                property int busdev
+                onClicked: {
+                    busdev = usbModel.find(usbModel.index(row, column + 1))
+                    kcm.push("DetailsPage.qml", {detailList: usbModel.details, product: usbModel.product})
             }
         }
     }
