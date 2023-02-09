@@ -24,18 +24,13 @@ ScrollViewKCM {
     // Replicates the old Widgets UI
     Component.onCompleted: kcm.push("DetailsPage.qml")
 
-    view: TreeTableView { // TODO: Replace with TreeView in Qt6
+    view: TreeListView { // TODO: Replace with TreeView in Qt6
 
         sourceModel: USBModel {
             id: usbModel
         }
 
         expandsByDefault: true
-
-        // hide the column showing busdev: surely there must be a better way?
-        columnWidthProvider: function (column) {
-            if (column == 1) {return 0}
-        }
 
         delegate: BasicTreeItem {
             contentItem: Controls.Label {
