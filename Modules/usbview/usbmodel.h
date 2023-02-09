@@ -20,7 +20,7 @@ public:
     USBModel();
     ~USBModel();
 
-    Q_INVOKABLE QVariant find(const QModelIndex &index);
+    Q_INVOKABLE quint32 find(const QString &name);
 
     QList<QList<QString>> details() const;
     void setDetails(QList<QList<QString>> details);

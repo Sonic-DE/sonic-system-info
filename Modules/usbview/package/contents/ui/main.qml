@@ -44,7 +44,7 @@ ScrollViewKCM {
 
                 property int busdev
                 onClicked: {
-                    busdev = usbModel.find(usbModel.index(row, column + 1))
+                    busdev = usbModel.find(model.display)
                     kcm.push("DetailsPage.qml", {detailList: usbModel.details, product: usbModel.product})
             }
         }

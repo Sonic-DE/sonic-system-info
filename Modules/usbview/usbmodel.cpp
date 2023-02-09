@@ -93,9 +93,10 @@ void USBModel::refresh()
     _items = new_items;
 }
 
-QVariant USBModel::find(const QModelIndex &index)
+quint32 USBModel::find(const QString &name)
 {
-    quint32 busdev = index.data().toUInt();
+    QStandardItem *foundItem = findItems(name, Qt::MatchRecursive).at(0);
+    quint32 busdev = foundItem->index().siblingAtColumn(1).data().toUInt();
     USBDevice *dev = USBDevice::find(busdev >> 8, busdev & 255);
     if (dev) {
         setDetails(dev->dump());
