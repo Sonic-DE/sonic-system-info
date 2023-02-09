@@ -5,6 +5,8 @@
 
 #include "usbmodel.h"
 
+#include <QTimer>
+
 #include "usbdevices.h"
 
 static quint32 key(USBDevice &dev)
@@ -39,6 +41,12 @@ USBModel::USBModel()
 {
     _items.clear();
     USBModel::refresh();
+
+    QTimer *refreshTimer = new QTimer(this);
+    // 1 sec seems to be a good compromise between latency and polling load.
+    refreshTimer->start(1000);
+
+    connect(refreshTimer, &QTimer::timeout, this, &USBModel::refresh);
 }
 
 USBModel::~USBModel()

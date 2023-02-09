@@ -40,13 +40,6 @@ USBViewer::USBViewer(QObject *parent, const KPluginMetaData &data, const QVarian
 //     headers << i18n("Device");
 //     // _devices->setHeaderLabels(headers);
 //
-//     QTimer *refreshTimer = new QTimer(this);
-//     // 1 sec seems to be a good compromise between latency and polling load.
-//     refreshTimer->start(1000);
-//
-//     connect(refreshTimer, &QTimer::timeout, model, &USBModel::refresh);
-//     connect(_devices, &QTreeView::clicked, this, &USBViewer::selectionChanged);
-//
 //     if (model->invisibleRootItem()->hasChildren() == true) {
 //         _devices->clicked(model->invisibleRootItem()->child(0)->index());
 //     } // Select first item in treeview so that details page is not empty.
