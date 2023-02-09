@@ -224,7 +224,7 @@ QList<QList<QString>> USBDevice::dump()
     if (!_manufacturer.isEmpty())
         r.append({i18n("Manufacturer:"), _manufacturer});
     if (!_serial.isEmpty())
-        r.append({i18n("Serial #:"), _serial});
+        r.append({i18n("Serial Number:"), _serial});
 
     QString c = QStringLiteral("%1").arg(_class);
     QString cname = prettyLibusbClassName(_class);
@@ -261,7 +261,7 @@ QList<QList<QString>> USBDevice::dump()
 
     r.append({i18n("Speed:"), i18n("%1 Mbit/s", _speed)});
     r.append({i18n("Channels:"), QString::number(_channels)});
-    r.append({i18n("Max. Packet Size:"), QString::number(_maxPacketSize)});
+    r.append({i18n("Maximum Packet Size:"), QString::number(_maxPacketSize)});
 
     return r;
 }
