@@ -32,10 +32,3 @@ USBViewer::USBViewer(QObject *parent, const KPluginMetaData &data, const QVarian
 }
 
 #include "kcmusb.moc"
-
-//
-//     if (model->invisibleRootItem()->hasChildren() == true) {
-//         _devices->clicked(model->invisibleRootItem()->child(0)->index());
-//     } // Select first item in treeview so that details page is not empty.
-//
-// }

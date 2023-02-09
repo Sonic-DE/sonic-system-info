@@ -42,6 +42,11 @@ USBModel::USBModel()
     _items.clear();
     USBModel::refresh();
 
+    // Select first item in model so that details page is not empty.
+    if (invisibleRootItem()->hasChildren() == true) {
+        find(invisibleRootItem()->child(0)->text());
+    }
+
     QTimer *refreshTimer = new QTimer(this);
     // 1 sec seems to be a good compromise between latency and polling load.
     refreshTimer->start(1000);

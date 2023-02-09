@@ -22,7 +22,7 @@ ScrollViewKCM {
     implicitWidth: Kirigami.Units.gridUnit * 20
 
     // Replicates the old Widgets UI
-    Component.onCompleted: kcm.push("DetailsPage.qml")
+    Component.onCompleted: kcm.push("DetailsPage.qml", {detailList: usbModel.details, product: usbModel.product})
 
     view: TreeListView { // TODO: Replace with TreeView in Qt6
 
