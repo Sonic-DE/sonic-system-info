@@ -234,29 +234,29 @@ QList<QList<QString>> USBDevice::dump()
             cname = i18nc("USB device class", cname.toUtf8().constData());
     }
     if (!cname.isEmpty())
-        c += QStringLiteral("(") + cname + QStringLiteral(")");
+        c += QStringLiteral(" (") + cname + QStringLiteral(")");
     r.append({i18n("Class:"), c});
     QString sc = QStringLiteral("%1").arg(_sub);
     QString scname = _db->subclass(_class, _sub);
     if (!scname.isEmpty())
-        sc += QStringLiteral("(") + i18nc("USB device subclass", scname.toLatin1().constData()) + QStringLiteral(")");
+        sc += QStringLiteral(" (") + i18nc("USB device subclass", scname.toLatin1().constData()) + QStringLiteral(")");
     r.append({i18n("Subclass:"), sc});
     QString pr = QStringLiteral("%1").arg(_prot);
     QString prname = _db->protocol(_class, _sub, _prot);
     if (!prname.isEmpty())
-        pr += QStringLiteral("(") + prname + QStringLiteral(")");
+        pr += QStringLiteral(" (") + prname + QStringLiteral(")");
     r.append({i18n("Protocol:"), pr});
     r.append({ki18n("USB Version:").toString(), ki18n("%1.%2").subs(_verMajor).subs(_verMinor, 2, 10, QChar::fromLatin1('0')).toString()});
 
     QString v = QStringLiteral("%1").arg(_vendorID, 4, 16, QLatin1Char('0'));
     QString name = _db->vendor(_vendorID);
     if (!name.isEmpty())
-        v += QStringLiteral("(") + name + QStringLiteral(")");
+        v += QStringLiteral(" (") + name + QStringLiteral(")");
     r.append({i18n("Vendor ID:"), i18n("0x%1", v)});
     QString p = QStringLiteral("%1").arg(_prodID, 4, 16, QLatin1Char('0'));
     QString pname = _db->device(_vendorID, _prodID);
     if (!pname.isEmpty())
-        p += QStringLiteral("(") + pname + QStringLiteral(")");
+        p += QStringLiteral(" (") + pname + QStringLiteral(")");
     r.append({i18n("Product ID:"), i18n("0x%1", p)});
 
     r.append({i18n("Speed:"), i18n("%1 Mbit/s", _speed)});
