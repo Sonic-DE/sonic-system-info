@@ -33,12 +33,6 @@ USBViewer::USBViewer(QObject *parent, const KPluginMetaData &data, const QVarian
 
 #include "kcmusb.moc"
 
-// {
-//     _devices = new QTreeView(splitter);
-//
-//     QStringList headers;
-//     headers << i18n("Device");
-//     // _devices->setHeaderLabels(headers);
 //
 //     if (model->invisibleRootItem()->hasChildren() == true) {
 //         _devices->clicked(model->invisibleRootItem()->child(0)->index());

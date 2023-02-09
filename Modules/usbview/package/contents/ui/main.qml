@@ -30,6 +30,13 @@ ScrollViewKCM {
             id: usbModel
         }
 
+        // topMargin: headers.implicitHeight
+        //
+        // Text {
+        //     id: headers
+        //     text: i18n("Device")
+        // }
+
         expandsByDefault: true
 
         delegate: BasicTreeItem {
