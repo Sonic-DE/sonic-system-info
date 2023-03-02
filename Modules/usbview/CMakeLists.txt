@@ -8,8 +8,12 @@ set(kcm_usb_PART_SRCS kcmusb.cpp
     usbdb.cpp
     usbdb.h
     usbdevices.cpp
-    usbdevices.h )
+    usbdevices.h
+    usbmodel.cpp
+    usbmodel.h )
 
 kcoreaddons_add_plugin(kcm_usb SOURCES ${kcm_usb_PART_SRCS} INSTALL_NAMESPACE "plasma/kcms/kinfocenter")
 
-target_link_libraries(kcm_usb KF5::KCMUtils KF5::I18n Libusb-1.0)
+target_link_libraries(kcm_usb KF5::CoreAddons KF5::QuickAddons KF5::KCMUtils KF5::I18n Libusb-1.0)
+
+kpackage_install_package(package kcm_usb kcms)
