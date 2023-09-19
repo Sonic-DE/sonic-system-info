@@ -402,7 +402,12 @@ KCM.SimpleKCM {
                                 }
 
                                 if (modelData.unit) {
-                                    value = i18nc("%1 is value, %2 is unit", "%1 %2", value, modelData.unit)
+                                    if (modelData.unit.contains("%1")) {
+                                        // 'unit' is already localized, just replace the value
+                                        value = modelData.unit.replace("%1", value)
+                                    } else {
+                                        value = i18nc("%1 is value, %2 is unit", "%1 %2", value, modelData.unit)
+                                    }
                                 }
 
                                 return value
