@@ -152,13 +152,19 @@ KCM.SimpleKCM {
                                     Layout.preferredHeight: Layout.preferredWidth
                                     source: {
                                         switch(model.battery.type) {
-                                        case 3: return model.battery.chargeState === 1 ? "battery-full-charging" : "battery-full"
+                                        case 1: return "phone"
                                         case 2: return "battery-ups"
-                                        case 9: return "monitor"
+                                        case 3: return model.battery.chargeState === 1 ? "battery-full-charging" : "battery-full"
                                         case 4: return "input-mouse"
                                         case 5: return "input-keyboard"
-                                        case 1: return "phone"
-                                        case 7: return "smartphone"
+                                        case 6: return "input-keyboard" // TODO: New Icon?
+                                        case 7: return "camera-photo"
+                                        case 8: return "smartphone"
+                                        case 9: return "monitor"
+                                        case 10: return "input-gamepad"
+                                        case 11: return "preferences-system-bluetooth-battery"
+                                        case 12: return "input-tablet"
+                                        case 13: return "headphone"
                                         default: return "paint-unknown"
                                         }
                                     }
@@ -168,13 +174,19 @@ KCM.SimpleKCM {
                                     Layout.fillWidth: true
                                     text: {
                                         switch(model.battery.type) {
-                                        case 3: return i18n("Internal battery")
+                                        case 1: return i18n("PDA battery")
                                         case 2: return i18n("UPS battery")
-                                        case 9: return i18n("Monitor battery")
+                                        case 3: return i18n("Internal battery")
                                         case 4: return i18n("Mouse battery")
                                         case 5: return i18n("Keyboard battery")
-                                        case 1: return i18n("PDA battery")
-                                        case 7: return i18n("Phone battery")
+                                        case 6: return i18n("Keyboard/Mouse battery")
+                                        case 7: return i18n("Camera battery")
+                                        case 8: return i18n("Phone battery")
+                                        case 9: return i18n("Monitor battery")
+                                        case 10: return i18n("Gaming Input Battery")
+                                        case 11: return i18n("Bluetooth Battery")
+                                        case 12: return i18n("Tablet Battery")
+                                        case 13: return i18n("Headphone Battery")
                                         default: return i18n("Unknown battery")
                                         }
                                     }
