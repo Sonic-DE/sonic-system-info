@@ -145,7 +145,7 @@ KCM.SimpleKCM {
                                 margins: Kirigami.Units.smallSpacing * 2
                             }
                             RowLayout {
-
+                                // Reference: BatteryType enum in solid/devices/frontend/battery.h
                                 Kirigami.Icon {
                                     id: batteryIcon
                                     Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
@@ -165,6 +165,10 @@ KCM.SimpleKCM {
                                         case 11: return "preferences-system-bluetooth-battery"
                                         case 12: return "input-tablet"
                                         case 13: return "headphone"
+<<<<<<< HEAD
+=======
+                                        case 14: return "headset"
+>>>>>>> 6c0f7a71 (handle all common battery types)
                                         default: return "paint-unknown"
                                         }
                                     }
@@ -187,6 +191,10 @@ KCM.SimpleKCM {
                                         case 11: return i18n("Bluetooth Battery")
                                         case 12: return i18n("Tablet Battery")
                                         case 13: return i18n("Headphone Battery")
+<<<<<<< HEAD
+=======
+                                        case 14: return i18n("Headset Battery")
+>>>>>>> 6c0f7a71 (handle all common battery types)
                                         default: return i18n("Unknown battery")
                                         }
                                     }
