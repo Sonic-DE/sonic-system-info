@@ -171,30 +171,56 @@ KCM.SimpleKCM {
                                         }
                                     }
                                 }
-
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    text: {
-                                        switch(model.battery.type) {
-                                            case 1: return i18n("PDA battery")
-                                            case 2: return i18n("UPS battery")
-                                            case 3: return i18n("Internal battery")
-                                            case 4: return i18n("Mouse battery")
-                                            case 5: return i18n("Keyboard battery")
-                                            case 6: return i18n("Keyboard/Mouse battery")
-                                            case 7: return i18n("Camera battery")
-                                            case 8: return i18n("Phone battery")
-                                            case 9: return i18n("Monitor battery")
-                                            case 10: return i18n("Gaming Input Battery")
-                                            case 11: return i18n("Bluetooth Battery")
-                                            case 12: return i18n("Tablet Battery")
-                                            case 13: return i18n("Headphone Battery")
-                                            case 14: return i18n("Headset Battery")
-                                            case 15: return i18n("Touchpad Battery")
-                                            default: return i18n("Unknown battery")
+                                Column {
+                                    QQC2.Label {
+                                        Layout.fillWidth: true
+                                        text: {
+                                            switch (model.battery.type) {
+                                                case 1:
+                                                    return i18n("PDA battery")
+                                                case 2:
+                                                    return i18n("UPS battery")
+                                                case 3:
+                                                    return i18n("Internal battery")
+                                                case 4:
+                                                    return i18n("Mouse battery")
+                                                case 5:
+                                                    return i18n("Keyboard battery")
+                                                case 6:
+                                                    return i18n("Keyboard/Mouse battery")
+                                                case 7:
+                                                    return i18n("Camera battery")
+                                                case 8:
+                                                    return i18n("Phone battery")
+                                                case 9:
+                                                    return i18n("Monitor battery")
+                                                case 10:
+                                                    return i18n("Gaming Input Battery")
+                                                case 11:
+                                                    return i18n("Bluetooth Battery")
+                                                case 12:
+                                                    return i18n("Tablet Battery")
+                                                case 13:
+                                                    return i18n("Headphone Battery")
+                                                case 14:
+                                                    return i18n("Headset Battery")
+                                                case 15:
+                                                    return i18n("Touchpad Battery")
+                                                default:
+                                                    return i18n("Unknown battery")
+                                            }
                                         }
+                                        elide: Text.ElideRight
+                                        maximumLineCount : 1
                                     }
-                                    elide: Text.ElideRight
+
+                                    QQC2.Label {
+                                        width: Kirigami.Units.gridUnit * 8 - Kirigami.Units.smallSpacing * 2
+                                        text: model.product
+                                        color: Kirigami.Theme.disabledTextColor
+                                        elide: Text.ElideRight
+                                        maximumLineCount : 1
+                                    }
                                 }
                             }
 
