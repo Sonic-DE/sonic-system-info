@@ -120,7 +120,7 @@ KCM.SimpleKCM {
     actions: [
         Kirigami.Action {
             icon.name: "edit-copy"
-            text: i18nc("@action:button copies all displayed text", "Copy to Clipboard")
+            text: i18ndc("kinfocenter", "@action:button copies all displayed text", "Copy to Clipboard")
             onTriggered: clipboard.content = output.text
         },
         Kirigami.Action {
