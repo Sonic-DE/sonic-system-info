@@ -119,12 +119,17 @@ KCM.SimpleKCM {
 
     actions: [
         Kirigami.Action {
+            id: copyToClipboardAction
+
             icon.name: "edit-copy"
             text: i18ndc("kinfocenter", "@action:button copies all displayed text", "Copy to Clipboard")
             onTriggered: clipboard.content = output.text
         },
         Kirigami.Action {
+            id: filterAction
+
             displayComponent: Kirigami.SearchField {
+                enabled: filterAction.enabled
                 visible: {
                     const isVisibleState = (root.state === "" || !(root.state === "noData" && contentLoader.item.errorNotFilter))
                     return isVisibleState && root.textFormat === TextEdit.PlainText
@@ -152,6 +157,8 @@ KCM.SimpleKCM {
             name: "noData"
             when: output.text === "" || output.error !== ""
             PropertyChanges { target: contentLoader; sourceComponent: noDataComponent }
+            PropertyChanges { target: copyToClipboardAction; enabled: false }
+            PropertyChanges { target: filterAction; enabled: false }
         },
         State {
             name: "" // default state
