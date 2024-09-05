@@ -26,6 +26,24 @@ DMIDecodeHelper::DMIDecodeHelper(QObject *parent)
     m_dmidecodePath = QStandardPaths::findExecutable("dmidecode");
 }
 
+KAuth::ActionReply DMIDecodeHelper::memoryinformation(const QVariantMap &args)
+{
+    Q_UNUSED(args);
+
+    KAuth::ActionReply reply;
+    auto result = executeDmidecode({QStringLiteral("--type"), QStringLiteral("17")});
+
+    if (result.failed()) {
+        qWarning() << "DMIDecodeHelper: Unable to get memory information";
+        return reply;
+    }
+
+    const QString output = result.data().value("result").toString();
+    reply.addData("memory", output);
+
+    return reply;
+}
+
 KAuth::ActionReply DMIDecodeHelper::systeminformation(const QVariantMap &args)
 {
     Q_UNUSED(args);
