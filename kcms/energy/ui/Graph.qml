@@ -50,13 +50,14 @@ Canvas
         canvas.requestPaint();
     }
 
-    //take a QPointF
-    function scalePoint(plot, currentUnixTime) {
+    function scalePoint(plot /*: point*/, currentUnixTime : int) : point {
         const scaledX = (plot.x - (currentUnixTime / 1000 - xDuration)) / xDuration * plotWidth;
         const scaledY = (plot.y - yMin) * plotHeight / (yMax - yMin);
 
-        return Qt.point(xPadding + scaledX,
-            height - yPadding - scaledY);
+        return Qt.point(
+            xPadding + scaledX,
+            height - yPadding - scaledY
+        );
     }
 
     SystemPalette {
