@@ -65,7 +65,6 @@ Canvas
         colorGroup: SystemPalette.Active
     }
 
-
     onPaint: {
         var c = canvas.getContext('2d');
 
@@ -163,7 +162,7 @@ Canvas
         var hours = currentDateTime.getHours()
         var minutes = currentDateTime.getMinutes()
         var seconds = currentDateTime.getSeconds()
-       
+
         var diff
 
         switch (xTicksAt) {
@@ -187,7 +186,7 @@ Canvas
         }
 
         var xGridOffset = plotWidth * (diff / xDuration)
-        var dateChanged = false 
+        var dateChanged = false
 
         var dashedLines = 50
         var dashedLineLength = plotHeight / dashedLines
@@ -196,7 +195,7 @@ Canvas
         for (var i = xDivisions; i >= -1; i--) {
             xTickPos = i * xGridDistance + xPadding - xGridOffset
 
-            if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding)) 
+            if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding))
             {
                 xTickDateTime = new Date(currentUnixTime - (xDivisions - i) * xDivisionWidth - diff * 1000)
                 xTickDateStr = xTickDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
@@ -205,12 +204,12 @@ Canvas
                 if (lastDateStr != xTickDateStr) {
                     dateChanged = true
                 }
- 
+
                 if  ((i % 2 == 0) || (xDivisions < 10))
                 {
                     // Display the time
                     c.fillText(xTickTimeStr, xTickPos, canvas.height - yPadding / 2)
-    
+
                     // If the date has changed and is not the current day in a <= 24h graph, display it
                     // Always display the date for 48h and 1 week graphs
                     if (dateChanged || (xDuration > (60*60*48))) {
@@ -221,13 +220,13 @@ Canvas
                     // Tick markers
                     c.moveTo(xTickPos, canvas.height - yPadding)
                     c.lineTo(xTickPos, canvas.height - (yPadding * 4) / 5)
-        
+
                     dashedLineDutyCycle = 0.5
                 } else {
                     dashedLineDutyCycle = 0.1
                 }
-        
-                for (var j = 0; j < dashedLines; j++) { 
+
+                for (var j = 0; j < dashedLines; j++) {
                     c.moveTo(xTickPos, yPadding + j * dashedLineLength)
                     c.lineTo(xTickPos, yPadding + j * dashedLineLength + dashedLineDutyCycle * dashedLineLength)
                 }
