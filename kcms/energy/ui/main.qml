@@ -272,7 +272,7 @@ KCM.SimpleKCM {
                                                      xTicksAtFullHour, xTicksAtFullSecondHour, xTicksAtTwelveOClock]
 
                 // Set grid lines distances which directly correspondent to the xTicksAt variables
-                readonly property var xDivisionWidths: [1000 * 60 * 10, 1000 * 60 * 60 * 12, 1000 * 60 * 60, 1000 * 60 * 30, 1000 * 60 * 60 * 2, 1000 * 60 * 10]
+                readonly property var xDivisionWidths: [60 * 10, 60 * 60 * 12, 60 * 60, 60 * 30, 60 * 60 * 2, 60 * 10]
                 xTicksAt: xTicksAtList[timespanCombo.currentIndex]
                 xDivisionWidth: xDivisionWidths[xTicksAt]
 
