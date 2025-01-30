@@ -47,7 +47,7 @@ Canvas
         canvas.requestPaint();
     }
 
-    function scalePoint(plot /*: point*/, currentUnixTime : int) : point {
+    function scalePoint(plot : point, currentUnixTime : int) : point {
         const scaledX = (plot.x - (currentUnixTime / 1000 - xDuration)) / xDuration * plotWidth;
         const scaledY = (plot.y - yMin) * plotHeight / (yMax - yMin);
 
@@ -99,21 +99,21 @@ Canvas
 
         // Draw the line graph if we have enough points
         if (data.length >= 2) {
-            let index = 0
-
-            while ((index < data.length - 1) && (data[index].x < (xMinUnixTime / 1000))) {
-                index++
-            }
-
-            const firstPoint = scalePoint(data[index], currentUnixTime)
-            c.moveTo(firstPoint.x, firstPoint.y)
-
-            let point
-            for (let i = index + 1; i < data.length; i++) {
-                if (data[i].x > (xMinUnixTime / 1000)) {
-                    point = scalePoint(data[i], currentUnixTime)
-                    c.lineTo(point.x, point.y)
+            let firstPoint = null;
+            let point;
+            for (const dataPoint of data) {
+                if (dataPoint.x < xMinUnixTime / 1000) {
+                    continue;
                 }
+
+                if (!firstPoint) {
+                    firstPoint = scalePoint(dataPoint, currentUnixTime);
+                    c.moveTo(firstPoint.x, firstPoint.y);
+                    continue;
+                }
+
+                point = scalePoint(dataPoint, currentUnixTime);
+                c.lineTo(point.x, point.y);
             }
 
             c.stroke();
