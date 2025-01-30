@@ -51,8 +51,8 @@ Canvas
     }
 
     function scalePoint(plot : point, currentUnixTime : int) : point {
-        var scaledX = (plot.x - (currentUnixTime / 1000 - xDuration)) / xDuration * plotWidth;
-        var scaledY = (plot.y - yMin)  * plotHeight / (yMax - yMin);
+        const scaledX = (plot.x - (currentUnixTime / 1000 - xDuration)) / xDuration * plotWidth;
+        const scaledY = (plot.y - yMin)  * plotHeight / (yMax - yMin);
 
         return Qt.point(
             xPadding + scaledX,
@@ -66,7 +66,7 @@ Canvas
     }
 
     onPaint: {
-        var c = canvas.getContext('2d');
+        const c = canvas.getContext('2d');
 
         c.clearRect(0,0, width, height)
 
@@ -83,30 +83,30 @@ Canvas
         c.lineJoin = 'round';
         c.lineCap = 'round';
         c.strokeStyle = 'rgba(255, 0, 0, 1)';
-        var gradient = c.createLinearGradient(0,0,0,height);
+        const gradient = c.createLinearGradient(0,0,0,height);
         gradient.addColorStop(0, 'rgba(255, 0, 0, 0.2)');
         gradient.addColorStop(1, 'rgba(255, 0, 0, 0.05)');
         c.fillStyle = gradient;
 
         // For scaling
-        var currentUnixTime = Date.now()
-        var xMinUnixTime = currentUnixTime - xDuration * 1000
+        const currentUnixTime = Date.now()
+        const xMinUnixTime = currentUnixTime - xDuration * 1000
 
         c.beginPath();
 
         // Draw the line graph if we have enough points
         if (data.length >= 2) {
-            var index = 0
+            let index = 0
 
             while ((index < data.length - 1) && (data[index].x < (xMinUnixTime / 1000))) {
                 index++
             }
 
-            var firstPoint = scalePoint(data[index], currentUnixTime)
+            const firstPoint = scalePoint(data[index], currentUnixTime)
             c.moveTo(firstPoint.x, firstPoint.y)
 
-            var point
-            for (var i = index + 1; i < data.length; i++) {
+            let point
+            for (let i = index + 1; i < data.length; i++) {
                 if (data[i].x > (xMinUnixTime / 1000)) {
                     point = scalePoint(data[i], currentUnixTime)
                     c.lineTo(point.x, point.y)
@@ -133,8 +133,8 @@ Canvas
         c.fillStyle = palette.text;
         c.textAlign = "right"
         c.textBaseline = "middle";
-        for(var i = 0; i <=  yMax; i += yStep) {
-            var y = scalePoint(Qt.point(0,i)).y;
+        for(let i = 0; i <=  yMax; i += yStep) {
+            const y = scalePoint(Qt.point(0,i)).y;
 
             c.fillText(i + canvas.yUnits, xPadding - 10, y);
 
@@ -149,21 +149,21 @@ Canvas
         c.lineWidth = 1
         c.strokeStyle = 'rgba(%1, %2, %3, 0.15)'.arg(palette.text.r * 255).arg(palette.text.g * 255).arg(palette.text.b * 255)
 
-        var xDivisions = xDuration / xDivisionWidth * 1000
-        var xGridDistance = plotWidth / xDivisions
-        var xTickPos
-        var xTickDateTime
-        var xTickDateStr
-        var xTickTimeStr
+        const xDivisions = xDuration / xDivisionWidth * 1000
+        const xGridDistance = plotWidth / xDivisions
+        let xTickPos
+        let xTickDateTime
+        let xTickDateStr
+        let xTickTimeStr
 
-        var currentDateTime = new Date()
-        var lastDateStr = currentDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
+        const currentDateTime = new Date()
+        let lastDateStr = canvas.now.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
 
-        var hours = currentDateTime.getHours()
-        var minutes = currentDateTime.getMinutes()
-        var seconds = currentDateTime.getSeconds()
+        const hours = currentDateTime.getHours()
+        const minutes = currentDateTime.getMinutes()
+        const seconds = currentDateTime.getSeconds()
 
-        var diff
+        let diff
 
         switch (xTicksAt) {
             case xTicksAtTwelveOClock:
@@ -185,14 +185,14 @@ Canvas
                 diff = 0
         }
 
-        var xGridOffset = plotWidth * (diff / xDuration)
-        var dateChanged = false
+        const xGridOffset = plotWidth * (diff / xDuration)
+        let dateChanged = false
 
-        var dashedLines = 50
-        var dashedLineLength = plotHeight / dashedLines
-        var dashedLineDutyCycle
+        const dashedLines = 50
+        const dashedLineLength = plotHeight / dashedLines
+        let dashedLineDutyCycle
 
-        for (var i = xDivisions; i >= -1; i--) {
+        for (let i = xDivisions; i >= -1; i--) {
             xTickPos = i * xGridDistance + xPadding - xGridOffset
 
             if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding))
@@ -226,7 +226,7 @@ Canvas
                     dashedLineDutyCycle = 0.1
                 }
 
-                for (var j = 0; j < dashedLines; j++) {
+                for (let j = 0; j < dashedLines; j++) {
                     c.moveTo(xTickPos, yPadding + j * dashedLineLength)
                     c.lineTo(xTickPos, yPadding + j * dashedLineLength + dashedLineDutyCycle * dashedLineLength)
                 }
