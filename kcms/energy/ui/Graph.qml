@@ -36,8 +36,7 @@ Canvas
     property var yLabel: ( value => value )  // A formatter function
 
     property real xDuration: 3600
-    property real xDivisions: 6
-    property real xDivisionWidth: 600000
+    property real xDivisionWidth: 600
     property real xTicksAt: xTicksAtDontCare
 
     readonly property real plotWidth: width - xPadding * 1.5
@@ -48,7 +47,7 @@ Canvas
     }
 
     function scalePoint(plot : point, currentUnixTime : int) : point {
-        const scaledX = (plot.x - (currentUnixTime / 1000 - xDuration)) / xDuration * plotWidth;
+        const scaledX = (plot.x - (currentUnixTime - xDuration)) / xDuration * plotWidth;
         const scaledY = (plot.y - yMin) * plotHeight / (yMax - yMin);
 
         return Qt.point(
@@ -92,8 +91,7 @@ Canvas
         c.fillStyle = gradient;
 
         // For scaling
-        const currentUnixTime = Date.now()
-        const xMinUnixTime = currentUnixTime - xDuration * 1000
+        const currentUnixTime = Date.now() / 1000  // ms to s
 
         c.beginPath();
 
@@ -102,7 +100,7 @@ Canvas
             let firstPoint = null;
             let point;
             for (const dataPoint of data) {
-                if (dataPoint.x < xMinUnixTime / 1000) {
+                if (dataPoint.x < currentUnixTime - xDuration) {
                     continue;
                 }
 
@@ -152,7 +150,7 @@ Canvas
         c.lineWidth = 1
         c.strokeStyle = Qt.alpha(palette.text, 0.15)
 
-        const xDivisions = xDuration / xDivisionWidth * 1000
+        const xDivisions = xDuration / xDivisionWidth
         const xGridDistance = plotWidth / xDivisions
         let xTickPos
         let xTickDateTime
@@ -200,7 +198,7 @@ Canvas
 
             if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding))
             {
-                xTickDateTime = new Date(currentUnixTime - (xDivisions - i) * xDivisionWidth - diff * 1000)
+                xTickDateTime = new Date((currentUnixTime - (xDivisions - i) * xDivisionWidth - diff) * 1000)
                 xTickDateStr = xTickDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
                 xTickTimeStr = xTickDateTime.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
 
