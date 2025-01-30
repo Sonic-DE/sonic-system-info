@@ -279,10 +279,7 @@ KCM.SimpleKCM {
                 yMax: {
                     if (root.historyType == HistoryModel.RateType) {
                         // ceil to nearest 10
-                        var max = Math.floor(history.largestValue)
-                        max = max - max % 10 + 10
-
-                        return max;
+                        return Math.ceil(history.largestValue / 10) * 10;
                     } else {
                         return 100;
                     }
@@ -368,7 +365,7 @@ KCM.SimpleKCM {
                     Component.onCompleted: {
                         // ensure that all visible FormLayout share the same set of twinFormLayouts
                         titleRepeater.layouts.push(currentLayout);
-                        for (var i = 0, length = titleRepeater.layouts.length; i < length; ++i) {
+                        for (let i = 0, length = titleRepeater.layouts.length; i < length; ++i) {
                             titleRepeater.layouts[i].twinFormLayouts = titleRepeater.layouts;
                         }
                     }
@@ -379,8 +376,8 @@ KCM.SimpleKCM {
                         level: 2
                         // HACK hide section header if all labels are invisible
                         visible: {
-                            for (var i = 0, length = detailsRepeater.count; i < length; ++i) {
-                                var item = detailsRepeater.itemAt(i)
+                            for (let i = 0, length = detailsRepeater.count; i < length; ++i) {
+                                const item = detailsRepeater.itemAt(i)
                                 if (item && item.visible) {
                                     return true
                                 }
@@ -405,7 +402,7 @@ KCM.SimpleKCM {
                             }
                             Kirigami.FormData.label: i18n("%1:", modelData.label)
                             text: {
-                                var value;
+                                let value;
                                 if (modelData.source) {
                                     value = root["current" + modelData.source];
                                 } else {
@@ -424,7 +421,7 @@ KCM.SimpleKCM {
                                     return ""
                                 }
 
-                                var precision = modelData.precision
+                                const precision = modelData.precision
                                 if (typeof precision === "number") { // round to decimals
                                     value = Number(value).toLocaleString(Qt.locale(), "f", precision)
                                 }
