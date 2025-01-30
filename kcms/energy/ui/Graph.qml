@@ -80,10 +80,12 @@ Canvas
         c.lineWidth = 1;
         c.lineJoin = 'round';
         c.lineCap = 'round';
-        c.strokeStyle = 'rgba(255, 0, 0, 1)';
-        const gradient = c.createLinearGradient(0,0,0,height);
-        gradient.addColorStop(0, 'rgba(255, 0, 0, 0.2)');
-        gradient.addColorStop(1, 'rgba(255, 0, 0, 0.05)');
+
+        const lineColor = Qt.rgba(255, 0, 0, 1)
+        c.strokeStyle = lineColor;
+        const gradient = c.createLinearGradient(0, 0, 0, height);
+        gradient.addColorStop(0, Qt.alpha(lineColor, 0.2));
+        gradient.addColorStop(1, Qt.alpha(lineColor, 0.05));
         c.fillStyle = gradient;
 
         // For scaling
@@ -112,7 +114,7 @@ Canvas
             }
 
             c.stroke();
-            c.strokeStyle = 'rgba(0, 0, 0, 0)';
+            c.strokeStyle = 'transparent';
             c.lineTo(point.x, height - yPadding);
             c.lineTo(firstPoint.x, height - yPadding);
             c.fill();
@@ -123,7 +125,7 @@ Canvas
         // Draw the frame on top
 
         //draw an outline
-        c.strokeStyle = 'rgba(0,50,0,0.02)';
+        c.strokeStyle = Qt.rgba(0, 50, 0, 0.02);
         c.lineWidth = 1;
         c.rect(xPadding - 1, yPadding - 1, plotWidth + 2, plotHeight + 2);
 
@@ -145,7 +147,7 @@ Canvas
         // Draw the X value texts
         c.textAlign = "center"
         c.lineWidth = 1
-        c.strokeStyle = 'rgba(%1, %2, %3, 0.15)'.arg(palette.text.r * 255).arg(palette.text.g * 255).arg(palette.text.b * 255)
+        c.strokeStyle = Qt.alpha(palette.text, 0.15)
 
         const xDivisions = xDuration / xDivisionWidth * 1000
         const xGridDistance = plotWidth / xDivisions
