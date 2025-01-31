@@ -18,9 +18,8 @@ import QtQuick
 
 Canvas
 {
-    width: 500
-    height: 500
     id: canvas
+
     antialiasing: true
 
     property int xPadding: 45
