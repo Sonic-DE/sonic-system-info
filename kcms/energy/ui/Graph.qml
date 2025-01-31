@@ -5,7 +5,7 @@
  *
  */
 
-import QtQuick 2.3
+import QtQuick
 
 /**
  * We need to draw a graph, all other libs are not suitable as we are basically
