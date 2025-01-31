@@ -36,8 +36,6 @@ Canvas
     property var yLabel: ( value => value )  // A formatter function
 
     property real xDuration: 3600
-    property real xDivisionWidth: 600
-    property real xTicksAt: xTicksAtDontCare
 
     readonly property real plotWidth: width - xPadding * 1.5
     readonly property real plotHeight: height - yPadding * 2
@@ -54,6 +52,44 @@ Canvas
             xPadding + scaledX,
             height - yPadding - scaledY
         );
+    }
+
+    // Spacing between x division lines, in seconds
+    function stepForDuration(seconds : int) : int {
+        const hours = seconds / 3600;
+        if (hours <= 1) {
+            return 60 * 10;      // Ten minutes
+        } else if (hours <= 12) {
+            return 60 * 30;      // Half an hour
+        } else if (hours <= 24) {
+            return 60 * 60;      // Full hour
+        } else if (hours <= 48) {
+            return 60 * 60 * 2;  // Two hours
+        } else {
+            return 60 * 60 * 12; // Full day
+        }
+    }
+
+    // Offset to align the tick marks from current time
+    function offsetForStep(step : int) : int {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+
+        switch (step / 60) {  // step in minutes
+            case 60 * 12:
+                return (hours - 12) * 3600 + minutes * 60 + seconds;
+            case 60 * 2:
+            case 60:
+                return minutes * 60 + seconds;
+            case 30:
+                return (minutes - 30) * 60 + seconds;
+            case 10:
+                return (minutes % 10) * 60 + seconds;
+            default:
+                return 0;
+        }
     }
 
     SystemPalette {
@@ -150,43 +186,20 @@ Canvas
         c.lineWidth = 1
         c.strokeStyle = Qt.alpha(palette.text, 0.15)
 
-        const xDivisions = xDuration / xDivisionWidth
+        const xStep = stepForDuration(xDuration)
+        const xDivisions = xDuration / xStep
         const xGridDistance = plotWidth / xDivisions
+
         let xTickPos
         let xTickDateTime
         let xTickDateStr
         let xTickTimeStr
 
-        const currentDateTime = new Date()
-        let lastDateStr = currentDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
+        const currentDayTime = new Date()
+        let lastDateStr = currentDayTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
 
-        const hours = currentDateTime.getHours()
-        const minutes = currentDateTime.getMinutes()
-        const seconds = currentDateTime.getSeconds()
-
-        let diff
-
-        switch (xTicksAt) {
-            case xTicksAtTwelveOClock:
-                diff = ((hours - 12) * 60 * 60 + minutes * 60 + seconds)
-                break
-            case xTicksAtFullHour:
-                diff = (minutes * 60 + seconds)
-                break
-            case xTicksAtFullSecondHour:
-                diff = (minutes * 60 + seconds)
-                break
-            case xTicksAtHalfHour:
-                diff = ((minutes - 30) * 60 + seconds)
-                break
-            case xTicksAtTenMinutes:
-                diff = ((minutes % 10) * 60 + seconds)
-                break
-            default:
-                diff = 0
-        }
-
-        const xGridOffset = plotWidth * (diff / xDuration)
+        const xOffset = offsetForStep(xStep)
+        const xGridOffset = plotWidth * (xOffset / xDuration)
         let dateChanged = false
 
         const dashedLines = 50
@@ -198,7 +211,7 @@ Canvas
 
             if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding))
             {
-                xTickDateTime = new Date((currentUnixTime - (xDivisions - i) * xDivisionWidth - diff) * 1000)
+                xTickDateTime = new Date((currentUnixTime - (xDivisions - i) * xStep - xOffset) * 1000)
                 xTickDateStr = xTickDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
                 xTickTimeStr = xTickDateTime.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
 
