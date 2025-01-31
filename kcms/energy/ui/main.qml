@@ -100,9 +100,6 @@ KCM.SimpleKCM {
     implicitWidth: Kirigami.Units.gridUnit * 30
     implicitHeight: !!currentBattery ? Kirigami.Units.gridUnit * 30 : Kirigami.Units.gridUnit * 12
 
-    readonly property var timespanComboChoices: [i18n("Last hour"),i18n("Last 2 hours"),i18n("Last 12 hours"),i18n("Last 24 hours"),i18n("Last 48 hours"), i18n("Last 7 days")]
-    readonly property var timespanComboDurations: [3600, 7200, 43200, 86400, 172800, 604800]
-
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         visible: kcm.batteries.count <= 0 && history.count <= 0
@@ -238,7 +235,7 @@ KCM.SimpleKCM {
 
         HistoryModel {
             id: history
-            duration: timespanComboDurations[timespanCombo.currentIndex]
+            duration: timespanCombo.duration
             device: currentUdi
             type: root.historyType
         }
@@ -331,7 +328,21 @@ KCM.SimpleKCM {
                 QQC2.ComboBox {
                     id: timespanCombo
                     Layout.minimumWidth: Kirigami.Units.gridUnit * 6
-                    model: timespanComboChoices
+
+                    model: [
+                        i18n("Last hour"),
+                        i18n("Last 2 hours"),
+                        i18n("Last 12 hours"),
+                        i18n("Last 24 hours"),
+                        i18n("Last 48 hours"),
+                        i18n("Last 7 days")
+                    ]
+
+                    readonly property int duration : {
+                        const hours = [1, 2, 12, 24, 48, 24 * 7];
+                        return hours[currentIndex] * 3600;
+                    }
+
                     Accessible.name: i18n("Timespan")
                     Accessible.description: i18n("Timespan of data to display")
                 }
