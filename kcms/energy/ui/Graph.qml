@@ -41,10 +41,8 @@ Canvas
     property real xDivisionWidth: 600000
     property real xTicksAt: xTicksAtDontCare
 
-    //internal
-
-    property real plotWidth: width - xPadding * 1.5
-    property real plotHeight: height - yPadding * 2
+    readonly property real plotWidth: width - xPadding * 1.5
+    readonly property real plotHeight: height - yPadding * 2
 
     onDataChanged: {
         canvas.requestPaint();
