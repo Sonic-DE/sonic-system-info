@@ -27,27 +27,27 @@ Canvas
 
     property var data //expect an array of QPointF
 
-    property real yMax: 100
-    property real xMax: 100
-    property real yMin: 0
-    property real xMin: 0
-    property real yStep: 20
+    property int yMax: 100
+    property int xMax: 100
+    property int yMin: 0
+    property int xMin: 0
+    property int yStep: 20
 
     property string yUnits: ""
     property string xUnits: ""
 
-    property real xDuration: 3600
+    property int xDuration: 3600
 
-    readonly property real plotWidth: width - xPadding * 1.5
-    readonly property real plotHeight: height - yPadding * 2
+    readonly property int plotWidth: Math.round(width - xPadding * 1.5)
+    readonly property int plotHeight: height - yPadding * 2
 
     onDataChanged: {
         canvas.requestPaint();
     }
 
     function scalePoint(plot : point, currentUnixTime : int) : point {
-        const scaledX = (plot.x - (currentUnixTime - xDuration)) / xDuration * plotWidth;
-        const scaledY = (plot.y - yMin) * plotHeight / (yMax - yMin);
+        const scaledX = Math.round((plot.x - (currentUnixTime - xDuration)) / xDuration * plotWidth);
+        const scaledY = Math.round((plot.y - yMin) * plotHeight / (yMax - yMin));
 
         return Qt.point(
             xPadding + scaledX,
