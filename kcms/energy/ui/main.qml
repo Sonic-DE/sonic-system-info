@@ -260,8 +260,6 @@ KCM.SimpleKCM {
 
                 data: history.points
 
-                xMin: history.firstDataPointTime
-                xMax: history.lastDataPointTime
                 xDuration: history.duration
 
                 yLabel: root.historyType == HistoryModel.RateType ? ( value => i18nc("Graph axis label: power in Watts","%1 W", value) )
