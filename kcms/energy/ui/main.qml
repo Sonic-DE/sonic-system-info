@@ -392,73 +392,54 @@ KCM.SimpleKCM {
                         Kirigami.FormData.isSection: true
                         level: 2
                         // HACK hide section header if all labels are invisible
-                        visible: {
-                            for (let i = 0, length = detailsRepeater.count; i < length; ++i) {
-                                const item = detailsRepeater.itemAt(i)
-                                if (item && item.visible) {
-                                    return true
-                                }
-                            }
-
-                            return false
-                        }
+                        visible:  [...Array(detailsRepeater.count).keys()].some(i => detailsRepeater.itemAt(i)?.visible ?? false)
                     }
 
                     Repeater {
                         id: detailsRepeater
                         model: modelData.data || []
-
-                        Kirigami.SelectableLabel {
+                        delegate: Kirigami.SelectableLabel {
                             id: valueLabel
+                            visible: text.length > 0
                             Layout.fillWidth: true
+
                             Keys.onPressed: {
                                 if (event.matches(StandardKey.Copy)) {
                                     valueLabel.copy();
                                     event.accepted = true;
                                 }
                             }
+
                             Kirigami.FormData.label: i18n("%1:", modelData.label)
                             text: {
-                                let value;
-                                if (modelData.source) {
-                                    value = root["current" + modelData.source];
-                                } else {
-                                    value = currentBattery[modelData.value]
-                                }
+                                let value = (modelData.source) ? root["current" + modelData.source]
+                                                               : currentBattery[modelData.value]
 
                                 if (typeof value === "boolean") {
-                                    if (value) {
-                                        return i18n("Yes")
-                                    } else {
-                                        return i18n("No")
-                                    }
+                                    return value ? i18n("Yes") : i18n("No")
                                 }
 
                                 if (!value) {
                                     return ""
                                 }
 
-                                const precision = modelData.precision
-                                if (typeof precision === "number") { // round to decimals
-                                    value = Number(value).toLocaleString(Qt.locale(), "f", precision)
+                                if (modelData.precision) { // round to decimals
+                                    value = Number(value).toLocaleString(Qt.locale(), "f", modelData.precision)
                                 }
 
                                 if (modelData.modifier && root["modifier_" + modelData.modifier]) {
                                     value = root["modifier_" + modelData.modifier](value)
                                 }
 
-                                if (modelData.unit) {
-                                    if (modelData.unit === "%") {
-                                        // We delay the percentage localization as the position may vary
-                                        value = i18nc("%1 is a percentage value", "%1%", value)
-                                    } else {
-                                        value = i18nc("%1 is value, %2 is unit", "%1 %2", value, modelData.unit)
-                                    }
+                                switch (modelData.unit) {
+                                case undefined:
+                                    return value
+                                case "%":
+                                    return i18nc("%1 is a percentage value", "%1%", value)
+                                default:
+                                    return i18nc("%1 is value, %2 is unit", "%1 %2", value, modelData.unit)
                                 }
-
-                                return value
                             }
-                            visible: valueLabel.text !== ""
                         }
                     }
                 }
