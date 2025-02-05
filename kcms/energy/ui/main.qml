@@ -249,9 +249,9 @@ KCM.SimpleKCM {
                 id: graph
 
                 Layout.fillWidth: true
-                Layout.minimumHeight: column.width / 3
-                Layout.maximumHeight: column.width / 3
-                Layout.topMargin: -Kirigami.Units.largeSpacing
+                Layout.preferredHeight: column.width / 3
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 12
+                Layout.maximumHeight: Kirigami.Units.gridUnit * 24
 
                 data: history.points
 
@@ -273,16 +273,17 @@ KCM.SimpleKCM {
             // Reparented to keep the item outside of a layout and the graph canvas
             Kirigami.PlaceholderMessage {
                 parent: graph
-                anchors.centerIn: parent
                 visible: graph.data.length < 2
-                width: parent.width - (Kirigami.Units.largeSpacing * 4)
+                x: graph.plotCenter.x - width / 2
+                y: graph.plotCenter.y - height / 2
+                width: graph.plot.width - (Kirigami.Units.largeSpacing * 4)
                 text: i18nc("@info:status", "No history information for this time span")
             }
 
             GridLayout {
                 Layout.fillWidth: true
-                Layout.leftMargin: graph.xPadding
-                Layout.rightMargin: graph.xPadding/2
+                Layout.leftMargin: graph.plot.left
+                Layout.rightMargin: graph.width - graph.plot.right
                 columns: !compact ? 5 : 3
 
                 QQC2.Button {
