@@ -236,29 +236,51 @@ KCM.SimpleKCM {
         }
     }
 
-    ColumnLayout {
-        HistoryModel {
-            id: history
-            duration: timespanCombo.duration
-            device: currentUdi
-            type: root.historyType
-        }
+    HistoryModel {
+        id: history
+        duration: timespanCombo.duration
+        device: currentUdi
+        type: root.historyType
+    }
 
-        ColumnLayout {
+    // Set the padding for KCMUtils.SimpleKCM to the Kirigami.Page defaults
+    topPadding: Kirigami.Units.gridUnit
+    leftPadding: Kirigami.Units.gridUnit
+    rightPadding: Kirigami.Units.gridUnit
+
+    ColumnLayout {
+        spacing: Kirigami.Units.largeSpacing
+
+        Kirigami.ShadowedRectangle {
+            visible: !!root.currentBattery && history.available
+
             Layout.fillWidth: true
-            spacing: Kirigami.Units.smallSpacing
-            visible: !!currentBattery && history.available
+            Layout.preferredHeight: root.width / 3
+            Layout.minimumHeight: Kirigami.Units.gridUnit * 12
+            Layout.maximumHeight: Kirigami.Units.gridUnit * 24
+
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            Kirigami.Theme.inherit: false
+            color: Kirigami.Theme.backgroundColor
+            radius: Kirigami.Units.cornerRadius
+            // Border and shadow values from Kirigami's DefaultCardBackground
+            border {
+                width: 1
+                color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
+            }
+            shadow {
+                size: Kirigami.Units.gridUnit
+                color: Qt.rgba(0, 0, 0, 0.05)
+                yOffset: 2
+            }
 
             Graph {
                 id: graph
 
-                Layout.fillWidth: true
-                Layout.preferredHeight: root.width / 3
-                Layout.minimumHeight: Kirigami.Units.gridUnit * 12
-                Layout.maximumHeight: Kirigami.Units.gridUnit * 24
+                anchors.fill: parent
+                anchors.margins: Kirigami.Units.largeSpacing
 
                 data: history.points
-
                 xDuration: history.duration
 
                 yLabel: root.historyType == HistoryModel.RateType ? ( value => i18nc("Graph axis label: power in Watts","%1 W", value) )
@@ -283,147 +305,142 @@ KCM.SimpleKCM {
                 width: graph.plot.width - (Kirigami.Units.largeSpacing * 4)
                 text: i18nc("@info:status", "No history information for this time span")
             }
+        }
 
-            GridLayout {
+        GridLayout {
+            visible: !!root.currentBattery && history.available
+
+            Layout.fillWidth: true
+            columns: !compact ? 5 : 3
+
+            QQC2.Button {
+                id: chargeButton
+                checked: true
+                checkable: true
+                text: i18n("Charge Percentage")
+                onClicked: {
+                    historyType = HistoryModel.ChargeType
+                    rateButton.checked = false
+                }
+            }
+
+            QQC2.Button {
+                id: rateButton
+                checkable: true
+                text: i18n("Energy Consumption")
+                onClicked: {
+                    historyType = HistoryModel.RateType
+                    chargeButton.checked = false
+                }
+            }
+
+            Item {
                 Layout.fillWidth: true
-                Layout.leftMargin: graph.plot.left
-                Layout.rightMargin: graph.width - graph.plot.right
-                columns: !compact ? 5 : 3
+            }
 
-                QQC2.Button {
-                    id: chargeButton
-                    checked: true
-                    checkable: true
-                    text: i18n("Charge Percentage")
-                    onClicked: {
-                        historyType = HistoryModel.ChargeType
-                        rateButton.checked = false
-                    }
+            QQC2.ComboBox {
+                id: timespanCombo
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 6
+
+                model: [
+                    i18n("Last hour"),
+                    i18n("Last 2 hours"),
+                    i18n("Last 12 hours"),
+                    i18n("Last 24 hours"),
+                    i18n("Last 48 hours"),
+                    i18n("Last 7 days")
+                ]
+
+                readonly property int duration : {
+                    const hours = [1, 2, 12, 24, 48, 24 * 7];
+                    return hours[currentIndex] * 3600;
                 }
 
-                QQC2.Button {
-                    id: rateButton
-                    checkable: true
-                    text: i18n("Energy Consumption")
-                    onClicked: {
-                        historyType = HistoryModel.RateType
-                        chargeButton.checked = false
-                    }
-                }
+                Accessible.name: i18n("Timespan")
+                Accessible.description: i18n("Timespan of data to display")
+            }
 
-                Item {
-                    Layout.fillWidth: true
-                }
-
-                QQC2.ComboBox {
-                    id: timespanCombo
-                    Layout.minimumWidth: Kirigami.Units.gridUnit * 6
-
-                    model: [
-                        i18n("Last hour"),
-                        i18n("Last 2 hours"),
-                        i18n("Last 12 hours"),
-                        i18n("Last 24 hours"),
-                        i18n("Last 48 hours"),
-                        i18n("Last 7 days")
-                    ]
-
-                    readonly property int duration : {
-                        const hours = [1, 2, 12, 24, 48, 24 * 7];
-                        return hours[currentIndex] * 3600;
-                    }
-
-                    Accessible.name: i18n("Timespan")
-                    Accessible.description: i18n("Timespan of data to display")
-                }
-
-                QQC2.Button {
-                    icon.name: "view-refresh-symbolic"
-                    hoverEnabled: true
-                    QQC2.ToolTip.text: i18n("Refresh")
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                    Accessible.name: QQC2.ToolTip.text
-                    onClicked: history.refresh()
-                }
+            QQC2.Button {
+                icon.name: "view-refresh-symbolic"
+                hoverEnabled: true
+                QQC2.ToolTip.text: i18n("Refresh")
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Accessible.name: QQC2.ToolTip.text
+                onClicked: history.refresh()
             }
         }
 
-        ColumnLayout {
-            id: detailsColumn
-            spacing: 0
+        Repeater {
+            id: titleRepeater
+            property list<Kirigami.FormLayout> layouts
 
-            Layout.fillWidth: true
             visible: !!currentBattery
 
-            Repeater {
-                id: titleRepeater
-                model: root.details
-                property list<Kirigami.FormLayout> layouts
+            model: root.details
 
-                delegate: Kirigami.FormLayout {
-                    id: currentLayout
+            delegate: Kirigami.FormLayout {
+                id: currentLayout
 
-                    Component.onCompleted: {
-                        // ensure that all visible FormLayout share the same set of twinFormLayouts
-                        titleRepeater.layouts.push(currentLayout);
-                        for (let i = 0, length = titleRepeater.layouts.length; i < length; ++i) {
-                            titleRepeater.layouts[i].twinFormLayouts = titleRepeater.layouts;
+                Component.onCompleted: {
+                    // ensure that all visible FormLayout share the same set of twinFormLayouts
+                    titleRepeater.layouts.push(currentLayout);
+                    for (let i = 0, length = titleRepeater.layouts.length; i < length; ++i) {
+                        titleRepeater.layouts[i].twinFormLayouts = titleRepeater.layouts;
+                    }
+                }
+
+                Kirigami.Heading {
+                    text: modelData.title
+                    Kirigami.FormData.isSection: true
+                    level: 2
+                    // HACK hide section header if all labels are invisible
+                    visible:  [...Array(detailsRepeater.count).keys()].some(i => detailsRepeater.itemAt(i)?.visible ?? false)
+                }
+
+                Repeater {
+                    id: detailsRepeater
+                    model: modelData.data || []
+                    delegate: Kirigami.SelectableLabel {
+                        id: valueLabel
+                        visible: text.length > 0
+                        Layout.fillWidth: true
+
+                        Keys.onPressed: {
+                            if (event.matches(StandardKey.Copy)) {
+                                valueLabel.copy();
+                                event.accepted = true;
+                            }
                         }
-                    }
 
-                    Kirigami.Heading {
-                        text: modelData.title
-                        Kirigami.FormData.isSection: true
-                        level: 2
-                        // HACK hide section header if all labels are invisible
-                        visible:  [...Array(detailsRepeater.count).keys()].some(i => detailsRepeater.itemAt(i)?.visible ?? false)
-                    }
+                        Kirigami.FormData.label: i18n("%1:", modelData.label)
+                        text: {
+                            let value = (modelData.source) ? root["current" + modelData.source]
+                                                           : currentBattery[modelData.value]
 
-                    Repeater {
-                        id: detailsRepeater
-                        model: modelData.data || []
-                        delegate: Kirigami.SelectableLabel {
-                            id: valueLabel
-                            visible: text.length > 0
-                            Layout.fillWidth: true
-
-                            Keys.onPressed: {
-                                if (event.matches(StandardKey.Copy)) {
-                                    valueLabel.copy();
-                                    event.accepted = true;
-                                }
+                            if (typeof value === "boolean") {
+                                return value ? i18n("Yes") : i18n("No")
                             }
 
-                            Kirigami.FormData.label: i18n("%1:", modelData.label)
-                            text: {
-                                let value = (modelData.source) ? root["current" + modelData.source]
-                                                               : currentBattery[modelData.value]
+                            if (!value) {
+                                return ""
+                            }
 
-                                if (typeof value === "boolean") {
-                                    return value ? i18n("Yes") : i18n("No")
-                                }
+                            if (modelData.precision) { // round to decimals
+                                value = Number(value).toLocaleString(Qt.locale(), "f", modelData.precision)
+                            }
 
-                                if (!value) {
-                                    return ""
-                                }
+                            if (modelData.modifier && root["modifier_" + modelData.modifier]) {
+                                value = root["modifier_" + modelData.modifier](value)
+                            }
 
-                                if (modelData.precision) { // round to decimals
-                                    value = Number(value).toLocaleString(Qt.locale(), "f", modelData.precision)
-                                }
-
-                                if (modelData.modifier && root["modifier_" + modelData.modifier]) {
-                                    value = root["modifier_" + modelData.modifier](value)
-                                }
-
-                                switch (modelData.unit) {
-                                case undefined:
-                                    return value
-                                case "%":
-                                    return i18nc("%1 is a percentage value", "%1%", value)
-                                default:
-                                    return i18nc("%1 is value, %2 is unit", "%1 %2", value, modelData.unit)
-                                }
+                            switch (modelData.unit) {
+                            case undefined:
+                                return value
+                            case "%":
+                                return i18nc("%1 is a percentage value", "%1%", value)
+                            default:
+                                return i18nc("%1 is value, %2 is unit", "%1 %2", value, modelData.unit)
                             }
                         }
                     }
