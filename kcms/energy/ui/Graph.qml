@@ -104,7 +104,7 @@ Canvas
     onPaint: {
         const c = canvas.getContext('2d');
 
-        c.clearRect(0,0, width, height)
+        c.clearRect(0, 0, width, height)
 
         //draw the background
         c.fillStyle = palette.base
@@ -170,8 +170,9 @@ Canvas
         c.fillStyle = palette.text;
         c.textAlign = "right"
         c.textBaseline = "middle";
-        for(let i = 0; i <=  yMax; i += yStep) {
-            const y = scalePoint(Qt.point(0,i)).y;
+
+        for(let i = 0; i <= yMax; i += yStep) {
+            const y = scalePoint(Qt.point(0, i)).y;
 
             c.fillText(canvas.yLabel(i), xPadding - 10, y);
 
@@ -209,8 +210,7 @@ Canvas
         for (let i = xDivisions; i >= -1; i--) {
             xTickPos = i * xGridDistance + xPadding - xGridOffset
 
-            if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding))
-            {
+            if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding)) {
                 xTickDateTime = new Date((currentUnixTime - (xDivisions - i) * xStep - xOffset) * 1000)
                 xTickDateStr = xTickDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
                 xTickTimeStr = xTickDateTime.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
@@ -244,7 +244,8 @@ Canvas
                     c.moveTo(xTickPos, yPadding + j * dashedLineLength)
                     c.lineTo(xTickPos, yPadding + j * dashedLineLength + dashedLineDutyCycle * dashedLineLength)
                 }
-               lastDateStr = xTickDateStr
+
+                lastDateStr = xTickDateStr
             }
         }
         c.stroke()
