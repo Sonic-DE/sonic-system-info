@@ -191,36 +191,31 @@ Canvas
         const xDivisions = xDuration / xStep
         const xGridDistance = plotWidth / xDivisions
 
-        let xTickPos
-        let xTickDateTime
-        let xTickDateStr
-        let xTickTimeStr
-
         const currentDayTime = new Date()
-        let lastDateStr = currentDayTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
 
         const xOffset = offsetForStep(xStep)
         const xGridOffset = plotWidth * (xOffset / xDuration)
-        let dateChanged = false
 
         const dashedLines = 50
         const dashedLineLength = plotHeight / dashedLines
-        let dashedLineDutyCycle
+
+        let lastDateStr = currentDayTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
+        let dateChanged = false
 
         for (let i = xDivisions; i >= -1; i--) {
-            xTickPos = i * xGridDistance + xPadding - xGridOffset
+            const xTickPos = i * xGridDistance + xPadding - xGridOffset
 
             if ((xTickPos > xPadding) && (xTickPos < plotWidth + xPadding)) {
-                xTickDateTime = new Date((currentUnixTime - (xDivisions - i) * xStep - xOffset) * 1000)
-                xTickDateStr = xTickDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
-                xTickTimeStr = xTickDateTime.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
+                const xTickDateTime = new Date((currentUnixTime - (xDivisions - i) * xStep - xOffset) * 1000)
+                const xTickDateStr = xTickDateTime.toLocaleDateString(Qt.locale(), Locale.ShortFormat)
+                const xTickTimeStr = xTickDateTime.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
 
                 if (lastDateStr != xTickDateStr) {
                     dateChanged = true
                 }
 
-                if  ((i % 2 == 0) || (xDivisions < 10))
-                {
+                let dashedLineDutyCycle = 0.1
+                if  ((i % 2 == 0) || (xDivisions < 10)) {
                     // Display the time
                     c.fillText(xTickTimeStr, xTickPos, canvas.height - yPadding / 2)
 
@@ -236,13 +231,11 @@ Canvas
                     c.lineTo(xTickPos, canvas.height - (yPadding * 4) / 5)
 
                     dashedLineDutyCycle = 0.5
-                } else {
-                    dashedLineDutyCycle = 0.1
                 }
 
                 for (let j = 0; j < dashedLines; j++) {
                     c.moveTo(xTickPos, yPadding + j * dashedLineLength)
-                    c.lineTo(xTickPos, yPadding + j * dashedLineLength + dashedLineDutyCycle * dashedLineLength)
+                    c.lineTo(xTickPos, yPadding + (j + dashedLineDutyCycle) * dashedLineLength)
                 }
 
                 lastDateStr = xTickDateStr
