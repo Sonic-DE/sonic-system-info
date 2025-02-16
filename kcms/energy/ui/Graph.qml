@@ -45,6 +45,17 @@ Canvas
         canvas.requestPaint();
     }
 
+    onXDurationChanged: {
+        canvas.requestPaint();
+    }
+
+    Behavior on xDuration {
+        NumberAnimation {
+            duration: Kirigami.Units.longDuration
+            easing.type: Easing.OutQuad
+        }
+    }
+
     function scalePoint(point : point, currentUnixTime : int) : point {
         const scaledX = Math.round((point.x - (currentUnixTime - xDuration)) / xDuration * plot.width);
         const scaledY = Math.round((point.y - yMin) * plot.height / (yMax - yMin));
