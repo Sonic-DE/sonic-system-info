@@ -82,23 +82,9 @@ KCMUtils.SimpleKCM {
                     Kirigami.FormData.label: entry.localizedLabel()
                     Kirigami.FormData.labelAlignment: idealAlignment
                     Layout.alignment: idealAlignment
+
                     readonly property int idealAlignment: valueLabel.lineCount > 1 ? Qt.AlignTop : Qt.AlignVCenter // looks tidier this way
                     readonly property bool hidden: entry.isHidden()
-                    readonly property string hint: entry.localizedHint().text
-                    readonly property color hintColorForeground: {
-                        switch (entry.localizedHint().color) {
-                            case Private.Hint.Color.One: return Kirigami.Theme.linkColor
-                            case Private.Hint.Color.Two: return Kirigami.Theme.positiveTextColor
-                            case Private.Hint.Color.Three: return Kirigami.Theme.alternateTextColor
-                        }
-                    }
-                    readonly property color hintColorBackground: {
-                        switch (entry.localizedHint().color) {
-                            case Private.Hint.Color.One: return Kirigami.Theme.linkBackgroundColor
-                            case Private.Hint.Color.Two: return Kirigami.Theme.positiveBackgroundColor
-                            case Private.Hint.Color.Three: return Kirigami.Theme.alternateBackgroundColor
-                        }
-                    }
 
                     Component {
                         id: unhideDialog
@@ -137,7 +123,7 @@ KCMUtils.SimpleKCM {
                     }
 
                     QQC2.Control {
-                        visible: hint !== ""
+                        visible: contentItem.text !== ""
                         topPadding: Kirigami.Units.smallSpacing
                         rightPadding: Kirigami.Units.smallSpacing
                         bottomPadding: Kirigami.Units.smallSpacing
@@ -146,16 +132,33 @@ KCMUtils.SimpleKCM {
                         Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
                         background: Rectangle {
-                            color: hintColorBackground
+                            color: {
+                                switch (entry.localizedHint().color) {
+                                    case Private.Hint.Color.One: return Kirigami.Theme.linkBackgroundColor
+                                    case Private.Hint.Color.Two: return Kirigami.Theme.positiveBackgroundColor
+                                    case Private.Hint.Color.Three: return Kirigami.Theme.alternateBackgroundColor
+                                }
+                            }
                             radius: Kirigami.Units.cornerRadius
                         }
 
                         contentItem: QQC2.Label {
-                            text: hint
-                            color: hintColorForeground
+                            text: entry.localizedHint().text
+                            color: {
+                                switch (entry.localizedHint().color) {
+                                    case Private.Hint.Color.One: return Kirigami.Theme.linkColor
+                                    case Private.Hint.Color.Two: return Kirigami.Theme.positiveTextColor
+                                    case Private.Hint.Color.Three: return Kirigami.Theme.alternateTextColor
+                                }
+                            }
                             font.bold: true
                             font.pixelSize: Kirigami.Theme.smallFont.pixelSize
                         }
+                    }
+
+                    Kirigami.ContextualHelpButton {
+                        visible: toolTipText !== ""
+                        toolTipText: entry.localizedHelp()
                     }
 
                     QQC2.Button {
