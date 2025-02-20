@@ -136,21 +136,21 @@ KCMUtils.SimpleKCM {
                         }
                     }
 
-                    QQC2.Control {
+                    Item {
                         visible: hint !== ""
-                        topPadding: Kirigami.Units.smallSpacing
-                        rightPadding: Kirigami.Units.smallSpacing
-                        bottomPadding: Kirigami.Units.smallSpacing
-                        leftPadding: Kirigami.Units.smallSpacing
-
                         Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                        Layout.fillHeight: true
+                        implicitWidth: hintLabel.implicitWidth + Kirigami.Units.smallSpacing * 2
 
-                        background: Rectangle {
+                        Rectangle {
+                            anchors.fill: parent
                             color: hintColorBackground
                             radius: Kirigami.Units.cornerRadius
                         }
 
-                        contentItem: QQC2.Label {
+                        QQC2.Label {
+                            id: hintLabel
+                            anchors.centerIn: parent
                             text: hint
                             color: hintColorForeground
                             font.bold: true
