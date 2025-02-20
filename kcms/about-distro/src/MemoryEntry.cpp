@@ -52,3 +52,10 @@ QString MemoryEntry::localizedValue(Language language) const
     }
     return localize(ki18nc("Unknown amount of RAM", "Unknown"), language);
 }
+
+QString MemoryEntry::localizedHelp(Language language) const
+{
+    return localize(ki18nc("@info:tooltip, referring to system memory or RAM",
+                           "The amount of memory displayed can be lower than the installed amount because some memory is reserved for system hardware."),
+                    language);
+}
