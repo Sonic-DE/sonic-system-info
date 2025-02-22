@@ -41,6 +41,8 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
 find_package(PkgConfig)
 pkg_check_modules(libdrm REQUIRED IMPORTED_TARGET libdrm)
 
+find_package(UDev QUIET) # Optional, for about-distro
+
 ecm_find_qmlmodule(org.kde.kirigami 2.5)
 
 macro(kinfocenter_add_kcm target)
