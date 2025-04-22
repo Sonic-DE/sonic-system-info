@@ -172,7 +172,7 @@ KCM.SimpleKCM {
                     easing.type: Easing.InOutQuad
                 }
             }
-            
+
             contentItem: RowLayout {
                 id: filterLayout
                 anchors.fill: parent
@@ -181,7 +181,7 @@ KCM.SimpleKCM {
                 
                 Kirigami.SearchField {
                     id: filterField
-                
+                    
                     Layout.fillWidth: true
                     
                     placeholderText: i18ndc("kinfocenter", "@label placeholder text to filter for something", "Filter…")
@@ -248,6 +248,8 @@ KCM.SimpleKCM {
             icon.name: "search"
             text: i18ndc("kinfocenter", "@action:button opens filter bar", "Filter")
             onTriggered: filterHeader.toggleExpanded();
+            checkable: true
+            checked: filterHeader.expanded
             shortcut: "Ctrl+I"
         }
     ]
