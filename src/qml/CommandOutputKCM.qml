@@ -172,28 +172,28 @@ KCM.SimpleKCM {
                     easing.type: Easing.InOutQuad
                 }
             }
-            
+
             contentItem: RowLayout {
                 id: filterLayout
                 anchors.fill: parent
                 anchors.margins: Kirigami.Units.smallSpacing
                 Layout.preferredHeight: filterHeader.visible ? filterHeader.implicitHeight : 0
-                
+
                 Kirigami.SearchField {
                     id: filterField
-                
+
                     Layout.fillWidth: true
-                    
+
                     placeholderText: i18ndc("kinfocenter", "@label placeholder text to filter for something", "Filter…")
-                    
+
                     Accessible.name: i18ndc("kinfocenter", "accessible name for filter input", "Filter")
                     Accessible.searchEdit: true
-                    
+
                     onAccepted: {
                         root.output.filter = filterField.text
                     }
                 }
-                
+
                 QQC2.ToolButton {
                     icon.name: "dialog-close"
                     onClicked: filterHeader.toggleExpanded()
@@ -201,9 +201,12 @@ KCM.SimpleKCM {
                     text: i18ndc("kinfocenter", "@action:button close filter header", "Close")
                     Accessible.name: text
 
+<<<<<<< HEAD
                     QQC2.ToolTip.visible: hovered
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     QQC2.ToolTip.text: text
+=======
+>>>>>>> c0d573c0 (CommandOutputKCM: Make the Filter button checkable)
                 }
             }
         }
@@ -248,6 +251,8 @@ KCM.SimpleKCM {
             icon.name: "search"
             text: i18ndc("kinfocenter", "@action:button opens filter bar", "Filter…")
             onTriggered: filterHeader.toggleExpanded();
+            checkable: true
+            checked: filterHeader.expanded
             shortcut: "Ctrl+I"
         }
     ]
