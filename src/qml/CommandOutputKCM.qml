@@ -27,8 +27,10 @@ KCM.SimpleKCM {
 
     // The CommandOutputContext object.
     required property QtObject output
-    property int wrapMode: TextEdit.NoWrap
+    property var wrapMode: TextEdit.NoWrap
     property int textFormat: output.textFormat
+
+    flickable.contentWidth: wrapMode === TextEdit.NoWrap ? contentLoader.implicitWidth : undefined
 
     Clipboard { id: clipboard }
 
