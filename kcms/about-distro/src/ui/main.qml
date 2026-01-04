@@ -113,6 +113,8 @@ KCMUtils.SimpleKCM {
                         id: valueLabel
                         visible: !hidden
                         text: entry.localizedValue()
+                        wrapMode: Text.WordWrap
+                        Layout.maximumWidth: Kirigami.Units.gridUnit * 30
                         Keys.onShortcutOverride: event => {
                             event.accepted = (valueLabel.activeFocus && valueLabel.selectedText && event.matches(StandardKey.Copy));
                         }
