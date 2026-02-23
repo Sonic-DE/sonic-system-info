@@ -38,6 +38,10 @@
 #include "ThirdPartyEntry.h"
 #include "Version.h"
 
+#ifdef PULSEAUDIOQT_FOUND
+#include "AudioServerEntry.h"
+#endif
+
 class EntryModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -85,7 +89,23 @@ public:
     {
         beginInsertRows(QModelIndex(), m_entries.size(), m_entries.size());
         m_entries.push_back(entry);
+        connect(entry, &Entry::updated, [this, entry]() {
+            updateEntry(entry);
+        });
         endInsertRows();
+    }
+
+    Q_SLOT void updateEntry(Entry *entry)
+    {
+        qDebug() << "Updating Entry" << entry->localizedLabel() << entry->localizedValue();
+
+        for (ulong row = 0; row < m_entries.size(); ++row) {
+            if (m_entries.at(row) == entry) {
+                const QModelIndex idx = index(row);
+                Q_EMIT dataChanged(idx, idx, {EntryRole});
+                break;
+            }
+        }
     }
 
 private:
@@ -259,11 +279,16 @@ public:
 
         // software
         addEntriesToGrid(m_softwareEntries,
-                         {new PlasmaEntry(),
-                          new Entry(ki18n("KDE Frameworks Version:"), KCoreAddons::versionString()),
-                          new Entry(ki18n("Qt Version:"), QString::fromLatin1(qVersion())),
-                          new KernelEntry(),
-                          new GraphicsPlatformEntry()});
+                         {
+                             new PlasmaEntry(),
+                             new Entry(ki18n("KDE Frameworks Version:"), KCoreAddons::versionString()),
+                             new Entry(ki18n("Qt Version:"), QString::fromLatin1(qVersion())),
+                             new KernelEntry(),
+                             new GraphicsPlatformEntry(),
+#ifdef PULSEAUDIOQT_FOUND
+                             new AudioServerEntry(),
+#endif
+                         });
 
         // Add any extraData entries
         if (!m_extraDataEntries.empty()) {
