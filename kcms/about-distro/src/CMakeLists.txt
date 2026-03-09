@@ -30,6 +30,13 @@ set(kcm_SRCS
     ThirdPartyEntry.h
 )
 
+if(TARGET KF6::NetworkManagerQt)
+    list(APPEND kcm_SRCS
+        NetworkEntry.cpp
+        NetworkEntry.h
+    )
+endif()
+
 kcmutils_add_qml_kcm(kcm_about-distro SOURCES ${kcm_SRCS} INSTALL_NAMESPACE "plasma/kcms")
 
 target_link_libraries(kcm_about-distro  PRIVATE
@@ -43,6 +50,11 @@ target_link_libraries(kcm_about-distro  PRIVATE
     KF6::AuthCore
     PkgConfig::libdrm
 )
+
+if(TARGET KF6::NetworkManagerQt)
+    target_link_libraries(kcm_about-distro PRIVATE KF6::NetworkManagerQt)
+    target_compile_definitions(kcm_about-distro PRIVATE HAVE_NETWORKMANAGERQT)
+endif()
 
 if(UDev_FOUND)
     target_link_libraries(kcm_about-distro PRIVATE UDev::UDev)

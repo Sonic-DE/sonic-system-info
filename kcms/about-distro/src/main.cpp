@@ -32,6 +32,9 @@
 #include "GraphicsPlatformEntry.h"
 #include "KernelEntry.h"
 #include "MemoryEntry.h"
+#ifdef HAVE_NETWORKMANAGERQT
+#include "NetworkEntry.h"
+#endif
 #include "OSVersionEntry.h"
 #include "PlasmaEntry.h"
 #include "ServiceRunner.h"
@@ -273,6 +276,9 @@ public:
         // hardware
         addEntriesToGrid(m_hardwareEntries, {new CPUEntry, new MemoryEntry});
         addEntriesToGrid(m_hardwareEntries, GPUEntryFactory::factorize());
+#ifdef HAVE_NETWORKMANAGERQT
+        addEntriesToGrid(m_hardwareEntries, NetworkEntryFactory::factorize());
+#endif
 
         KAuth::Action action(QStringLiteral("org.kde.kinfocenter.dmidecode.systeminformation"));
         action.setHelperId(QStringLiteral("org.kde.kinfocenter.dmidecode"));

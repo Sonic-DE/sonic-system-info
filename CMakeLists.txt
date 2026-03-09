@@ -39,6 +39,13 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Auth
 )
 
+find_package(KF6NetworkManagerQt ${KF6_MIN_VERSION})
+set_package_properties(KF6NetworkManagerQt PROPERTIES
+    DESCRIPTION "Qt wrapper for NetworkManager API"
+    TYPE OPTIONAL
+    PURPOSE "Required for network adapter information in About This System"
+)
+
 find_package(PkgConfig)
 pkg_check_modules(libdrm REQUIRED IMPORTED_TARGET libdrm)
 
