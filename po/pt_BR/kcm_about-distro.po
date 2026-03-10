@@ -119,8 +119,8 @@ msgstr "Versão do U-Boot:"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
-msgstr "Versão do KDE Frameworks:"
+msgid "SonicDE Frameworks Version:"
+msgstr "Versão do SonicDE Frameworks:"
 
 #: main.cpp:264
 #, kde-format
@@ -214,8 +214,8 @@ msgstr "%1 %2 Compilação: %3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
-msgstr "Versão do KDE Plasma:"
+msgid "SonicDE Version:"
+msgstr "Versão do SonicDE:"
 
 #: ThirdPartyEntry.cpp:12
 #, kde-format

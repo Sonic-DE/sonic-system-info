@@ -117,7 +117,7 @@ msgstr ""
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr ""
 
 #: main.cpp:264
@@ -206,7 +206,7 @@ msgstr ""
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr ""
 
 #: ThirdPartyEntry.cpp:12

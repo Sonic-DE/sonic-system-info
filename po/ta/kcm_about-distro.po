@@ -114,7 +114,7 @@ msgstr "U-boot பதிப்பு:"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr "கே.டீ.யீ. நிரலகங்களின் பதிப்பு:"
 
 #: main.cpp:264
@@ -206,7 +206,7 @@ msgstr "%1 %2 பதிப்பு: %3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr "கே.டீ.யீ பிளாஸ்மா பதிப்பு:"
 
 #: ThirdPartyEntry.cpp:12

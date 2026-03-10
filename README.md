@@ -13,7 +13,7 @@ way of contributing patches is via KDE's instance of GitLab at https://invent.kd
 Build instructions can be found at https://community.kde.org/Get_Involved/development#Build_some_software.
 
 ## Release Schedule
-KInfoCenter follows the KDE Plasma [release cycle](https://community.kde.org/Schedules/Plasma_5).
+KInfoCenter follows the SonicDE [release cycle](https://community.kde.org/Schedules/Plasma_5).
 
 ## Reporting Bugs
 Please report bugs at KDE's Bugzilla at https://bugs.kde.org/enter_bug.cgi?product=kinfocenter.

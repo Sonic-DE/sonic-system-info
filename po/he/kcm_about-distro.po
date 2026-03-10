@@ -119,7 +119,7 @@ msgstr "גרסת U-Boot:"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr "גרסת תשתיות KDE:"
 
 #: main.cpp:264
@@ -211,7 +211,7 @@ msgstr "%1 %2 בנייה: %3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr "גרסת KDE פלזמה:"
 
 #: ThirdPartyEntry.cpp:12

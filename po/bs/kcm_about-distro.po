@@ -130,7 +130,7 @@ msgstr "Qt Verzija:"
 
 #: main.cpp:263
 #, fuzzy, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr "KDELibs Verzija:"
 
 #: main.cpp:264
@@ -223,7 +223,7 @@ msgstr ""
 
 #: PlasmaEntry.cpp:15
 #, fuzzy, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr "KDELibs Verzija:"
 
 #: ThirdPartyEntry.cpp:12

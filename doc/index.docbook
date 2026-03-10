@@ -193,8 +193,8 @@ Type <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> on the keyboar
 <sect1 id="aboutsystem">
 <title>About System Module</title>
 
-<para>This page shows a brief summary about your system, &ie; your distribution, <guilabel>KDE Plasma Version:</guilabel>,
-<guilabel>KDE Frameworks Version:</guilabel>, <guilabel>Qt Version:</guilabel>, <guilabel>Kernel Version:</guilabel> and <guilabel>OS Type:</guilabel>; and in the hardware section
+<para>This page shows a brief summary about your system, &ie; your distribution, <guilabel>SonicDE Version:</guilabel>,
+<guilabel>SonicDE Frameworks Version:</guilabel>, <guilabel>Qt Version:</guilabel>, <guilabel>Kernel Version:</guilabel> and <guilabel>OS Type:</guilabel>; and in the hardware section
 information about <guilabel>Processors:</guilabel>, <guilabel>Memory:</guilabel> and <guilabel>Graphics Processor:</guilabel>.</para>
 
 <para>Use the information on this page if you ask for help in support channels or report a bug at 

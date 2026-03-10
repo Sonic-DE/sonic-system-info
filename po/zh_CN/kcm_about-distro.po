@@ -113,7 +113,7 @@ msgstr "U-Boot 版本："
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr "KDE 程序框架版本："
 
 #: main.cpp:264
@@ -204,8 +204,8 @@ msgstr "%1 %2 构建版本：%3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
-msgstr "KDE Plasma 版本："
+msgid "SonicDE Version:"
+msgstr "SonicDE 版本："
 
 #: ThirdPartyEntry.cpp:12
 #, kde-format

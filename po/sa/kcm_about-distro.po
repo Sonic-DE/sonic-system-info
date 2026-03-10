@@ -116,8 +116,8 @@ msgstr "यू-बूट् संस्करणम् :"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
-msgstr "KDE Frameworks संस्करणम् :"
+msgid "SonicDE Frameworks Version:"
+msgstr "SonicDE Frameworks संस्करणम् :"
 
 #: main.cpp:264
 #, kde-format
@@ -209,7 +209,7 @@ msgstr "%1 %2 निर्माणम्: %3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr "केडीई प्लाज्मा संस्करणम् :"
 
 #: ThirdPartyEntry.cpp:12

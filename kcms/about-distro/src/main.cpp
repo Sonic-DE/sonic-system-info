@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2012-2022 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2026 Logan J Austreng <logawinnerbus@gmail.com>
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
@@ -260,7 +261,7 @@ public:
         // software
         addEntriesToGrid(m_softwareEntries,
                          {new PlasmaEntry(),
-                          new Entry(ki18n("KDE Frameworks Version:"), KCoreAddons::versionString()),
+                          new Entry(ki18n("SonicDE Frameworks Version:"), KCoreAddons::versionString()),
                           new Entry(ki18n("Qt Version:"), QString::fromLatin1(qVersion())),
                           new KernelEntry(),
                           new GraphicsPlatformEntry()});
