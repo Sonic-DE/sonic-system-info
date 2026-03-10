@@ -119,8 +119,8 @@ msgstr "Έκδοση Qt:"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
-msgstr "Έκδοση KDE Frameworks:"
+msgid "SonicDE Frameworks Version:"
+msgstr "Έκδοση SonicDE Frameworks:"
 
 #: main.cpp:264
 #, kde-format
@@ -212,8 +212,8 @@ msgstr ""
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
-msgstr "Έκδοση KDE Plasma:"
+msgid "SonicDE Version:"
+msgstr "Έκδοση SonicDE:"
 
 #: ThirdPartyEntry.cpp:12
 #, kde-format

@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2012-2021 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2026 Logan J Austreng <logawinnerbus@gmail.com>
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
@@ -12,7 +13,7 @@
 #include "Version.h"
 
 PlasmaEntry::PlasmaEntry()
-    : Entry(ki18n("KDE Plasma Version:"), plasmaVersion())
+    : Entry(ki18n("SonicDE Version:"), plasmaVersion())
 {
     // Since Plasma version detection isn't based on a library query it can fail
     // in weird cases; instead of admitting defeat we simply hide everything :P

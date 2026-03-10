@@ -115,7 +115,7 @@ msgstr "ਯੂ-ਬੂਟ ਵਰਜ਼ਨ:"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr "KDE ਫਰੇਮਵਰਕਸ ਵਰਜ਼ਨ:"
 
 #: main.cpp:264
@@ -208,7 +208,7 @@ msgstr "%1 %2 ਬਿਲਡ: %3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr "KDE ਪਲਾਜ਼ਮਾ ਵਰਜ਼ਨ:"
 
 #: ThirdPartyEntry.cpp:12

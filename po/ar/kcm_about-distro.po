@@ -120,7 +120,7 @@ msgstr "إصدار U-Boot:"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr "إصدارة إطار كِيدِي:"
 
 #: main.cpp:264
@@ -214,7 +214,7 @@ msgstr "توزيعة %1 %2 البناء: %3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr "إصدارة كِيدِي بلازما:"
 
 #: ThirdPartyEntry.cpp:12

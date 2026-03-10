@@ -138,7 +138,7 @@ msgstr "Издање КуТ‑а:"
 
 #: main.cpp:263
 #, kde-format
-msgid "KDE Frameworks Version:"
+msgid "SonicDE Frameworks Version:"
 msgstr "Издање Радних оквира КДЕ‑а:"
 
 #: main.cpp:264
@@ -232,7 +232,7 @@ msgstr ""
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "KDE Plasma Version:"
+msgid "SonicDE Version:"
 msgstr "Издање КДЕ Плазме:"
 
 #: ThirdPartyEntry.cpp:12
