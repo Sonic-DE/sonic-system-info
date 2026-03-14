@@ -1,21 +1,30 @@
-# KInfoCenter
+# sonic-system-info
 
-KInfoCenter is used to display information about your computer's hardware on the KDE desktop.
+sonic-system-info is used to display information about your computer's hardware on the Sonic desktop.
 This repository hosts the modules for it while the main shell is [System Settings](https://invent.kde.org/plasma/systemsettings).
 
 ## Contributing
-KInfoCenter is developed under the KDE umbrella and uses KDE infrastructure
-for development.
-Please note that pull requests on GitHub aren't supported. The recommended
-way of contributing patches is via KDE's instance of GitLab at https://invent.kde.org/plasma/kinfocenter.
+
+We appreciate your interest in contributing! To report a bug, please use the Plasma Workspace bug tracker at [Issues · Sonic-DE/plasma-workspace-sonic](https://github.com/Sonic-DE/plasma-workspace-sonic/issues).
+
+To make a source code contribution, fork the repo then create a pull request with your changes.
 
 ## Build instructions
-Build instructions can be found at https://community.kde.org/Get_Involved/development#Build_some_software.
 
-## Release Schedule
-KInfoCenter follows the SonicDE [release cycle](https://community.kde.org/Schedules/Plasma_5).
+sonic-system-info uses CMake like most SonicDE projects, so you can build it like this:
 
-## Reporting Bugs
-Please report bugs at KDE's Bugzilla at https://bugs.kde.org/enter_bug.cgi?product=kinfocenter.
-For discussions, the #kde-devel IRC channel and the kde-devel mailing list
-are good places to post.
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+
+or with ninja:
+
+```bash
+mkdir build
+cd build
+cmake -G Ninja ..
+ninja
+```
