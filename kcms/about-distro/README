@@ -13,4 +13,4 @@ the icon theme. Ideally the logo should be an SVG so as to be scalable for
 different screen resolutions.
 
 e.g.
-pkexec cp `pwd`/example/kcm-about-distrorc.ex /etc/xdg/kcm-about-distrorc
+pkexec cp `pwd`/example/scm-about-distrorc.ex /etc/xdg/scm-about-distrorc

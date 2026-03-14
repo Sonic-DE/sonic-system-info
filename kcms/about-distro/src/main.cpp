@@ -153,7 +153,7 @@ public:
     {
         // NOTE: do not include globals, otherwise kdeglobals could provide values
         //       even though we only explicitly want them from our own config.
-        KSharedConfig::Ptr config = KSharedConfig::openConfig(QStringLiteral("kcm-about-distrorc"), KConfig::NoGlobals);
+        KSharedConfig::Ptr config = KSharedConfig::openConfig(QStringLiteral("scm-about-distrorc"), KConfig::NoGlobals);
         KConfigGroup cg = KConfigGroup(config, "General");
 
         KOSRelease os;
