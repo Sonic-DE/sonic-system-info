@@ -582,5 +582,5 @@ msgstr "<tr><td><i>ਵੱਧੋ-ਵੱਧ ਪੈਕੇਟ ਆਕਾਰ</i></td><
 #~ "ਇੱਕ ਜਾਂ ਵਧੇਰੇ USB ਕੰਟਰੋਲਰ ਖੋਲ੍ਹੇ ਨਹੀਂ ਜਾ ਸਕੇ ਹਨ। ਪੁਸ਼ਟੀ ਕਰੋ ਕਿ ਤੁਹਾਨੂੰ ਇੱਥੇ ਵਿਖਾਏ ਗਏ ਸਭ USB "
 #~ "ਕੰਟਰੋਲਰਾਂ ਨੂੰ ਪੜ੍ਹਨ ਦੇ ਅਧਿਕਾਰ ਹਨ।"
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB ਦਰਸ਼ਕ"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB ਦਰਸ਼ਕ"

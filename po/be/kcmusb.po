@@ -550,5 +550,5 @@ msgstr ""
 #~ msgid "<tr><td><i>Revision</i></td><td>%1.%2</td></tr>"
 #~ msgstr "<tr><td><i>Рэвізія</i></td><td>%1.%2</td></tr>"
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB-праглядчык"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB-праглядчык"

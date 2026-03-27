@@ -610,5 +610,5 @@ msgstr "<tr><td><i>Max. Pakkie Grootte</i></td><td>%1</td></tr>"
 #~ "Kon nie een of meer USB kontroleurders oopmaak nie. Maak seker, jy het "
 #~ "lees toegang na alle USB kontroleurders wat hier gelys moet wees."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "Kde Usb Aansig"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE Usb Aansig"

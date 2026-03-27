@@ -1,7 +1,7 @@
 # Translation of kcmusb.po to Catalan
 # Copyright (C) 2002-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
+# version 3 or later versions approved by the membership of SonicDE e.V.
 #
 # SPDX-FileCopyrightText: 2002, 2005 Sebastià Pla i Sanz <sps@sastia.com>
 # SPDX-FileCopyrightText: 2003, 2015, 2021 Antoni Bella Pérez <antonibella5@yahoo.com>

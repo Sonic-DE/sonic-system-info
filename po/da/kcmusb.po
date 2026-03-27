@@ -586,5 +586,5 @@ msgstr "<tr><td><i>Maks. pakkestørrelse</i></td><td>%1</td></tr>"
 #~ "Kunne ikke åbne en eller flere USB-kontrollører. Sørg for at du har "
 #~ "læseadgang til alle USB-kontrollører der skulle være på denne liste."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB-fremviser"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB-fremviser"

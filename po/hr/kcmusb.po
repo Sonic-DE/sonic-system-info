@@ -615,5 +615,5 @@ msgstr "<tr><td><i>Najveća veličina paketa</i></td><td>%1</td></tr>"
 #~ "Ne mogu otvoriti jedan ili više USB kontrolera. Provjerite da li imate "
 #~ "prava čitanja na svim USB kontrolerima koji su ovdje izlistani."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB preglednik"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB preglednik"

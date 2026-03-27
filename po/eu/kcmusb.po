@@ -2,7 +2,7 @@
 # Copyright (C) 2003-2018 Free Software Foundation.
 # Copyright (C) 2019-2021, This file is copyright:
 # This file is distributed under the same license as the kinfocenter package.
-# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2025 SonicDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003, 2005, 2006, 2007.
@@ -587,5 +587,5 @@ msgstr "<tr><td><i>Paketearen neurri maximoa</i></td><td>%1</td></tr>"
 #~ "Ezin ireki USB gidari bat edo gehiago. Egiaztatu hemen zerrendatu beharko "
 #~ "liratekeen USB kontrolatzaile guztietan irakurtzeko baimena duzula."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "KDEren USB-erakuslea"

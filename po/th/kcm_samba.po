@@ -75,8 +75,8 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "สงวนลิขสิทธิ์ (c) 2002 ทีมผู้พัฒนามอดูลควบคุม Samba ของ KDE"
 
 #~ msgid "Michael Glauche"

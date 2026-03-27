@@ -74,8 +74,8 @@ msgstr "공유 설정을 변경하려면 폴더 속성을 여십시오"
 #~ msgid "Samba Status"
 #~ msgstr "Samba 상태"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"

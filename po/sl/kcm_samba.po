@@ -87,8 +87,8 @@ msgstr "Odpri lastnosti mape za spremembo nastavitev skupne rabe"
 #~ msgid "Samba Status"
 #~ msgstr "Stanje Sambe"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002-2020 ekipa KDE Nadzornega modula podatkov za Sambo"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002-2020 ekipa SonicDE Nadzornega modula podatkov za Sambo"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"

@@ -70,12 +70,12 @@ msgstr "பகிர்வு அமைப்புகளை மாற்ற அ
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE Information Control Module Samba Team"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
 #~ msgstr "kசாளரமைப்பு இயக்க விவர கட்டுப்பாட்டு கூறு"
 
@@ -213,7 +213,7 @@ msgstr "பகிர்வு அமைப்புகளை மாற்ற அ
 #~ msgstr ""
 #~ "சாம்பாவினால் பதிக்கபட்ட நிகழ்வுகளின் விவரங்களை இந்த பட்டியல் காட்டும். சாம்பாவின் பதிவு "
 #~ "அளவு 2 அல்லது அதிகமாக இல்லாவிட்டால், கோப்பு அளவில் உள்ள நிகழ்வுகள் பதிக்கபடாது.<p> "
-#~ "மற்ற KDE பட்டியல்கள் மாதிரி, நெடுவரிசையை வரிசைபடுத்த, அந்த நெடுவரிசையின் தலைப்பை "
+#~ "மற்ற SonicDE பட்டியல்கள் மாதிரி, நெடுவரிசையை வரிசைபடுத்த, அந்த நெடுவரிசையின் தலைப்பை "
 #~ "க்ளிக் செய்யவும். வரிசைபடுத்ததலை ஏறுமுகமத்திலிருந்து இறங்குமுகமாக அல்லது "
 #~ "வேறுவிதமாக மாற்ற, திரும்பவும் க்ளிக் செய்யவும்.<p> பட்டியல் காலியாக இருந்தால், "
 #~ "\"நிகழ்நிலைபடுத்து\" என்ற பொத்தானை க்ளிக் செய்யவும். சாம்பா பதிவு கோப்பு வாசிக்கபடும் "

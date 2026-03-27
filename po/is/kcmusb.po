@@ -585,5 +585,5 @@ msgstr "<tr><td><i>Hámarkspakkastærð</i></td><td>%1</td></tr>"
 #~ "Gat ekki opnað einn eða fleiri USB tækjastjóra. Gangtu úr skugga um að þú "
 #~ "hafir lesaðgang að öllum USB tækjastjórum sem ættu að vera sýndir hér."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB Skoðari"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB Skoðari"

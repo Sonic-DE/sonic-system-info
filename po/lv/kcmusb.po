@@ -583,5 +583,5 @@ msgstr "<tr><td><i>Maks. paketes izmērs</i></td><td>%1</td></tr>"
 #~ "jums ir lasīšanas pieeja visiem USB kontrolieriem, kuriem būtu jābūt šeit "
 #~ "redzamiem."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB skatītājs"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB skatītājs"

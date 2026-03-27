@@ -1,5 +1,5 @@
 # KTranslator Generated File
-# KDE breton translation
+# SonicDE breton translation
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # Jañ-Mai Drapier <jdrapier@club-internet.fr>, 1999
 #
@@ -71,8 +71,8 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(c) 2002 Skipail mollad kren titouroù Samba evit KDE"
 
 #~ msgid "Michael Glauche"
@@ -94,7 +94,7 @@ msgstr ""
 #~ msgstr "Alexander Neundorf"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
 #~ msgid "System Information Control Module"
 #~ msgstr "(c) 2002 Skipail mollad kren titouroù Samba evit KDE"
 

@@ -618,5 +618,5 @@ msgstr "<tr><td><i>Maks. veličina paketa</i></td><td>%1</td></tr>"
 #~ "pristup za čitanje na svim USB kontrolerima koji trebaju biti prikazani "
 #~ "ovdje."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB preglednik"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB preglednik"

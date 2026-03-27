@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
-"Project-Id-Version: KDE 4.1\n"
+"Project-Id-Version: SonicDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-30 00:42+0000\n"
 "PO-Revision-Date: 2025-11-10 21:05+0100\n"
@@ -76,7 +76,7 @@ msgstr ""
 #~ msgid "Samba Status"
 #~ msgstr "Samba jellemzők"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(C) A KcmSamba készítői, 2002-2020."
 
 #~ msgid "Michael Glauche"

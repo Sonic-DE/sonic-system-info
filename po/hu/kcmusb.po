@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
-"Project-Id-Version: KDE 4.1\n"
+"Project-Id-Version: SonicDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:53+0000\n"
 "PO-Revision-Date: 2024-01-16 10:55+0100\n"
@@ -582,5 +582,5 @@ msgstr "<tr><td><i>Max. csomagméret</i></td><td>%1</td></tr>"
 #~ "Nem sikerült megnyitni egy vagy több USB-vezérlőt. Ellenőrizze, van-e "
 #~ "olvasási jogosultsága az itt felsorolt összes vezérlőhöz."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB-jellemzők"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB-jellemzők"

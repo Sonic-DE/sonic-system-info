@@ -81,7 +81,7 @@ msgstr "Öppna katalogegenskaper för att ändra delningsinställningar"
 #~ msgid "Samba Status"
 #~ msgstr "Samba-status"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr ""
 #~ "© 2002-2020 Gruppen för KDE:s inställningsmodul för Samba-information"
 

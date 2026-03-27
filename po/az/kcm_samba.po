@@ -77,8 +77,8 @@ msgstr "Paylaşım ayarlarını dəyişdirmək üçün qovluğu açmaq"
 #~ msgid "Samba Status"
 #~ msgstr "Samba serveri"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE Məlumatları İdarəettmə Moduli Samba Komandası"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE Məlumatları İdarəettmə Moduli Samba Komandası"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"

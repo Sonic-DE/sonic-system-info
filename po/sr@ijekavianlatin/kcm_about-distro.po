@@ -233,7 +233,7 @@ msgstr ""
 #: PlasmaEntry.cpp:15
 #, kde-format
 msgid "SonicDE Version:"
-msgstr "Izdanje KDE Plasme:"
+msgstr "Izdanje SonicDE Plasme:"
 
 #: ThirdPartyEntry.cpp:12
 #, kde-format

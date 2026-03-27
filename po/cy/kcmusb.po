@@ -616,5 +616,5 @@ msgstr "<tr><td><i>Uchafswm Maint Pecyn</i></td><td>%1</td></tr>"
 #~ "Methu agor un neu fwy o reolyddion USB.  Sicrhewch fod gennych cyrchiad "
 #~ "darllen i'r rheolyddion USB i gyd a ddylai gael eu rhestru yma."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Gwelydd USB KDE"

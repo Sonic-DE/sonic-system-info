@@ -589,5 +589,5 @@ msgstr "<tr><td><i>Mărime maximă pachet</i></td><td>%1</td></tr>"
 #~ "Nu am putut deschide unul sau mai multe controler-e USB. Asigurați-vă că "
 #~ "aveți acces de citire pentru toate controler-ele USB listate aici."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Vizualizor USB KDE"

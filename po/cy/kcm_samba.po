@@ -78,12 +78,12 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(h)(c) 2002 Tîm Samba Modwl Reoli Gwybodaeth KDE"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
 #~ msgstr "Modwl Reoli Gwybodaeth Cysawd Panel KDE"
 

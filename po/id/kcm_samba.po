@@ -80,7 +80,7 @@ msgstr "Buka properti folder untuk mengubah pengaturan berbagi"
 #~ msgid "Samba Status"
 #~ msgstr "Status Samba"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(c) 2002-2020 Tim Modul Kontrol Informasi Samba KDE"
 
 #~ msgid "Michael Glauche"

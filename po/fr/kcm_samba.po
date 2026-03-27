@@ -84,7 +84,7 @@ msgstr ""
 #~ msgid "Samba Status"
 #~ msgstr "État de « Samba »"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr ""
 #~ "(c) 2002-2020 Équipe de développement « Samba » du module de "
 #~ "configuration des informations de KDE"

@@ -581,5 +581,5 @@ msgstr "<tr><td><i>최대 패킷 크기</i></td><td>%1</td></tr>"
 #~ "하나 이상의 USB 컨트롤러를 열 수 없습니다. USB 컨트롤러가 이 목록에 나타나"
 #~ "려면 읽기 원한이 있어야 합니다."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB 뷰어"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB 뷰어"

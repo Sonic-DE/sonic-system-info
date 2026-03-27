@@ -583,5 +583,5 @@ msgstr "<tr><td><i>Max paketstorlek</i></td><td>%1</td></tr>"
 #~ "Kunde inte öppna en eller flera USB-styrenheter. Försäkra dig om att du "
 #~ "har läsbehörigheter för alla USB-styrenheter som ska listas här."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "KDE:s USB-visare"

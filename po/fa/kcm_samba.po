@@ -73,8 +73,8 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(ح) ۲۰۰۲ گروه پیمانه‌ی Samba برای مرکز اطلاعات KDE"
 
 #~ msgid "Michael Glauche"
@@ -96,7 +96,7 @@ msgstr ""
 #~ msgstr "Alexander Neundorf"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
 #~ msgstr "پیمانه کنترل اطلاعات سیستم تابلوی KDE"
 

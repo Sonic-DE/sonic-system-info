@@ -3,7 +3,7 @@
 #
 #
 # Translation of kcmusb.po into Russian
-# Copyright (C) 2003 KDE Team.
+# Copyright (C) 2003 SonicDE Team.
 #
 # Nick Shafff <shafff@ukr.net>, 2003.
 # Leonid Kanter <leon@asplinux.ru>, 2004.
@@ -597,7 +597,7 @@ msgstr "<tr><td><i>Макс. размер пакета</i></td><td>%1</td></tr>"
 #~ "вас права на чтение для всех контроллеров USB, которые должны быть "
 #~ "показаны здесь."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Обзор устройств USB"
 
 #~ msgid ""

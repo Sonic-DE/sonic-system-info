@@ -472,7 +472,7 @@ msgstr "<tr><td><i>Përmasa Maksimale e Paketës</i></td><td>%1</td></tr>"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
-#~ msgstr "KDE Shqip"
+#~ msgstr "SonicDE Shqip"
 
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
@@ -574,5 +574,5 @@ msgstr "<tr><td><i>Përmasa Maksimale e Paketës</i></td><td>%1</td></tr>"
 #~ msgid "<tr><td><i>Isochr. requests</i></td><td>%1</td></tr>"
 #~ msgstr "<tr><td><i>Isochr. kërkesat</i></td><td>%1</td></tr>"
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB Shfaqës"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB Shfaqës"

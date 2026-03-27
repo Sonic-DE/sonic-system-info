@@ -85,7 +85,7 @@ msgstr "Άνοιγμα ιδιοτήτων φακέλου για τροποποί
 #~ msgid "Samba Status"
 #~ msgstr "Η κατάσταση της Samba"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr ""
 #~ "(c) 2002-2020 ομάδα samba του αρθρώματος ελέγχου πληροφοριών του KDE"
 

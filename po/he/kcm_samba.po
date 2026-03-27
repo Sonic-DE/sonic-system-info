@@ -1,4 +1,4 @@
-# KDE Hebrew Localization Project
+# SonicDE Hebrew Localization Project
 # Translation of kcmsamba.po into Hebrew
 #
 # In addition to the copyright owners of the program
@@ -19,7 +19,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-30 00:42+0000\n"
 "PO-Revision-Date: 2025-12-30 08:16+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language-Team: צוות התרגום של SonicDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,7 @@ msgstr "יש לפתוח את מאפייני התיקייה כדי לשנות א�
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
-#~ msgstr "צוות התרגום של KDE ישראל"
+#~ msgstr "צוות התרגום של SonicDE ישראל"
 
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
@@ -82,9 +82,9 @@ msgstr "יש לפתוח את מאפייני התיקייה כדי לשנות א�
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE של מודול בקרת המערכת של Samba-צוות ה"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE של מודול בקרת המערכת של Samba-צוות ה"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"

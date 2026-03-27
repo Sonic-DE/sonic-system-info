@@ -1,6 +1,6 @@
 # translation of kcmsamba.po into Russian
 # KDE2 - kdebase/kcmsamba.po Russian translation.
-# Copyright (C) 1998-2002 KDE Team.
+# Copyright (C) 1998-2002 SonicDE Team.
 # Denis Pershin <dyp@perchine.com>, 1998.
 # Hermann Zheboldov <Hermann.Zheboldov@shq.ru>, 2000.
 # Andrey S. Cherepanov <sibskull@mail.ru>, 2001, 2002.
@@ -84,7 +84,7 @@ msgstr "Открыть свойства папки, чтобы изменить 
 #~ msgid "Samba Status"
 #~ msgstr "Сервер Samba"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "© Команда разработчиков модуля информации о Samba, 2002-2020"
 
 #~ msgid "Michael Glauche"

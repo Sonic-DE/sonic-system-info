@@ -115,7 +115,7 @@ msgstr "U-Boot version:"
 #: main.cpp:263
 #, kde-format
 msgid "SonicDE Frameworks Version:"
-msgstr "Version av KDE Ramverk:"
+msgstr "Version av SonicDE Ramverk:"
 
 #: main.cpp:264
 #, kde-format

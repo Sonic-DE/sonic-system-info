@@ -1,4 +1,4 @@
-# KDE breton translation
+# SonicDE breton translation
 # Thierry Vignaud <tvignaud@mandriva.com>, 2004-2005
 msgid ""
 msgstr ""
@@ -549,5 +549,5 @@ msgstr ""
 #~ msgid "<tr><td><i>Attached Devicenodes</i></td><td>%1</td></tr>"
 #~ msgstr "<tr><td><i>Kanolioù</i></td><td>%1</td></tr>"
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Gweller USB evit KDE"

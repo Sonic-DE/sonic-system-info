@@ -617,5 +617,5 @@ msgstr "<tr><td><i>Maks. wielgòsc pacziétu</i></td><td>%1</td></tr>"
 #~ "môsz prawa do òdczëtu do wszëtczéch kòntrolérów USB, jaczé mają bëc tuwò "
 #~ "pòkôzanié."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Przezérnik USB"

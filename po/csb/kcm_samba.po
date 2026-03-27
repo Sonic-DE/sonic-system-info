@@ -72,8 +72,8 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(c) 2002 Karno ùsôdzców mòdułu Samba"
 
 #~ msgid "Michael Glauche"
@@ -95,7 +95,7 @@ msgstr ""
 #~ msgstr "Alexander Neundorf"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
 #~ msgstr "Mòduł systemòwëch wëdowiédzów KDE"
 
@@ -231,7 +231,7 @@ msgstr ""
 #~ "<p>Ta lësta pòkôzëjë detalną wëdowiédzã ò przëtrôfkach zapisónëch przez "
 #~ "Sambã. Bôczënk, że przëtrôfczi na równi lopkù nie są zapisywóné dopóczi "
 #~ "nie zmienisz wôrtnotë równi logù dlô sambë na 2 abò wicy.</p><p>Tak jakno "
-#~ "w jinëch lëstach òkrãżégò KDE klëkniãcé na miono gwësny kòlumnë sprawi "
+#~ "w jinëch lëstach òkrãżégò SonicDE klëkniãcé na miono gwësny kòlumnë sprawi "
 #~ "zortowanié zdarzeniów. Klëkniãcé znowa na tim samëm mionie kòlumnë sprawi "
 #~ "zortowanié w apartnëm czérënkù.</p><p>Eżlë lësta je pùstô spróbùjë "
 #~ "wcësnąc knąpã \"Aktualizëjë\". Lopk dniewnika Sambë òstanié òdczëtany "

@@ -610,5 +610,5 @@ msgstr "<tr><td><i>Didžiausias paketo dydis</i></td><td>%1</td></tr>"
 #~ "Nepavyko atverti vieno ar daugiau USB valdiklių. Patikrinkite, ar turite "
 #~ "skaitymo leidimą visiems čia išvardintiems USB valdikliams."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB žiūriklis"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB žiūriklis"

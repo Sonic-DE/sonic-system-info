@@ -74,8 +74,8 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(c) 2002 KDEYnformaasje Kontrol Module Samba Team"
 
 #~ msgid "Michael Glauche"
@@ -97,9 +97,9 @@ msgstr ""
 #~ msgstr "Alexander Neundorf"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
-#~ msgstr "KDE Systeemynformaasje Konfiguraasjemodule"
+#~ msgstr "SonicDE Systeemynformaasje Konfiguraasjemodule"
 
 #~ msgid "Resource"
 #~ msgstr "Boarne"
@@ -233,7 +233,7 @@ msgstr ""
 #~ "<p>Dizze list lit de details sjen fan it barren hokker opnaam is troch "
 #~ "Samba. Betink dy wol dat barren op triemnivo pas opnaam wurde as jo it "
 #~ "lochnivo foar Samba op twa of heger ha. </p><p>Lykas by de measte listen "
-#~ "yn KDE kinne jo op in kolomkop klikke om alles neffens dizze kolomynhâld "
+#~ "yn SonicDE kinne jo op in kolomkop klikke om alles neffens dizze kolomynhâld "
 #~ "te sortearjen. En noch in kear klikken draaid de sortearrjochting om.</"
 #~ "p><p>As de list leech is, klik dan op de knop \"Bywurkje\". De lochtriem "
 #~ "fan Samba wurdt dan op 'e nij ynlêzen om de list te ferfarskjen.</p>"

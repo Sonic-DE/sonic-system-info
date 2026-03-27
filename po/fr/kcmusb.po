@@ -589,5 +589,5 @@ msgstr "<tr><td><i>Taille maximale des paquets</i></td><td>%1</td></tr>"
 #~ "assurer que vous possédez un accès en lecture à l'ensemble des "
 #~ "contrôleurs USB listés ici."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Afficheur USB pour KDE"

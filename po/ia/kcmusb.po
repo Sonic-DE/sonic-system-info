@@ -580,5 +580,5 @@ msgstr "<tr><td><i>Max. Dim. Pacchetto</i></td><td>%1</td></tr>"
 #~ "On non pote aperir uno o plus controlor de USB. Tu assecura te que tu ha "
 #~ "accesso de lectura a omne controlor de USB que es listate hic."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Visor de USB de KDE"

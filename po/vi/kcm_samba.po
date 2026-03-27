@@ -1,5 +1,5 @@
 # Vietnamese translation for kcmsamba.
-# Copyright © 2007 KDE i18n Project for Vietnamese.
+# Copyright © 2007 SonicDE i18n Project for Vietnamese.
 #
 # Nguyễn Hưng Vũ <Vu.Hung@techviet.com>, 2002.
 # Phan Vĩnh Thịnh <teppi82@gmail.com>, 2006.
@@ -77,7 +77,7 @@ msgstr "Mở thuộc tính thư mục để thay đổi thiết lập chia sẻ"
 #~ msgid "Samba Status"
 #~ msgstr "Trạng thái Samba"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "(c) 2002-2020 Đội Samba khối điều khiển thông tin KDE"
 
 #~ msgid "Michael Glauche"
@@ -102,7 +102,7 @@ msgstr "Mở thuộc tính thư mục để thay đổi thiết lập chia sẻ"
 #~ msgstr "Harald Sitter"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
 #~ msgstr "Khối điều khiển thông tin hệ thống bảng KDE"
 

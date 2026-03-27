@@ -610,5 +610,5 @@ msgstr "<tr><td><i>Maks. paketi suurus</i></td><td>%1</td></tr>"
 #~ "Ühe või enama USB kontrolleri avamine nurjus. Palun kontrolli, kas sul on "
 #~ "ikka kõigi siin näidatud USB kontrollerite lugemisõigus."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB süsteemi lehitseja"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB süsteemi lehitseja"

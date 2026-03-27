@@ -586,5 +586,5 @@ msgstr "<tr><td><i>Max. Paketgröße</i></td><td>%1</td></tr>"
 #~ "vergewissern Sie sich, dass Sie Leserechte auf alle hier aufgeführten USB-"
 #~ "Controller besitzen."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "USB-Betrachter"

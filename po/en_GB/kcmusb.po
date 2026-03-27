@@ -583,5 +583,5 @@ msgstr "<tr><td><i>Max. Packet Size</i></td><td>%1</td></tr>"
 #~ "Could not open one or more USB controller. Make sure, you have read "
 #~ "access to all USB controllers that should be listed here."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB Viewer"

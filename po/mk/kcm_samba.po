@@ -76,9 +76,9 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE Information Control Module Samba Team"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"
@@ -99,9 +99,9 @@ msgstr ""
 #~ msgstr "Alexander Neundorf"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
-#~ msgstr "KDE Контролен модул за панелот со системски информации"
+#~ msgstr "SonicDE Контролен модул за панелот со системски информации"
 
 #~ msgid "Resource"
 #~ msgstr "Ресурс"

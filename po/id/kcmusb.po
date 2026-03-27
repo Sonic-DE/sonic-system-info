@@ -586,5 +586,5 @@ msgstr "<tr><td><i>Ukuran Paket Maksimum</i></td><td>%1</td></tr>"
 #~ "memiliki akses baca ke semua pengendali USB yang harus didaftarkan di "
 #~ "sini."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Penampil USB KDE"

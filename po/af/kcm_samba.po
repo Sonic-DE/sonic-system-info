@@ -75,14 +75,14 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE Inligting Kontrole Module Samba Span"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE Inligting Kontrole Module Samba Span"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
-#~ msgstr "KDE Paneel Stelsel Inligting Kontrole Module"
+#~ msgstr "SonicDE Paneel Stelsel Inligting Kontrole Module"
 
 #~ msgid "Resource"
 #~ msgstr "Hulpbron"

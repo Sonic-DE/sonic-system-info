@@ -607,5 +607,5 @@ msgstr "<tr><td><i>உச்ச சிப்ப அளவு</i></td><td>%1</td>
 #~ "USB கட்டுப்பாட்டாளர்களின் அணுகலை படித்தீர்களா என்றும் அது இங்கே பட்டியலிடப்பட்டுள்ளதா "
 #~ "என்றும் உறுதிசெய்யவும்."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB காட்டி"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB காட்டி"

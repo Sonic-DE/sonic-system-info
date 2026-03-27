@@ -114,7 +114,7 @@ msgstr "U-Boot 版本："
 #: main.cpp:263
 #, kde-format
 msgid "SonicDE Frameworks Version:"
-msgstr "KDE 程序框架版本："
+msgstr "SonicDE 程序框架版本："
 
 #: main.cpp:264
 #, kde-format

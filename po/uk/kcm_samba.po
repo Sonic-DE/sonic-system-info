@@ -1,7 +1,7 @@
 # Translation of kcmsamba.po to Ukrainian
 # Copyright (C) 2002-2020 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
+# version 3 or later versions approved by the membership of SonicDE e.V.
 #
 # Dmytro Kovalov <kov@tokyo.email.ne.jp>, 2002.
 # Andriy Rysin <arysin@bcsii.com>, 2002, 2003, 2006, 2007.
@@ -81,7 +81,7 @@ msgstr ""
 #~ msgid "Samba Status"
 #~ msgstr "Стан Samba"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr "© Команда розробників модуля керування Samba, 2002–2020"
 
 #~ msgid "Michael Glauche"

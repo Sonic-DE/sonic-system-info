@@ -564,5 +564,5 @@ msgstr "<tr><td><i>Пакетнинг энг катта ҳажми</i></td><td>%
 #~ msgid "<tr><td><i>Power Consumption</i></td><td>%1 mA</td></tr>"
 #~ msgstr "<tr><td><i>Электр истеъмоли</i></td><td>%1 мА</td></tr>"
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB кўрувчи"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB кўрувчи"

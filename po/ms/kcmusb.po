@@ -615,5 +615,5 @@ msgstr "<tr><td><i>Saiz Paket Maks.</i></td><td>%1</td></tr>"
 #~ "mempunyai akses baca kepada semua pengawal USB yang sepatutnya "
 #~ "disenaraikan disini."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Pelihat USB KDE"

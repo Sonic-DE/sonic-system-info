@@ -73,9 +73,9 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE තොරතුරු පාලක මොඩියුල සම්බා කණ්ඩායම"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE තොරතුරු පාලක මොඩියුල සම්බා කණ්ඩායම"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"
@@ -96,9 +96,9 @@ msgstr ""
 #~ msgstr "Alexander Neundorf"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
-#~ msgstr "KDE පැනල පද්ධති තොරතුරු පාලක මොඩියුලයP"
+#~ msgstr "SonicDE පැනල පද්ධති තොරතුරු පාලක මොඩියුලයP"
 
 #~ msgid "Resource"
 #~ msgstr "සම්පත්"
@@ -219,7 +219,7 @@ msgstr ""
 #~ "button. The samba log file will be read and the list refreshed.</p>"
 #~ msgstr ""
 #~ "<p>මෙම ලැයිස්තුව සම්බා විසින් පිවිසි අවස්ථා පිළිබඳ තොරතුරු දක්වයි.සම්බා වාර්‍තා මට්ටම 2 හෝ ඉහළ "
-#~ "වනතෙක් ගොනු මට්ටමේ වාර්‍ථා නොගැනෙන බව සලකන්න.</p><p> KDE හී ඇති අනෙක් බොහෝ ලැයිස්තු "
+#~ "වනතෙක් ගොනු මට්ටමේ වාර්‍ථා නොගැනෙන බව සලකන්න.</p><p> SonicDE හී ඇති අනෙක් බොහෝ ලැයිස්තු "
 #~ "මෙන් මෙහිදීත් ඔබට තීරුවක සිරස ක්ලික් කිරීමෙන් එය පෙළගැස්විය හැක, නැවත එය ක්ලික් කිරීම අකාරාදී "
 #~ "පිළිවෙලට හා අකාරාදී නොවන පිළිවෙල අතර මාරු වීය හැක.</p><p> ලැයිස්තුව හිස් නම්, "
 #~ "\"යාවත්කාලීන කරන්න\" බොත්තම ක්ලික් කරන්න. එවිට සම්බා වාර්‍ථා ගොනුව කියවනු ලබන අතර ලැයිස්තුව "

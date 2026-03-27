@@ -1,7 +1,7 @@
 # translation of kcmsamba.po to Dutch
 # KTranslator Generated File
 # Nederlandse vertaling van kcmsamba
-# Copyright (C) 2000, 2001, 2002 KDE e.v..
+# Copyright (C) 2000, 2001, 2002 SonicDE e.v..
 # Rinse de Vries <rinse@kde.nl>
 # KDE-vertaalgroep Nederlands.
 # Proefgelezen door Onno Zweers, 18-4-2002.
@@ -79,8 +79,8 @@ msgstr "Mapeigenschappen openen om share-instellingen te wijzigen"
 #~ msgid "Samba Status"
 #~ msgstr "Samba-status"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002-2020, het team van KDE Information Control Module Samba"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002-2020, het team van SonicDE Information Control Module Samba"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"
@@ -244,7 +244,7 @@ msgstr "Mapeigenschappen openen om share-instellingen te wijzigen"
 #~ "<p>Deze lijst toont de details van gebeurtenissen gelogd door Samba. "
 #~ "Bedenk dat gebeurtenissen op bestandsniveau pas worden gelogd als u het "
 #~ "logniveau voor Samba op 2 of hoger hebt ingesteld. </p><p>Zoals bij de "
-#~ "meeste lijsten in KDE kunt u op een kolomkop klikken om alles op deze "
+#~ "meeste lijsten in SonicDE kunt u op een kolomkop klikken om alles op deze "
 #~ "kolominhoud te sorteren. Nogmaals klikken draait de sorteerrichting om.</"
 #~ "p><p>Als de lijst leeg is, klik dan op de knop \"Bijwerken\". Het "
 #~ "logbestand van Samba wordt dan opnieuw ingelezen om de lijst te verversen."

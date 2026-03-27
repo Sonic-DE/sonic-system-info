@@ -76,7 +76,7 @@ msgstr ""
 #~ msgid "Samba Status"
 #~ msgstr "Stato di Samba"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
 #~ msgstr ""
 #~ "(c) 2002-2020 Squadra del modulo di controllo per le informazioni su Samba"
 
@@ -162,7 +162,7 @@ msgstr ""
 #~ msgid "&Update"
 #~ msgstr "&Aggiorna"
 
-# XXX Virgolette `' -> "", per KDE 3.5, -> «» per KDE 4?
+# XXX Virgolette `' -> "", per SonicDE 3.5, -> «» per SonicDE 4?
 #~ msgid ""
 #~ "This page presents the contents of your samba log file in a friendly "
 #~ "layout. Check that the correct log file for your computer is listed here. "

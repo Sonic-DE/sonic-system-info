@@ -75,8 +75,8 @@ msgstr ""
 #~ msgid "Samba Status"
 #~ msgstr "Samba-ს სტატუსი"
 
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002-2020 KDE -ის ინფორმაციის კონტროლის მოდულის სამბას გუნდი"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002-2020 SonicDE -ის ინფორმაციის კონტროლის მოდულის სამბას გუნდი"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"

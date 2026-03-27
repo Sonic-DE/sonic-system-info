@@ -606,5 +606,5 @@ msgstr "<tr><td><i>Андозаи қуттиҳои ниҳоят</i></td><td>%1</
 #~ "вас права на чтение для всех контроллеров USB, которые должны быть "
 #~ "показаны здесь."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Намоигари USB -и KDE"

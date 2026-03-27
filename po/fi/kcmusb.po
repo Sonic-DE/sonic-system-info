@@ -6,7 +6,7 @@
 # Lasse Liehu <lasse.liehu@gmail.com>, 2011, 2014, 2016.
 # SPDX-FileCopyrightText: 2021, 2022, 2025 Tommi Nieminen <translator@legisign.org>
 #
-# KDE Finnish translation sprint participants:
+# SonicDE Finnish translation sprint participants:
 # Author: Artnay
 msgid ""
 msgstr ""
@@ -585,5 +585,5 @@ msgstr "<tr><td><i>Pakettien enimmäiskoko</i></td><td>%1</td></tr>"
 #~ "on lukuoikeus kaikkiin USB-kontrollereihin, jotka pitäisi löytyä tästä "
 #~ "listasta."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "KDE:n USB-selain"

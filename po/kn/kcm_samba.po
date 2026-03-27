@@ -74,9 +74,9 @@ msgstr ""
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE Information Control Module Samba Team"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE Information Control Module Samba Team"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"
@@ -97,9 +97,9 @@ msgstr ""
 #~ msgstr "Alexander Neundorf"
 
 #, fuzzy
-#~| msgid "KDE Panel System Information Control Module"
+#~| msgid "SonicDE Panel System Information Control Module"
 #~ msgid "System Information Control Module"
-#~ msgstr "KDE Panel System Information Control Module"
+#~ msgstr "SonicDE Panel System Information Control Module"
 
 #~ msgid "Resource"
 #~ msgstr "ಸಂಪನ್ಮೂಲ"
@@ -228,7 +228,7 @@ msgstr ""
 #~ msgstr ""
 #~ "<p>ಈ ಪಟ್ಟಿಯು ಸಾಂಬಾದಿಂದ ದಾಖಲಿಸಲಾದ ಘಟನೆಗಳ ವಿವರಗಳನ್ನು ತೋರಿಸುತ್ತದೆ. ನಿಮ್ಮ ಸಾಂಬಾದ "
 #~ "ದಾಖಲೆಯ ಮಟ್ಟವನ್ನು ೨ ಕ್ಕೆ ಹೊಂದಿಸದ ಹೊರತು ಕಡತ ಮಟ್ಟದ ಘಟನೆಗಳು ದಾಖಲಾಗುವುದಿಲ್ಲ "
-#~ "ಎಂಬುದನ್ನು ನೆನಪಿಡಿ.</p><p>KDE ಯಲ್ಲಿನ ಇತರೆ ಪಟ್ಟಿಗಳಂತೆ, ಈ ಕಾಲಂನಲ್ಲಿ ವಿಂಗಡಿಸಲು "
+#~ "ಎಂಬುದನ್ನು ನೆನಪಿಡಿ.</p><p>SonicDE ಯಲ್ಲಿನ ಇತರೆ ಪಟ್ಟಿಗಳಂತೆ, ಈ ಕಾಲಂನಲ್ಲಿ ವಿಂಗಡಿಸಲು "
 #~ "ನೀವು ಕಾಲಂನ ಶೀರ್ಷಿಕೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ಕಿಸಬಹುದು. ವಿಂಗಡಣಾ ದಿಕ್ಕನ್ನು ಆರೋಹಣದಿಂದ "
 #~ "ಅವರೋಹಣಕ್ಕೆ ಅಥವ ಅವರೋಹಣದಿಂದ ಆರೋಹಣಕ್ಕೆ ಬದಲಾಯಿಸಲು ಮತ್ತೊಮ್ಮೆ ಕ್ಲಿಕ್ ಮಾಡಿ.</p><p> ಈ "
 #~ "ಪಟ್ಟಿಯು ಖಾಲಿ ಇದ್ದಲ್ಲಿ, \"ಅಪ್‌ಡೇಟ್\" ಗುಂಡಿಯನ್ನು ಕ್ಲಿಕ್ಕಿಸಿ. ಸಾಂಬಾ ದಾಖಲೆ ಕಡತವನ್ನು "

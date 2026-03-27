@@ -595,5 +595,5 @@ msgstr "<tr><td><i>সর্বাধিক প্যাকেট সাইজ</
 #~ msgid "<tr><td><i>Isochr. requests</i></td><td>%1</td></tr>"
 #~ msgstr "<tr><td><i>Isochr. requests</i></td><td>%1</td></tr>"
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "কে.ডি.ই. ইউ-এস-বি প্রদর্শক"

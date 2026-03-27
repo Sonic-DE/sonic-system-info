@@ -583,5 +583,5 @@ msgstr "<tr><td><i>En B. Paket Boyutu</i></td><td>%1</td></tr>"
 #~ "Bir ya da birden fazla USB denetleyici açılamadı. Burada listelenen tüm "
 #~ "USB denetleyicilere okuma erişiminizin olduğundan emin olun."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB İzleyici"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB İzleyici"

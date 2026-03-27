@@ -540,5 +540,5 @@ msgstr ""
 #~ msgid "<tr><td><i>Power Consumption</i></td><td>%1 mA</td></tr>"
 #~ msgstr "<tr><td><i>Přetrjeba miliny</i></td><td>%1 mA</td></tr>"
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB-wobhladowar"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB-wobhladowar"

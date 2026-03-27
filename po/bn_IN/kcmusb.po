@@ -595,5 +595,5 @@ msgstr "<tr><td><i>প্যাকেটের সর্বোচ্চ মা�
 #~ msgid "<tr><td><i>Isochr. requests</i></td><td>%1</td></tr>"
 #~ msgstr "<tr><td><i>Isochr. অনুরোধ</i></td><td>%1</td></tr>"
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB প্রদর্শন ব্যবস্থা"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB প্রদর্শন ব্যবস্থা"

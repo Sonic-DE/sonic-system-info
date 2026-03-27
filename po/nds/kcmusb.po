@@ -615,5 +615,5 @@ msgstr "<tr><td><i>Maximaal Paketgrött</i></td><td>%1</td></tr>"
 #~ "Een oder mehr USB-Controller lett sik nich opmaken. Prööv bitte, wat Du "
 #~ "redig Leesverlööf för all USB-Controllers hest, de hier wesen schullen."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "USB-Kieker vun KDE"

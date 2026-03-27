@@ -611,5 +611,5 @@ msgstr "<tr><td><i>Max. pakketgrutte</i></td><td>%1</td></tr>"
 #~ "Ien of meardere USB-controllers koenen net iepene wurde. Soarchje derfoar "
 #~ "dat jo lêstgong ha ta alle USB-controllers yn dizze list."
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB Werjouwer"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB Werjouwer"

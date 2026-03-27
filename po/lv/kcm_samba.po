@@ -75,9 +75,9 @@ msgstr "Koplietošanas iestatījumus varat mainīt mapes īpašībās"
 #~ msgstr "kcmsamba"
 
 #, fuzzy
-#~| msgid "(c) 2002 KDE Information Control Module Samba Team"
-#~ msgid "(c) 2002-2020 KDE Information Control Module Samba Team"
-#~ msgstr "(c) 2002 KDE informācijas kontroles moduļa Samba komanda"
+#~| msgid "(c) 2002 SonicDE Information Control Module Samba Team"
+#~ msgid "(c) 2002-2020 SonicDE Information Control Module Samba Team"
+#~ msgstr "(c) 2002 SonicDE informācijas kontroles moduļa Samba komanda"
 
 #~ msgid "Michael Glauche"
 #~ msgstr "Michael Glauche"

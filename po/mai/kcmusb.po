@@ -603,5 +603,5 @@ msgstr "<tr><td><i>अधिकतम पैकेट आकार</i></td><td>%
 #~ msgid "<tr><td><i>Isochr. requests</i></td><td>%1</td></tr>"
 #~ msgstr "<tr><td><i>Isochr. निवेदन</i></td><td>%1</td></tr>"
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "केडीई यूएसबी प्रदर्शक"

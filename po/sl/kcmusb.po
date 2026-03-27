@@ -587,5 +587,5 @@ msgstr "<tr><td><i>Najv. velikost paketa</i></td><td>%1</td></tr>"
 #~ "Ni bilo mogoče odpreti enega ali več krmilnikov USB. Preverite, da imate "
 #~ "bralni dostop do vseh krmilnikov USB, ki bi morali biti navedeni tukaj."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "KDE-jev pregledovalnik USB"

@@ -615,5 +615,5 @@ msgstr "<tr><td><i>Mezinahiya Pakêtê yê Herî Zêde</i></td><td>%1</td></tr>"
 #~ "Nikare yek an jî zêdetir kontolkerê USB veke. Lê binihêre, ku gihîştina "
 #~ "xwendinê yê te jê hemû kontrolkerên USB yên li vir lîste kirî ye re heye. "
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE Nîşanderê USB"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE Nîşanderê USB"

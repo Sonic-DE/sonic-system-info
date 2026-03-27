@@ -609,5 +609,5 @@ msgstr "<tr><td><i>Ubungakanani Bepakethi enkulu</i></td><td>%1</td></tr>"
 #~ msgid "<tr><td><i>Isochr. requests</i></td><td>%1</td></tr>"
 #~ msgstr "<tr><td><i>Isochr. izicelo</i></td><td>%1</td></tr>"
 
-#~ msgid "KDE USB Viewer"
-#~ msgstr "KDE USB Umboniseli"
+#~ msgid "SonicDE USB Viewer"
+#~ msgstr "SonicDE USB Umboniseli"

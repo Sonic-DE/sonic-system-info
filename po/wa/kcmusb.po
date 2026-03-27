@@ -612,5 +612,5 @@ msgstr "<tr><td><i>Grandeu macs. do paket</i></td><td>%1</td></tr>"
 #~ "Dji n' a savou drovi on controleu d' USB ou pus. Waitîz k' vos savoz bén "
 #~ "moussî po lére dins les controleus USB ki dvrént esse el djivêye chal."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Håynaeu d' éndjins USB di KDE"

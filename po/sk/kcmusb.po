@@ -585,5 +585,5 @@ msgstr "<tr><td><i>Max. veľkosť paketu</i></td><td>%1</td></tr>"
 #~ "práva na čítanie pre všetky USB zariadenia, ktoré by mali byť v tomto "
 #~ "zozname."
 
-#~ msgid "KDE USB Viewer"
+#~ msgid "SonicDE USB Viewer"
 #~ msgstr "Prehliadač USB pre KDE"
