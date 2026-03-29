@@ -47,6 +47,10 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux")
     find_package(UDev REQUIRED COMPONENTS UDev)
 endif()
 
+if(UNIX AND NOT APPLE)
+    find_package(VulkanHeaders REQUIRED)
+endif()
+
 ecm_find_qmlmodule(org.kde.kirigami 2.5)
 
 macro(kinfocenter_add_kcm target)
