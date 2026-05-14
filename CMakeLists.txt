@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(kinfocenter)
-set(PROJECT_VERSION "6.6.5")
+set(PROJECT_VERSION "6.6.90")
 
 set(QT_MIN_VERSION "6.10.0")
 
@@ -114,3 +114,4 @@ install( FILES ${CMAKE_CURRENT_BINARY_DIR}/kinfocenter DESTINATION ${KDE_INSTALL
 ki18n_install(po)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
