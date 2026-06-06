@@ -16,6 +16,8 @@
 #include <QLoggingCategory>
 #include <QWindow>
 
+#include <qqml.h>
+
 #include <KAuth/Action>
 #include <KAuth/ExecuteJob>
 #include <KConfig>
