@@ -1,7 +1,7 @@
 # Translation of kcm_about-distro.po to Catalan
 # Copyright (C) 2014-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of SonicDE e.V.
+# version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2014, 2015, 2021 Antoni Bella Pérez <antonibella5@yahoo.com>
 # SPDX-FileCopyrightText: 2016, 2018, 2020, 2022, 2026 Josep M. Ferrer <txemaq@gmail.com>
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kinfocenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-26 02:42+0000\n"
-"PO-Revision-Date: 2026-06-26 10:08+0200\n"
+"PO-Revision-Date: 2026-07-11 17:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: CPUEntry.cpp:17
 #, kde-format
@@ -125,8 +125,8 @@ msgstr "Versió de l'U-Boot:"
 
 #: main.cpp:265
 #, kde-format
-msgid "SonicDE Frameworks Version:"
-msgstr "Versió dels Frameworks del KDE:"
+msgid "KDE Frameworks Version:"
+msgstr "Versió dels Frameworks de KDE:"
 
 #: main.cpp:266
 #, kde-format
@@ -220,8 +220,8 @@ msgstr "%1 %2 Construcció: %3"
 
 #: PlasmaEntry.cpp:15
 #, kde-format
-msgid "SonicDE Version:"
-msgstr "Versió del Plasma del KDE:"
+msgid "KDE Plasma Version:"
+msgstr "Versió del Plasma de KDE:"
 
 #: ThirdPartyEntry.cpp:12
 #, kde-format
