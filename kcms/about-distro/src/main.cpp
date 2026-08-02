@@ -162,7 +162,7 @@ public:
 
         QString logoPath = cg.readEntry("LogoPath", os.logo());
         if (logoPath.isEmpty()) {
-            logoPath = QStringLiteral("start-here-kde");
+            logoPath = QStringLiteral("start-here-sonicde");
         }
         m_distroLogo = logoPath;
 
