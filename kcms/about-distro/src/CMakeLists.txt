@@ -25,6 +25,7 @@ set(kcm_SRCS
     OSVersionEntry.h
     PlasmaEntry.cpp
     PlasmaEntry.h
+    SessionIdentity.h
     ServiceRunner.cpp
     ThirdPartyEntry.cpp
     ThirdPartyEntry.h
@@ -58,3 +59,9 @@ target_compile_options(
         -DKDE_INSTALL_FULL_LIBEXECDIR=\"${KDE_INSTALL_FULL_LIBEXECDIR}\"
         -DLIBEXECDIR_FROM_KCM=\"${LIBEXECDIR_FROM_KCM}\"
 )
+
+if(BUILD_TESTING)
+    add_executable(about-session-identity-test SessionIdentityTest.cpp)
+    target_link_libraries(about-session-identity-test PRIVATE Qt::Core KF6::I18n)
+    add_test(NAME about-session-identity COMMAND about-session-identity-test)
+endif()

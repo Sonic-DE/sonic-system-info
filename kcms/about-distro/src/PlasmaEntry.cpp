@@ -10,10 +10,11 @@
 #include <KDesktopFile>
 #include <QStandardPaths>
 
+#include "SessionIdentity.h"
 #include "Version.h"
 
 PlasmaEntry::PlasmaEntry()
-    : Entry(ki18n("SonicDE Version:"), plasmaVersion())
+    : Entry(SessionIdentity::desktopVersionLabel(SessionIdentity::desktop(qgetenv("XDG_CURRENT_DESKTOP"))), plasmaVersion())
 {
     // Since Plasma version detection isn't based on a library query it can fail
     // in weird cases; instead of admitting defeat we simply hide everything :P

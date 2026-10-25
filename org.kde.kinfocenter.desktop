@@ -4,7 +4,7 @@ Icon=hwinfo
 Type=Application
 X-DocPath=kinfocenter/index.html
 StartupNotify=true
-OnlyShowIn=KDE;
+OnlyShowIn=SonicDE;
 
 Name=Info Center
 Name[ar]=مركز المعلومات

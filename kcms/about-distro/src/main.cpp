@@ -38,6 +38,7 @@
 #include "OSVersionEntry.h"
 #include "PlasmaEntry.h"
 #include "ServiceRunner.h"
+#include "SessionIdentity.h"
 #include "ThirdPartyEntry.h"
 #include "Version.h"
 
@@ -261,12 +262,13 @@ public:
         };
 
         // software
-        addEntriesToGrid(m_softwareEntries,
-                         {new PlasmaEntry(),
-                          new Entry(ki18n("SonicDE Frameworks Version:"), KCoreAddons::versionString()),
-                          new Entry(ki18n("Qt Version:"), QString::fromLatin1(qVersion())),
-                          new KernelEntry(),
-                          new GraphicsPlatformEntry()});
+        addEntriesToGrid(
+            m_softwareEntries,
+            {new PlasmaEntry(),
+             new Entry(SessionIdentity::frameworksVersionLabel(SessionIdentity::desktop(qgetenv("XDG_CURRENT_DESKTOP"))), KCoreAddons::versionString()),
+             new Entry(ki18n("Qt Version:"), QString::fromLatin1(qVersion())),
+             new KernelEntry(),
+             new GraphicsPlatformEntry()});
 
         // Add any extraData entries
         if (!m_extraDataEntries.empty()) {
