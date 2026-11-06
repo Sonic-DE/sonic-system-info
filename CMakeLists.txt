@@ -85,7 +85,6 @@ ecm_set_disabled_deprecation_versions(QT 6.11.0
 
 ecm_query_qt(QtBinariesDir QT_INSTALL_BINS)
 
-add_subdirectory( appiumtests )
 add_subdirectory( categories )
 add_subdirectory( kcms )
 add_subdirectory(src)
