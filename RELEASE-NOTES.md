@@ -2,9 +2,11 @@
 
 SonicDE's Info Center, which shows details about your computer, its hardware and your SonicDE version.
 
-## Unreleased
+## 6.8.2 (2026-11-10)
 
 - Now presents itself with SonicDE names and identity throughout the desktop.
+- The window manager's support information page now calls it SonicWin.
+- Behind the scenes: removed automated tests that need Wayland.
 
 ## 6.8.0 (2026-10-20)
 
